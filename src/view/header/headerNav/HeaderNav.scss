@@ -1,0 +1,77 @@
+.Header{
+    height: 80px;
+    width: 97%;
+    margin: 0 1.4%;
+    // border: 1px red solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__Nav{
+        // border: 1px red solid;
+        display: flex;
+        justify-content: space-between;
+        height: 80%;
+        &__logoL{
+            height: 100%;
+        }
+        &__nav{
+            width: 80%;
+            height: 100%;
+            // border: 1px red solid;
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+            .opt{
+                display: inline-block;
+                height: 45%;
+                position: relative;
+                 top: -25%;
+                padding: 17.5px 20px;
+                color: rgb(175,134,216);
+                font-weight: 700;
+                &:hover,
+                &:active{
+                    background-color: rgb(224, 224, 224);
+                    border-radius: 5px;
+                }
+                &:hover .opt__plus,
+                &:active .opt__plus{
+                    display: flex;
+                    border-radius: 5px;
+                }
+                &__plus{
+                    // border: 1px red solid;
+                    display: none;
+                    justify-content: between;
+                    width: 470px;
+                    padding: 0;
+                    position: absolute;
+                     top: 65px;
+                     transform: translateX(-58.5%);
+                    background-color: rgb(175,134,216,0.9);
+                    color: rgb(230, 230, 230);
+                    opacity: 0.8;
+                    .col{
+                        flex: 1;
+                        // border: 1px red solid;
+                        margin: 10px;
+                        flex: 1;
+                        // width: 200px;
+                        &__opt{
+                            display: inline-block;
+                            padding: 5px;
+                            width: 95%;
+                            font-weight: 500;
+                            &:hover,
+                            &:active{
+                                background-color: rgba(132, 62, 202, 0.9);
+                                border-radius: 5px;
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
