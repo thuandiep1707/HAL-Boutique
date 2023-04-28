@@ -6,6 +6,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+     z-index: 9999;
     &__Nav{
         // border: 1px red solid;
         display: flex;
@@ -15,7 +17,7 @@
             height: 100%;
         }
         &__nav{
-            width: 80%;
+            width: 70%;
             height: 100%;
             // border: 1px red solid;
             display: flex;
@@ -23,11 +25,12 @@
             position: relative;
             .opt{
                 display: inline-block;
-                height: 45%;
+                height: 101%;
                 position: relative;
-                 top: -25%;
-                padding: 17.5px 20px;
+                 top: 0%;
+                padding: 17.5px 10px;
                 color: rgb(175,134,216);
+                font-size: 1rem;
                 font-weight: 700;
                 &:hover,
                 &:active{
@@ -47,7 +50,7 @@
                     padding: 0;
                     position: absolute;
                      top: 65px;
-                     transform: translateX(-58.5%);
+                     transform: translateX(-60.5%);
                     background-color: rgb(175,134,216,0.9);
                     color: rgb(230, 230, 230);
                     opacity: 0.8;

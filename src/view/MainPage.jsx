@@ -1,5 +1,5 @@
-import HeaderNav from "./header/headerNav/HeaderNav.jsx"
-import HeaderPoster from "./header/headerPoster/headerPoster.jsx";
+import HeaderNav from "../components/header/headerNav/HeaderNav.jsx"
+import HeaderPoster from "../components/header/headerPoster/headerPoster.jsx";
 
 const Index = () => {
     return (

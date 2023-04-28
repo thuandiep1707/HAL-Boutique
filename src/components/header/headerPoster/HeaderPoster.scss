@@ -1,0 +1,41 @@
+.SlideShow{
+    // margin-top: 20px;
+    height: 600px;
+    position: relative;
+    // border: 1px red solid;
+    overflow: hidden;
+    &__img{
+        width: 100%;
+        position: relative;
+    }
+    &__next{
+        position: absolute;
+         top: 50%;
+         right: 10px;
+         z-index: 10;
+         transform: translatey(-50%);
+        font-size: 70px;
+        color: rgba(0, 0, 0, 0.737);
+        &:hover {
+            border-radius: 50%;
+            background-color: rgba(223, 223, 223, 0.229);
+            padding: 10px 20px;
+            right: -10px;
+        }
+    }
+    &__previous{
+        position: absolute;
+         top: 50%;
+         left: 10px;
+         z-index: 10;
+         transform: translatey(-50%);
+        font-size: 70px;
+        color: rgba(0, 0, 0, 0.737);
+        &:hover {
+            border-radius: 50%;
+            background-color: rgba(223, 223, 223, 0.229);
+            padding: 10px 20px;
+            left: -10px;
+        }
+    }
+}

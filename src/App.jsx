@@ -1,12 +1,12 @@
-import Index from "./view/index"
+import MainPage from "./view/MainPage.jsx"
 
 function App() {
 
   return (
     <>
-    <Index />
+    <MainPage />
     </>
   )
 }
 
-export default App
+export default App;
