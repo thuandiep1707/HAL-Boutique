@@ -24,7 +24,7 @@ const HeaderPoster = () => {
             },
             {
                 'img':img3,
-                'title':'"THÀNH PHÓ TRONG MƠ" DUBAI - ABU DHABI',
+                'title':'"THÀNH PHỐ TRONG MƠ" DUBAI - ABU DHABI',
                 'titleMini' : 'DUBAI - PALM JUMEIRAH - SA MẠC SAFARI - ABU DHABI',
                 'content':'Dubai là một thành phố, đồng thời là một trong bảy tiểu vương quốc của Các Tiểu Vương quốc Ả Rập Thống Nhất (UAE), nằm ở phía Nam của vịnh Ba Tư thuộc bán đảo Ả Rạp. Là một trong những điểm đến xa xỉ bậc nhất nên không mấy ngạc nhiên khi Dubai sở hữu nhiều kiến trúc độc đáo khiến bạn trầm trồ khi đặt chân đến đây'
             },
@@ -40,7 +40,7 @@ const HeaderPoster = () => {
                 'titleMini' : 'SINGAPORE - SENTOSA - MALACCA - KUALA PUMPUR',
                 'content':'Là hành trình khám phá hai quốc gia với thủ tục đơn giản, giời gian khởi hành đa dạng và chi phí hợp lý, liên tuyến Singapore - Malaysia chắc chắn sẽ là sự lựa chọn phù hợp để "lấp đầy tâm hồn"'
             }],
-        change: [3]
+        change: [2]
     });
 
     const handleNext = () => {
