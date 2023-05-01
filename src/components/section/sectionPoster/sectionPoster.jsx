@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./HeaderPoster.scss"
+import "./sectionPoster.scss"
 import img1 from "./image/SlideShow1.jpg"
 import img2 from "./image/SlideShow2.jpg"
 import img3 from "./image/SlideShow3.jpg"

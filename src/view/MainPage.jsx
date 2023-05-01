@@ -1,16 +1,11 @@
-import HeaderNav from "../components/header/headerNav/HeaderNav.jsx"
-import HeaderPoster from "../components/header/headerPoster/HeaderPoster.jsx";
+import MainHeader from '../components/header/MainHeader.jsx'
+import MainSection from '../components/section/MainSection.jsx'
 
 const Index = () => {
     return (
         <>
-        <header>
-            <HeaderNav />
-            <HeaderPoster />
-        </header>
-        <section className="main_content">
-
-        </section>
+            <MainHeader />
+            <MainSection />
         </>
     )
 }
