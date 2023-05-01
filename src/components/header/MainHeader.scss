@@ -23,15 +23,19 @@
             display: flex;
             justify-content: space-around;
             position: relative;
+            
             .opt{
                 display: inline-block;
                 height: 101%;
                 position: relative;
                  top: 0%;
                 padding: 17.5px 10px;
-                color: rgb(110, 65, 222);
-                font-size: 1rem;
-                font-weight: 700;
+                .link{
+                    color: rgb(110, 65, 222);
+                    font-size: 1rem;
+                    font-weight: 700;
+                    text-decoration: none;
+                }
                 &:hover,
                 &:active{
                     background-color: rgb(224, 224, 224);
@@ -51,7 +55,7 @@
                     position: absolute;
                      top: 65px;
                      transform: translateX(-60.5%);
-                    background-color: rgb(175,134,216,0.9);
+                    background-color: rgb(110, 65, 222,0.9);
                     color: rgb(230, 230, 230);
                     opacity: 0.8;
                     .col{
@@ -64,7 +68,9 @@
                             display: inline-block;
                             padding: 5px;
                             width: 95%;
-                            font-weight: 500;
+                            .link{
+                                color: rgb(230, 230, 230);
+                            }
                             &:hover,
                             &:active{
                                 background-color: rgba(132, 62, 202, 0.9);
