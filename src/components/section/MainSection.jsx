@@ -1,11 +1,13 @@
-import Poster from './sectionPoster/sectionPoster.jsx'
-import Title from './sectionTitle/sectionTitle.jsx'
+import MainPoster from './sectionPoster/MainPoster.jsx'
+import MainTitle from './sectionTitle/sectionTitle.jsx'
+import MainContent from './SectionContent/MainContent.jsx'
 
 const MainSection = () => {
     return (
         <div className="main_section">
-            <Poster />
-            <Title />
+            <MainPoster />
+            <MainTitle />
+            <MainContent />
         </div>
     )
 }

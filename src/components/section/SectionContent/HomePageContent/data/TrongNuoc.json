@@ -1,0 +1,62 @@
+[
+    {
+        "img":"./src/components/section/SectionContent/HomePageContent/image/trongnuoc/trongnuoc1.jpg",
+        "mucgia":"5.298.000 VND",
+        "dichvu":"HÀ NỘI – TRÀNG AN – HẠ LONG – YÊN TỬ – LÀO CAI – SAPA",
+        "diadiem":"HÀ NỘI - TRÀNG AN - BÁI ĐÍNH - HẠ LONG - YÊN TỬ - LÀO CAI - SAPA",
+        "khoihanh":"THỨ 5 HÀNG TUẦN",
+        "thoigian":"5 NGÀY 4 ĐÊM",
+        "khachsan":"3",
+        "phuongtien":"MÁY BAY"
+    },
+    {
+        "img":"./src/components/section/SectionContent/HomePageContent/image/trongnuoc/trongnuoc2.jpg",
+        "mucgia":"3.898.000 VND",
+        "dichvu":"HÀ NỘI – LÀO CAI – SAPA – BẢN CÁT CÁT",
+        "diadiem":"HÀ NỘI – LÀO CAI – SAPA – BẢN CÁT CÁT",
+        "khoihanh":"THỨ 7 HÀNG TUẦN",
+        "thoigian":"4 NGÀY 3 ĐÊM",
+        "khachsan":"3",
+        "phuongtien":"MÁY BAY"
+    },
+    {
+        "img":"./src/components/section/SectionContent/HomePageContent/image/trongnuoc/trongnuoc3.jpg",
+        "mucgia":"5.097.999 VND",
+        "dichvu":"HÀ NỘI – HẠ LONG – NGỦ TRÊN TÀU",
+        "diadiem":"HÀ NỘI - HẠ LONG - CHÈO THUYỀN KAYAKING",
+        "khoihanh":"THỨ 7 HÀNG TUẦN",
+        "thoigian":"4 NGÀY 3 ĐÊM",
+        "khachsan":"3",
+        "phuongtien":"MÁY BAY"
+    },
+    {
+        "img":"./src/components/section/SectionContent/HomePageContent/image/trongnuoc/trongnuoc4.jpg",
+        "mucgia":"4.098.000 VND",
+        "dichvu":"HÀ NỘI - SƠN LA - ĐIỆN BIÊN - MỘC CHÂU",
+        "diadiem":"HÀ NỘI – SƠN LA – ĐIỆN BIÊN – MỘC CHÂU",
+        "khoihanh":"THỨ 5 (TUẦN 1 & TUẦN 3)",
+        "thoigian":"4 NGÀY 3 ĐÊM",
+        "khachsan":"3",
+        "phuongtien":"MÁY BAY"
+    },
+    {
+        "img":"./src/components/section/SectionContent/HomePageContent/image/trongnuoc/trongnuoc5.jpg",
+        "mucgia":"3.698.000 VND",
+        "dichvu":"HÀ NỘI – HÀ GIANG – ĐỒNG VĂN – NHO QUẾ",
+        "diadiem":"HÀ NỘI – HÀ GIANG – ĐỒNG VĂN – NHO QUẾ",
+        "khoihanh":"THỨ 5 (TUẦN 1 & TUẦN 3)",
+        "thoigian":"4 NGÀY 3 ĐÊM",
+        "khachsan":"3",
+        "phuongtien":"MÁY BAY"
+    },
+    {
+        "img":"./src/components/section/SectionContent/HomePageContent/image/trongnuoc/trongnuoc6.jpg",
+        "mucgia":"5.898.000 VND",
+        "dichvu":"HÀ NỘI – HÀ GIANG – ĐỒNG VĂN – THÁC BẢN GIỐC – PẮC PÓ",
+        "diadiem":"HÀ NỘI - HÀ GIANG - ĐỒNG VĂN - THÁC BẢN GIỐC - PẮC PÓ - HỒ BA BỂ",
+        "khoihanh":"THỨ 5 (TUẦN 1 & TUẦN 3)",
+        "thoigian":"5 NGÀY 4 ĐÊM",
+        "khachsan":"3",
+        "phuongtien":"MÁY BAY"
+    }
+]
