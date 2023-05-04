@@ -2,13 +2,13 @@
 import './HomePageContent.scss';
 import DemoService from './DemoService';
 import { useEffect, useState } from 'react';
-import NuocNgoai from './data/Nuocngoai.json';
-import TrongNuoc from './data/Trongnuoc.json';
+import * as NuocNgoai from './data/Nuocngoai.json';
+// import TrongNuoc from './data/Trongnuoc.json';
 
 
 const HomePageContent = () => {
     const dataNuocNgoai = NuocNgoai;
-    const dataTrongNuoc = TrongNuoc;
+    // const dataTrongNuoc = TrongNuoc;
     // const [dataNuocNgoai,setDataNuocNgoai] = useState([])
     // const [dataTrongNuoc,setDataTrongNuoc] = useState([])
     // useEffect(() => {
