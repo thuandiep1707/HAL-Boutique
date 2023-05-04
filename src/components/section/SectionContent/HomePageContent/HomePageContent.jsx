@@ -1,28 +1,14 @@
 
 import './HomePageContent.scss';
 import DemoService from './DemoService';
-import { useEffect, useState } from 'react';
-import * as NuocNgoai from './data/Nuocngoai.json';
-// import TrongNuoc from './data/Trongnuoc.json';
+import NuocNgoai from './data/nuocngoai.json';
+import TrongNuoc from './data/trongnuoc.json';
 
 
 const HomePageContent = () => {
     const dataNuocNgoai = NuocNgoai;
-    // const dataTrongNuoc = TrongNuoc;
-    // const [dataNuocNgoai,setDataNuocNgoai] = useState([])
-    // const [dataTrongNuoc,setDataTrongNuoc] = useState([])
-    // useEffect(() => {
-    //     fetch('public/data/NuocNgoai.json')
-    //         .then(res => res.json())
-    //         .then((data) => {
-    //             setDataNuocNgoai(data)
-    //             console.log("nuocngoai")})
-    //     fetch('public/data/TrongNuoc.json')
-    //         .then(res => res.json())
-    //         .then((data) => {
-    //             setDataTrongNuoc(data)
-    //             console.log("trongnuoc")})    
-    // },[])
+    const dataTrongNuoc = TrongNuoc
+    // console.log(demo)
     return(
         <div className="home_page_content">
             <h2 className='h3'>DU LỊCH NƯỚC NGOÀI</h2>
