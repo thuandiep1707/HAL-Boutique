@@ -1,8 +1,8 @@
 
 import './HomePageContent.scss';
 import DemoService from './DemoService';
-import NuocNgoai from './data/nuocngoai.json';
-import TrongNuoc from './data/trongnuoc.json';
+import NuocNgoai from './data/nuocNgoai.json';
+import TrongNuoc from './data/trongNuoc.json';
 
 
 const HomePageContent = () => {
