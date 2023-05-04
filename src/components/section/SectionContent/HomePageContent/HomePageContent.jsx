@@ -15,11 +15,13 @@ const HomePageContent = () => {
         fetch('public/data/NuocNgoai.json')
             .then(res => res.json())
             .then((data) => {
-                setDataNuocNgoai(data)})
+                setDataNuocNgoai(data)
+                console.log("nuocngoai")})
         fetch('public/data/TrongNuoc.json')
             .then(res => res.json())
             .then((data) => {
-                setDataTrongNuoc(data)})    
+                setDataTrongNuoc(data)
+                console.log("trongnuoc")})    
     },[])
     return(
         <div className="home_page_content">
