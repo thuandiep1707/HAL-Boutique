@@ -1,0 +1,58 @@
+.header{
+    display: flex;
+     justify-content: space-between;
+     align-items: center;
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid #000;
+    .logo{
+        display: flex;
+         justify-content: space-between;
+         align-items: center;
+        gap: 15px;
+        &_img{
+            img{
+                height: 40px;
+            }
+        }
+        &_name{
+            font-weight: 700;
+            font-size: 20px;
+        }
+    }
+    .navigation{
+        display: flex;
+         align-items: center;
+         justify-content: center;
+         gap: 10%;
+         flex: 0 1 50%;
+        font-size: 20px;
+        font-weight: 500;
+        .nav-t2{
+            display: none;
+             justify-content: space-between;
+            position: absolute;
+             top: 70px;
+             left: 0;
+            width: 100%;
+            padding: 2% 10%;
+            .nav-list{
+                display: flex;
+                gap: 10%;
+                flex: 0 1 1000px;
+                flex-wrap: wrap;
+            }
+            &_menu{
+                width: 200px;
+            }
+        }
+    }
+    .feature{
+        display: flex;
+         align-items: center;
+         gap: 10%;
+        position: relative;
+    }
+}
