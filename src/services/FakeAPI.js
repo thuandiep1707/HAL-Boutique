@@ -1,6 +1,7 @@
 const menu = [
     {
         "category"   : "Đầm",
+        "path"       : "dam",  
         "collection" : [
             "Đầm công sở",
             "Đầm dạo phố",
@@ -10,6 +11,7 @@ const menu = [
     },
     {
         "category"   : "Phụ kiện",
+        "path"       : "phukien", 
         "collection" : [
             "Túi xách",
             "Khăn",
@@ -18,6 +20,7 @@ const menu = [
     },
     {
         "category"   : "Áo",
+        "path"       : "ao", 
         "collection" : [
             "Áo sơ mi",
             "Áo vest",
@@ -27,6 +30,7 @@ const menu = [
     },
     {
         "category"   : "Quần",
+        "path"       : "quan", 
         "collection" : [
             "Quần dài",
             "Quần lửng",
@@ -36,6 +40,7 @@ const menu = [
     },
     {
         "category" : "Chân váy",
+        "path"       : "chanvay", 
         "collection": [
             "Chân váy dài",
             "Chân váy ngắn",
