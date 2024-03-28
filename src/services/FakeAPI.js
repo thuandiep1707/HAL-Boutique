@@ -1,9 +1,11 @@
 const menu = [
     {
-        "category" : "Chân váy",
-        "collection": [
-            "Chân váy dài",
-            "Chân váy ngắn",
+        "category"   : "Đầm",
+        "collection" : [
+            "Đầm công sở",
+            "Đầm dạo phố",
+            "Đầm dạ hội",
+            "Jumpsuit",
         ],
     },
     {
@@ -33,12 +35,10 @@ const menu = [
         ],
     },
     {
-        "category"   : "Đầm",
-        "collection" : [
-            "Đầm công sở",
-            "Đầm dạo phố",
-            "Đầm dạ hội",
-            "Jumpsuit",
+        "category" : "Chân váy",
+        "collection": [
+            "Chân váy dài",
+            "Chân váy ngắn",
         ],
     },
 ]

@@ -5,8 +5,7 @@
     background-color: white;
     height: 70px;
     width: 100%;
-    padding: 10px 20px;
-    border: 1px solid #000;
+    padding: 10px 10%;
     .logo{
         display: flex;
          justify-content: space-between;
@@ -27,32 +26,113 @@
          align-items: center;
          justify-content: center;
          gap: 10%;
-         flex: 0 1 50%;
+         flex: 0 1 60%;
         font-size: 20px;
         font-weight: 500;
+        .hover-handle-nav-t2:hover ~ .nav-t2,
+        .nav-t2:hover{
+            display: flex;
+        }
         .nav-t2{
             display: none;
              justify-content: space-between;
             position: absolute;
              top: 70px;
              left: 0;
+            background-color: #fff;
             width: 100%;
-            padding: 2% 10%;
+            padding: .5% 10%;
+            &::after{
+                content: "";
+                position: absolute;
+                 bottom: 100%;
+                 left: 0;
+                width: 100%;
+                height: 23px;
+            }
             .nav-list{
                 display: flex;
                 gap: 10%;
-                flex: 0 1 1000px;
+                flex: 0 1 90%;
                 flex-wrap: wrap;
             }
             &_menu{
                 width: 200px;
+                &_category{
+                    margin-bottom: 10px;
+                }
+                &_collection{
+                    &_opt{
+                        font-weight: 400;
+                        font-size: 18px;
+                        letter-spacing: 1px;
+                        line-height: 30px;
+                        padding-left: 10px;
+                    }
+                }
+            }
+            .nav-shop-all{
+                display: flex;
+                 flex-direction: column;
+                 align-items: center;
+                img{
+                    height: 300px;
+                    border-radius: 12px;
+                }
+                p{
+                    margin: 10px auto;
+                }
             }
         }
     }
     .feature{
         display: flex;
+        justify-content: flex-end;
          align-items: center;
-         gap: 10%;
+         gap: 20px;
         position: relative;
+        margin-right: 20px;
+        &_personal{
+            &:hover .feature_personal_sel{
+                display: block;
+            }
+            &_sel{
+                display: none;
+                position: absolute;
+                 top: 52px;
+                 right: 0;
+                background-color: #fff;
+                padding: 10px 15px;
+                border-radius: 6px;
+                text-align: center;
+                .opt{
+                    padding: 5px 0;
+                }
+                &::after{
+                    content: "";
+                    position: absolute;
+                     bottom: 100%;
+                     left: 0;
+                    width: 100%;
+                    height: 50px;
+                }
+            }
+        }
+        .feature-img{
+            height: 20px;
+        }
+        &_search{
+            .search-header{
+                padding: 5px 20px;
+                border: {
+                    top: unset;
+                    bottom: 1px black solid;
+                    right: unset;
+                    left: unset;
+                };
+                outline: unset;
+                font-size: 15px;
+            }
+        }
     }
 }
