@@ -1,0 +1,25 @@
+.productcard{
+    flex: 1 1 0;
+    img{
+        aspect-ratio: 35/53;
+        width: 100%;
+        border-radius: 18px;
+        &:hover{
+            transition: all .15s linear;
+            scale: 1.02;
+        }
+    }
+    .title{
+        text-align: center;
+        margin: 20px 20px 0;
+        font-size: 18px;
+        color: rgb(62, 62, 62);
+        height: 52px;
+        line-height: 26px;
+        overflow: hidden;
+    }
+    .price{
+        text-align: center;
+        margin-bottom: 0;
+    }
+}
