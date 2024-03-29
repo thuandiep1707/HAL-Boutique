@@ -1,0 +1,9 @@
+.hotproducts{
+    width: 100%;
+    &_list{
+        padding: 2% 10%;
+        display: flex;
+        justify-content: space-between;
+        gap: 2%;
+    }
+}

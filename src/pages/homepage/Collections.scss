@@ -1,0 +1,28 @@
+.collections{
+    display: flex;
+     justify-content: space-between;
+     align-items: start;
+     gap: 5%;
+    width: 100%;
+    padding: 60px 10%;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    .collection{
+        width: 30%;
+        img{
+            aspect-ratio: 3/4;
+            width: 100%;
+            border-radius: 18px;
+        }
+        .title{
+            margin: 10px 0 20px;
+            font-size: 30px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        .des{
+            text-align: center;
+            font-size: 22px;
+            letter-spacing: .5px;
+        }
+    }
+}
