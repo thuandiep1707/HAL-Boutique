@@ -2,7 +2,7 @@
     &_path{
         background-color: rgb(230, 230, 230);
         margin-top: 20px;
-        padding: 5px 10%;
+        padding: 20px 10%;
         width: 100%;
     }
     &_filter{
@@ -62,8 +62,18 @@
         grid-template-columns: repeat(5, 1fr);
         gap: 0 2%;
         padding: 20px 10%;
+        opacity: 0;
+        animation: start-page .5s .2s linear forwards;
         .productcard{
             margin-bottom: 20px;
+        }
+    }
+    @keyframes start-page {
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
         }
     }
 }

@@ -36,7 +36,7 @@
                 border-radius: 6px;
             }
             .animation-img{
-                // animation-delay: .5s;
+                animation-delay: .2s;
                 animation-duration: .5s;
                 animation-timing-function: linear;
                 animation-fill-mode: forwards;
@@ -55,12 +55,12 @@
                 opacity: 0.8;
                 letter-spacing: 1px;
                 opacity: 0;
-                animation: content-left .5s .5s linear forwards;
+                animation: content-left .5s .7s linear forwards;
             }
             .des{
                 font-size: 18px;
                 opacity: 0;
-                animation: content-left .5s 1s linear forwards;
+                animation: content-left .5s 1.2s linear forwards;
             }
         }
     }

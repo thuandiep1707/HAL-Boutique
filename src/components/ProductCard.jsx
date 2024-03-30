@@ -6,7 +6,7 @@ const Productcard = ({ data, category })=>{
     const nav = useNavigate()
     console.log(category)
     const handleGoToUrl = ()=>{
-        nav(data.url || `${data.id}`)
+        nav(data.url || `${category}/${data.id}`)
     }
     return(
         <div className="productcard pointer" onClick={()=>handleGoToUrl()}>
