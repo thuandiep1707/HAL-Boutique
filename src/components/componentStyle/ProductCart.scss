@@ -1,13 +1,15 @@
 .productcard{
     flex: 1 1 0;
+    padding: 5px 5px 20px;
+    border-radius: 14.5px;
+    &:hover{
+        transition: all .15s linear;
+        box-shadow: 0 0 10px 1px gray;
+    }
     img{
         aspect-ratio: 35/53;
         width: 100%;
-        border-radius: 18px;
-        &:hover{
-            transition: all .15s linear;
-            scale: 1.02;
-        }
+        border-radius: 12px;
     }
     .title{
         text-align: center;

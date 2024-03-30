@@ -26,7 +26,6 @@ const NewProductList = ()=>{
 }
 
 function NewProdOfTyle({value}){
-    console.log(value)
     return(
         <div className="prod-of-type">
             <div className="banner">
