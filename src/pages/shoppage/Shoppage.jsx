@@ -10,6 +10,7 @@ const Shoppage = ()=>{
     const [productList, setProductList] = useState(productAllCollection[category])
     useEffect(()=>{
         setProductList(productAllCollection[category])
+        scrollTo({top: 0, behavior: 'smooth'})
     },[category])
     const categoryPath = {
         "all" : "Tất cả sản phẩm",

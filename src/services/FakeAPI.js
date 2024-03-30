@@ -235,7 +235,7 @@ const newProd = [
                 "price": 179000,
                 "size": ['S','M','L','XL'],
                 "warehouse": 32,
-                "url" : "/productdetail/vay/8",
+                "url" : "/productdetail/chanvay/8",
             },
             {
                 "id" : 9,
@@ -245,7 +245,7 @@ const newProd = [
                 "price": 149000,
                 "size": ['S','M','L','XL'],
                 "warehouse": 32,
-                "url" : "/productdetail/vay/9",
+                "url" : "/productdetail/chanvay/9",
             },
             {
                 "id" : 10,
@@ -255,7 +255,7 @@ const newProd = [
                 "price": 850000,
                 "size": ['S','M','L','XL'],
                 "warehouse": 32,
-                "url" : "/productdetail/vay/10",
+                "url" : "/productdetail/chanvay/10",
             },
         ]
     },
@@ -541,7 +541,7 @@ const productAllCollection = {
             "price": 229000,
             "size": ['S','M','L','XL'],
             "warehouse": 32,
-            "url" : "/productdetail/vay/4",
+            "url" : "/productdetail/chanvay/4",
         },
         {
             "id" : 5,
@@ -551,7 +551,7 @@ const productAllCollection = {
             "price": 699000,
             "size": ['S','M','L','XL'],
             "warehouse": 32,
-            "url" : "/productdetail/vay/5",
+            "url" : "/productdetail/chanvay/5",
         },
         {
             "id" : 6,
@@ -561,7 +561,7 @@ const productAllCollection = {
             "price": 788000,
             "size": ['S','M','L','XL'],
             "warehouse": 32,
-            "url" : "/productdetail/vay/6",
+            "url" : "/productdetail/chanvay/6",
         },
         {
             "id" : 7,
@@ -571,7 +571,7 @@ const productAllCollection = {
             "price": 998000,
             "size": ['S','M','L','XL'],
             "warehouse": 32,
-            "url" : "/productdetail/vay/7",
+            "url" : "/productdetail/chanvay/7",
         },
     ],
     "dam" : [

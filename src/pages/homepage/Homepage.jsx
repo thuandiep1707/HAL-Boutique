@@ -7,6 +7,7 @@ import NewProductList from './NewProductList'
 import './Homepage.scss'
 
 const Homepage = ()=>{
+    scrollTo({top: 0, behavior: 'smooth'})
     return(
         <main className="homepage">
             <h2 className='header-title title1'> - Bộ sưu tập đáng chú ý -</h2>

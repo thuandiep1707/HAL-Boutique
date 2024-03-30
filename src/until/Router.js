@@ -16,7 +16,7 @@ const router =[
         element: Shoppage,
     },
     {
-        path: "/productdetail/:collection/:id",
+        path: "/productdetail/:category/:id",
         element: Productpage,
     },
     {

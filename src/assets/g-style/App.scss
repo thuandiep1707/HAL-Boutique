@@ -7,9 +7,12 @@
 // body{
 //     background-color: black;
 // }
+li{
+    list-style: none;
+}
 .pointer{
     cursor: pointer;
 }
-li{
-    list-style: none;
+.unselect{
+    user-select: none;
 }
