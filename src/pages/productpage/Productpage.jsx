@@ -27,7 +27,6 @@ const Productpage = ()=>{
     }
     let prodSize
     useEffect(()=>{
-        setProductDetail(prodList[id-1])
         const prodSuggest = prodList.slice(id,Number(id)+5)
         if (prodSuggest.length < 5){
             let lenght = 5 - prodSuggest.length
@@ -35,6 +34,8 @@ const Productpage = ()=>{
                 prodSuggest.push(prodList[i])
             }
         }
+        setProductDetail(prodList[id-1])
+        setQuantity(1)
         setProdSugget(prodSuggest)
         window.scrollTo({top : 0, behavior : 'smooth'})
     },[category,id])  
