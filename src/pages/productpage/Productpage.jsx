@@ -25,7 +25,7 @@ const Productpage = ()=>{
         "phukien" :  "Phụ kiện",
         "chanvay" : "Chân váy",
     }
-    let prodSize
+    let prodSize = 'S'
     useEffect(()=>{
         const prodSuggest = prodList.slice(id,Number(id)+5)
         if (prodSuggest.length < 5){
@@ -47,7 +47,27 @@ const Productpage = ()=>{
         }
         setQuantity(newQuantity)
     }
-
+    const handleAddToCart = ()=>{
+        let cart = JSON.parse(localStorage.getItem("cart"))
+        let checkIndex = cart && cart.findIndex((value)=>value.title === productDetail.title)
+        let countQuantity = [-1,null].includes(checkIndex) ? Number(quantity) : Number(quantity) + Number(cart[checkIndex].quantity)
+        let count = countQuantity * Number(productDetail.price)
+        let newProd = {
+            "quantity": countQuantity,
+            "count" : count,
+            ...productDetail,
+            "size" : prodSize,
+        }
+        if (![-1,null].includes(checkIndex)) cart.splice(checkIndex,1)
+        let newCart = cart ? [newProd,...cart] : [newProd]
+        console.log(newCart)
+        localStorage.setItem("cart", JSON.stringify(newCart))
+        alert(`Thêm sản phẩm "${newProd.title}" size ${prodSize} Thành Công`)
+    }
+    const handleClickBuy = ()=>{
+        handleAddToCart()
+        nav('/checkout')
+    }
     return(
         <main className="productpage">
             <section className="productpage_path">
@@ -74,7 +94,7 @@ const Productpage = ()=>{
                             productDetail?.size.map((size, index)=>{
                                 return(
                                     <>
-                                        <input id={'size'+index} name='size' type="radio" onClick={()=> prodSize = size}/>
+                                        <input id={'size'+index} name='size' type="radio" onClick={()=> prodSize = size} checked={size == 'S'}/>
                                         <label htmlFor={'size'+index} >{size}</label>
                                     </>
                                 )
@@ -88,10 +108,10 @@ const Productpage = ()=>{
                             <span className='num'> {quantity} </span>
                             <span className='btn pointer' onClick={()=>handleChangeQuantity(1)}> + </span>
                         </p>
-                        <div className="set-btn set-cart pointer unselect" >
+                        <div className="set-btn set-cart pointer unselect" onClick={()=>handleAddToCart()} >
                             <img src={cartIcon} alt=""/>
                         </div>
-                        <div className="set-btn set-pay pointer unselect">Mua Ngay</div>
+                        <div className="set-btn set-buy pointer unselect" onClick={()=>handleClickBuy()}>Mua Ngay</div>
                     </div>
                     <div className="services">
                         <div className="services_child">
