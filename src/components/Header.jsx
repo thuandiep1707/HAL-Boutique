@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 import { menu } from '../services/FakeAPI'
-
+import Cart from './Cart'
 import logo from '../assets/imgs/common/logo.png'
 import userIcon from '../assets/imgs/common/user-icon.png'
 import cartIcon from '../assets/imgs/common/cart-icon.png'
@@ -11,6 +12,11 @@ import './componentStyle/Header.scss'
 const Header = ()=>{
     const nav = useNavigate()
     const goToPath = (url)=>nav(url)
+
+    const [cartControl, setCartControl] = useState(false)
+    const  handleCartControl = ()=>{
+        setCartControl(!cartControl)
+    }
     return(
         <header className="header">
             <div className="logo pointer" onClick={()=>{goToPath('/')}}>
@@ -57,8 +63,9 @@ const Header = ()=>{
                         <li className="opt pointer">Đăng xuất</li>
                     </ul>
                 </div>
-                <div className="feature_cart pointer">
-                    <img src={cartIcon} alt="cart" className='feature-img pointer' />
+                <div className="feature_cart">
+                    <img src={cartIcon} alt="cart" className='feature-img pointer' onClick={()=>handleCartControl()}/>
+                    {cartControl && <Cart setCartControl={handleCartControl}/>}
                 </div>
             </div>
         </header>

@@ -60,7 +60,6 @@ const Productpage = ()=>{
         }
         if (![-1,null].includes(checkIndex)) cart.splice(checkIndex,1)
         let newCart = cart ? [newProd,...cart] : [newProd]
-        console.log(newCart)
         localStorage.setItem("cart", JSON.stringify(newCart))
         alert(`Thêm sản phẩm "${newProd.title}" size ${prodSize} Thành Công`)
     }
@@ -94,7 +93,7 @@ const Productpage = ()=>{
                             productDetail?.size.map((size, index)=>{
                                 return(
                                     <>
-                                        <input id={'size'+index} name='size' type="radio" onClick={()=> prodSize = size} checked={size == 'S'}/>
+                                        <input id={'size'+index} name='size' type="radio" onClick={()=> prodSize = size} defaultChecked={size == 'S'}/>
                                         <label htmlFor={'size'+index} >{size}</label>
                                     </>
                                 )
