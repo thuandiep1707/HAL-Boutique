@@ -1,9 +1,11 @@
 
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import trashIcon from '../assets/imgs/common/trash.png'
 import './componentStyle/Cart.scss'
 
 const Cart = ({ setCartControl })=>{
+    const nav = useNavigate()
     const cartData = JSON.parse(localStorage.getItem("cart"))
     const [reload, setReload] = useState(true)
     const handlRemoveItem = (index) => {
@@ -42,7 +44,7 @@ const Cart = ({ setCartControl })=>{
                                                 </p>
                                             </div>
                                             <div className="icon-recycle-bin">
-                                                <img src={trashIcon} alt="hal boutique" onClick={()=>handlRemoveItem(index)}/>
+                                                <img src={trashIcon} alt="hal boutique" className='pointer' onClick={()=>handlRemoveItem(index)}/>
                                             </div>
                                         </div>
                                     </div>
@@ -54,7 +56,7 @@ const Cart = ({ setCartControl })=>{
                         <p className="total">
                             Tổng tiền: <span>{cartData.reduce((a,e)=>a+e.count,0).toLocaleString('it-IT', {style : 'currency', currency : 'VND'})}</span>
                         </p>
-                        <div className="btn pointer unselect">Mua hàng</div>
+                        <div className="btn pointer unselect" onClick={() => nav('/checkout')}>Mua hàng</div>
                     </div>
                 </div>
             }
