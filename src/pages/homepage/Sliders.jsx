@@ -6,7 +6,7 @@ import {slideData} from '../../services/FakeAPI'
 import { SliderElm1, SliderElm2 } from './slideElm'
 
 import nextBtn from '../../assets/imgs/home/next-btn.png'
-import './Sliders.scss'
+import './homepageStyle/Sliders.scss'
 
 const Sliders = () => {
     const [slide, setSlider] = useState()

@@ -4,7 +4,7 @@ import Slide from './Sliders'
 import Collections from './Collection'
 import HotProducts from './HotProducts'
 import NewProductList from './NewProductList'
-import './Homepage.scss'
+import './homepageStyle/Homepage.scss'
 
 const Homepage = ()=>{
     scrollTo({top: 0, behavior: 'smooth'})

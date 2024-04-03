@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { newProd } from '../../services/FakeAPI.js'
 import Productcard from '../../components/ProductCard.jsx'
-import './NewProductList.scss'
+import './homepageStyle/NewProductList.scss'
 
 const NewProductList = ()=>{
     const nav = useNavigate()

@@ -1,7 +1,7 @@
 
 import Productcard from '../../components/ProductCard';
 import { hotProd } from '../../services/FakeAPI'
-import './HotProducts.scss'
+import './homepageStyle/HotProducts.scss'
 
 const HotProducts = () => {
 
