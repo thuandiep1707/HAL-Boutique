@@ -4,6 +4,7 @@ import Slide from './Sliders'
 import Collections from './Collection'
 import HotProducts from './HotProducts'
 import NewProductList from './NewProductList'
+import News from './News'
 import './homepageStyle/Homepage.scss'
 
 const Homepage = ()=>{
@@ -15,6 +16,7 @@ const Homepage = ()=>{
             <Collections />
             <HotProducts />
             <NewProductList />
+            <News />
         </main>
     )
 }
