@@ -1,16 +1,9 @@
 
-import { useNavigate } from 'react-router-dom'
-
 import { newProd } from '../../services/FakeAPI.js'
 import Productcard from '../../components/ProductCard.jsx'
 import './homepageStyle/NewProductList.scss'
 
 const NewProductList = ()=>{
-    const nav = useNavigate()
-    const handleGoToUrl = (url)=>{
-        nav(url)
-    }
-
     return(
         <section className="new-prod">
             <h2 className="section-title">Sản phẩm mới trong tháng</h2>
