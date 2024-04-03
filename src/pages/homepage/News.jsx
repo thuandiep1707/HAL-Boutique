@@ -26,7 +26,7 @@ const News = ()=>{
 
     return (
         <section className="news">
-            <h2 className="section-title">Sản phẩm mới trong tháng</h2>
+            <h2 className="section-title">Bài viết mới nhất</h2>
             <div className="news_list">
                 {
                     newsData.map((data, index)=>{
