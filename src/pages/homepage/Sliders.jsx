@@ -13,15 +13,15 @@ const Sliders = () => {
     const [data, setData] = useState(slide?.[0] || slideData[0])
     const [nextSlide, setNextSlide] = useState(true)
 
-    clearTimeout(slideTimeout)
-    var slideTimeout = setTimeout(()=>{
-        handleClickNextBtn()
-    },5000)
+    // clearTimeout(slideTimeout)
+    // var slideTimeout = setTimeout(()=>{
+    //     handleClickNextBtn()
+    // },5000)
     const handleClickNextBtn = ()=>{
         let arr = slide || slideData
         // let firstElm = 
         arr.push(arr.shift())
-        clearTimeout(slideTimeout)
+        // clearTimeout(slideTimeout)
         setSlider(arr)
         setData(arr[0])
         setNextSlide(!nextSlide)

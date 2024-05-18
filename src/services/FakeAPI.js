@@ -1351,4 +1351,37 @@ const productAllCollection = {
     ],
 }
 
-export { menu, slideData, newProd, productAllCollection, hotProd, }
+let accountList = [
+    {
+        "id": 1,
+        "username": "user01",
+        "passwork": "user01",
+        "email": "user01@gmail.com",
+        "phoneNumber": "0111222333",
+        "address": "Phường 6, quận Gò vấp, tp. Hồ Chí Minh",
+        "role": "user"
+    },
+    {
+        "id": 2,
+        "username": "user02",
+        "passwork": "user02",
+        "email": "user02@gmail.com",
+        "phoneNumber": "0111222333",
+        "address": "Phường 8, quận Tân Bình, tp. Hồ Chí Minh",
+        "role": "user"
+    }
+]
+
+function checkLogin (username, passwork){
+    console.log(`username: ${username}; passwork: ${passwork}`)
+    let checkIndex = accountList.findIndex(item => item.username === username)
+    if (checkIndex === -1){
+        return({message:'Tên đăng nhập không tồn tại'})
+    }
+    if (accountList[checkIndex].passwork !== passwork){
+        return({message:'Sai mật khẩu'})
+    }
+    return({...accountList[checkIndex], "passwork": null})
+}
+
+export { menu, slideData, newProd, productAllCollection, hotProd, checkLogin }

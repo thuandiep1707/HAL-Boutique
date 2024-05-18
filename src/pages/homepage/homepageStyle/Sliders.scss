@@ -52,14 +52,14 @@
         &_content{
             .title{
                 font-size: 25px;
-                margin: 20px 0;
+                margin: 10px 0 20px;
                 opacity: 0.8;
                 letter-spacing: 1px;
                 opacity: 0;
                 animation: content-left .5s .7s linear forwards;
             }
             .des{
-                font-size: 18px;
+                font-size: 16px;
                 opacity: 0;
                 animation: content-left .5s 1.2s linear forwards;
             }

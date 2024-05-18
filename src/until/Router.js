@@ -1,36 +1,40 @@
 
 import Homepage from '../pages/homepage/Homepage'
-import Productpage from '../pages/productpage/Productpage'
-import Login from '../pages/login/Login'
-import Register from '../pages/register/Register'
-import Shoppage from '../pages/shoppage/Shoppage'
+import ProductDetailPage from '../pages/productdetailpage/ProductDetailPage'
+import ProductPage from '../pages/productpage/ProductPage'
 import Checkoutpage from '../pages/checkoutpage/Checkoutpage'
+import { Login, Register } from '../pages/authenticationpage/AuthenticationPage'
+import UserPage from '../pages/userpage/UserPage'
 
 const router =[
     {
         path: "/",
-        element: Homepage,
+        element: Homepage
     },
     {
         path: "/shop/:category",
-        element: Shoppage,
+        element: ProductPage
     },
     {
         path: "/productdetail/:category/:id",
-        element: Productpage,
+        element: ProductDetailPage
     },
     {
         path: "/login",
-        element: Login,
+        element: Login
     },
     {
         path: "/register",
-        element: Register,
+        element: Register
     },
     {
         path: "/checkout",
-        element: Checkoutpage,
+        element: Checkoutpage
     },
+    {
+        path: "/user",
+        element: UserPage
+    }
     
 ]
 

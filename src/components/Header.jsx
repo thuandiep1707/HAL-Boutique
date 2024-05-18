@@ -27,7 +27,7 @@ const Header = ()=>{
             </div>
             <nav className="navigation">
                 <Link to='/' className="nav-t1 pointer">Trang chủ</Link>
-                <Link to='/shop/all' className="nav-t1 pointer">Sản phẩm</Link>
+                <Link to='/shop/all' className="nav-t1 hover-handle-nav-t2 pointer">Sản phẩm</Link>
                 <Link to='/news' className="nav-t1 pointer">Tin tức</Link>
                 <Link to='/address' className="nav-t1 pointer">Cửa hàng</Link>
                 <Link to='/contacts' className="nav-t1 pointer">Liên hệ</Link>
@@ -56,8 +56,8 @@ const Header = ()=>{
                 <div className="feature_search">
                     <input type="text" className='search-header' placeholder='Tìm kiếm'/>
                 </div>
-                <div className="feature_personal pointer">
-                    <img src={userIcon} alt="personal" className='feature-img' />
+                <div className="feature_personal pointer" onClick={()=> goToPath('/login')}>
+                    <img src={userIcon} alt="personal" className='feature-img'/>
                     <ul className="feature_personal_sel">
                         <li className="opt pointer">Thông tin cá nhân</li>
                         <li className="opt pointer">Đơn mua</li>
