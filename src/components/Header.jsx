@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useState } from 'react'
 
 import { menu } from '../services/FakeAPI'
@@ -26,10 +26,11 @@ const Header = ()=>{
                 <p className="logo_name">HAL BOUTIQUE</p>
             </div>
             <nav className="navigation">
-                <div className="nav-t1 pointer" onClick={()=>{goToPath('/')}}>Trang chủ</div>
-                <div className="nav-t1 pointer hover-handle-nav-t2" onClick={()=>{goToPath('/shop/all')}}>Sản phẩm</div>
-                <div className="nav-t1 pointer">Cửa hàng</div>
-                <div className="nav-t1 pointer">Liên hệ</div>
+                <Link to='/' className="nav-t1 pointer">Trang chủ</Link>
+                <Link to='/shop/all' className="nav-t1 pointer">Sản phẩm</Link>
+                <Link to='/news' className="nav-t1 pointer">Tin tức</Link>
+                <Link to='/address' className="nav-t1 pointer">Cửa hàng</Link>
+                <Link to='/contacts' className="nav-t1 pointer">Liên hệ</Link>
                 <div className="nav-t2">
                     <div className="nav-list">
                         {

@@ -29,14 +29,19 @@
     .navigation{
         display: flex;
          align-items: center;
-         justify-content: center;
-         gap: 10%;
-         flex: 0 1 60%;
-        font-size: 20px;
+         justify-content: space-between;
+        //  flex: 1;
+         flex-basis: 500px;
         font-weight: 500;
         .hover-handle-nav-t2:hover ~ .nav-t2,
         .nav-t2:hover{
             display: flex;
+        }
+        .nav-t1{
+            text-decoration: unset;
+            font-size: 18px;
+            font-weight: 600;
+            color: black;
         }
         .nav-t2{
             display: none;

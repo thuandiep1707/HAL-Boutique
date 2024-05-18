@@ -24,14 +24,10 @@
             border-radius: 6px;
             padding: 3px 10px 0 20px;
             cursor: pointer;
-            &:hover p{
+            &:hover p, .dropdown-icon{
                 transition: all .2s linear;
                 opacity: 0.8;
-            }
-            &:hover .dropdown-icon{
-                transition: all .2s linear;
-                opacity: 0.8;
-                transform: rotate(180deg);
+
             }
             p{
                 display: flex;
@@ -48,9 +44,10 @@
             .dropdown-icon{
                 width: 10px;
                 height: 10px;
-                border-top: 10px solid #00000065;
+                border-top: 10px solid black;
                 border-left: 5px solid transparent;
                 border-right: 5px solid transparent;
+                opacity: 0.7;
             }
             .opt-list{
                 display: none;
