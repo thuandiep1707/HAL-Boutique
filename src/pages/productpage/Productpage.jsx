@@ -92,10 +92,10 @@ const Productpage = ()=>{
                         {
                             productDetail?.size.map((size, index)=>{
                                 return(
-                                    <>
+                                    <div key={index} style={{display: 'inline-block'}}>
                                         <input id={'size'+index} name='size' type="radio" onClick={()=> prodSize = size} defaultChecked={size == 'S'}/>
                                         <label htmlFor={'size'+index} >{size}</label>
-                                    </>
+                                    </div>
                                 )
                             })
                         }

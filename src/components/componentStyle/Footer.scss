@@ -1,4 +1,8 @@
 .footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     &_top{
         display: flex;
         justify-content: space-between;
@@ -21,13 +25,17 @@
         display: flex;
         justify-content: space-between;
         align-items: start;
-        padding: 30px 15%;
+        width: 1200px;
+        padding: 30px 0;
         &>div{
-            flex: 1 0 32%;   
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 33%;   
+
         }
-        &>div:nth-child(2),
-        &>div:last-child{
-            padding-left: 15%;
+        &>div p{
+            text-align: center;
         }
         p{
             font-size: 14px;

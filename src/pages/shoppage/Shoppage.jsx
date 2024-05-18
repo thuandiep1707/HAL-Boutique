@@ -27,19 +27,28 @@ const Shoppage = ()=>{
             </section>
             <section className="shoppage_filter">
                 <div className="select">
-                    <p>Danh mục<span>{`>`}</span></p>
+                    <p>
+                        <span className='select-name'>Danh mục</span>
+                        <span className='dropdown-icon'></span>
+                    </p>
                     <div className="opt-list">
                         tùy chọn
                     </div>
                 </div>
                 <div className="select">
-                    <p>Kích thước<span>{`>`}</span></p>
+                    <p>
+                        <span className='select-name'>Kích thước</span>
+                        <span className='dropdown-icon'></span>
+                    </p>
                     <div className="opt-list">
                         tùy chọn
                     </div>
                 </div>
                 <div className="select">
-                    <p>Khoảng giá<span>{`>`}</span></p>
+                    <p>
+                        <span className='select-name'>Khoảng giá</span>
+                        <span className='dropdown-icon'></span>
+                    </p>
                     <div className="opt-list">
                         tùy chọn
                     </div>

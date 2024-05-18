@@ -2,11 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
     opacity: 0;
     animation: start-page .5s .2s linear forwards;
     .header-title{
         background-color: rgb(230, 230, 230);
-        margin-top: 20px;
         padding: 20px;
         width: 100%;
         text-align: center;

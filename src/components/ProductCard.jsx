@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import './componentStyle/ProductCart.scss'
+import './componentStyle/ProductCard.scss'
 
 const Productcard = ({ data, category })=>{  
     const nav = useNavigate()

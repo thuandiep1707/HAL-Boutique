@@ -4,12 +4,13 @@
     justify-content: start;
     gap: 100px;
     margin-bottom: 100px;
+    width: 1200px;
     .prod-of-type{
         display: flex;
-        gap: 5%;
-        padding: 0 10%;
+        gap: 20px;
+        // padding: 0 10%;
         .banner{
-            width: 44%;
+            flex: 1;
             img{
                 width: 100%;
                 border-radius: 18px;
@@ -17,7 +18,7 @@
         }
         .list{
             display: flex;
-             gap: 5%;
+             gap: 20px;
             width: 51%;
         }
     }

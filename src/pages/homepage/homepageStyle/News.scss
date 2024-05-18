@@ -1,16 +1,18 @@
 .news{
     width: 100%;
     &_list{
-        padding: 2% 10%;
+        padding: 2% calc(50% - 600px);
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto;
-        gap: 5%;
+        gap: 2%;
         .news-cpn{
             padding: 10px;
             width: 100%;
             border-radius: 12px;
-            box-shadow: 0 0 5px 0 #00000035;
+            &:hover{
+                box-shadow: 0 0 5px 0 #00000035;
+            }
             &_img{
                 width: 100%;
                 img{
@@ -20,8 +22,14 @@
                 }
             }
             .title, .des{
-                padding: 5px 5%;
-                text-align: justify;
+                box-sizing: unset;
+                margin: 0 5% 5px;
+                padding-top: 5px;
+            }
+            .title{
+                line-height: 18px;
+                height: 40px;
+                overflow: hidden;
             }
         }
     }

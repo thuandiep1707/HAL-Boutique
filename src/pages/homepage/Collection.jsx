@@ -29,7 +29,7 @@ const Collections = ()=>{
         {
             "img" : coll3,
             "title" : "Hè Bùng Nổ",
-            "des" : "Những gì chúng tôi đem lại sẽ khiến cho bạn có được một mùa hè bùng nổ, thoải mái, không ngại cái nóng",
+            "des" : "Những gì chúng tôi đem lại sẽ khiến cho bạn có được một mùa hè bùng nổ",
             "url" : "/shop/ao",
         },
     ]
@@ -39,7 +39,7 @@ const Collections = ()=>{
             {
                 listColection.map((collection, index)=>{
                     return(
-                        <div className="collection" key={`homeCol${index}`} onClick={()=>{handleGoToUrl(collection.url)}} >
+                        <div className="collection pointer" key={`homeCol${index}`} onClick={()=>{handleGoToUrl(collection.url)}} >
                             <img src={collection.img} alt="hal boutique" />
                             <h4 className="title">{collection.title}</h4>
                             <p className="des">{collection.des}</p>

@@ -9,7 +9,7 @@ const News = ()=>{
     let newsData = [
         {
             "img" : news1,
-            "title" : "BẮP TAY TO NÊN MẶC GÌ? NGUYÊN TẮC MIX AND MATCH CHE MỌI KHUYẾT ĐIỂM",
+            "title" : "BẮP TAY TO NÊN MẶC GÌ? NGUYÊN TẮC MIX AND MATCH",
             "des" : "Bắp tay to khiến các cô nàng trông “đô con” hơn khi phần cánh tay..."
         },
         {
@@ -30,7 +30,7 @@ const News = ()=>{
             <div className="news_list">
                 {
                     newsData.map((data, index)=>{
-                        return <div className="news-cpn" key={index}>
+                        return <div className="news-cpn pointer" key={index}>
                             <div className="news-cpn_img">
                                 <img src={data.img} alt="hal" />
                             </div>

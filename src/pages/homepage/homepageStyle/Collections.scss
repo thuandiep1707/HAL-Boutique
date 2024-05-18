@@ -2,15 +2,21 @@
     display: flex;
      justify-content: space-between;
      align-items: start;
-     gap: 5%;
     width: 100%;
-    padding: 60px 10%;
+    padding: 60px calc(50% - 600px);
     border-top: 1px solid rgba(0, 0, 0, 0.15);
     .collection{
-        width: 30%;
+        width: 32%;
+        padding: 10px;
+        border-radius: 23px;
+        &:hover{
+            transition: all .15s linear;
+            box-shadow: 0 0 5px 0 #00000035;
+        }
         img{
             aspect-ratio: 3/4;
             width: 100%;
+            // object-fit: cover;
             border-radius: 18px;
         }
         .title{
