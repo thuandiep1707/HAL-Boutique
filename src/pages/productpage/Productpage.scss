@@ -14,17 +14,20 @@
          left: 0;
          z-index: 999;
         background-color: #fff;
-        padding: 20px 10%;
+        padding: 15px calc(50% - 600px);
+        border-top: 1px solid rgb(230, 230, 230);
+        border-bottom: 1px solid rgb(230, 230, 230);
         .select{
             display: flex;
              align-items: center;
             position: relative;
-            height: 40px;
+            height: 36px;
             border: 2px solid #00000065;
             border-radius: 6px;
-            padding: 3px 10px 0 20px;
+            padding: 0 10px 0 20px;
+            font-size: 12px;
             cursor: pointer;
-            &:hover p, .dropdown-icon{
+            &:hover p{
                 transition: all .2s linear;
                 opacity: 0.8;
 
@@ -43,11 +46,17 @@
             }
             .dropdown-icon{
                 width: 10px;
-                height: 10px;
-                border-top: 10px solid black;
+                height: 5px;
+                border-top: 5px solid black;
                 border-left: 5px solid transparent;
                 border-right: 5px solid transparent;
                 opacity: 0.7;
+                &:hover{
+                    transition: all .2s linear;
+                    // transform: rotate (90deg);
+                    opacity: 0.8;
+    
+                }
             }
             .opt-list{
                 display: none;
@@ -65,7 +74,7 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 0 2%;
-        padding: 20px 10%;
+        padding: 20px calc(50% - 600px);
         opacity: 0;
         animation: start-page .5s .2s linear forwards;
         .productcard{
