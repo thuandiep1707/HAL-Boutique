@@ -4,11 +4,11 @@
     justify-content: start;
     gap: 100px;
     margin-bottom: 100px;
-    width: 1200px;
+    width: 100%;
     .prod-of-type{
         display: flex;
         gap: 20px;
-        // padding: 0 10%;
+        padding: 20px calc(50% - 600px);
         .banner{
             flex: 1;
             img{
