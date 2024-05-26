@@ -2,14 +2,14 @@
     &_path{
         background-color: rgb(230, 230, 230);
         margin-top: 20px;
-        padding: 20px 10%;
+        padding: 20px calc(50% - 600px);
         width: 100%;
     }
     &_prod-detail{
         display: flex;
          justify-content: space-between;
          gap: 5%;
-        padding: 2% 15%;
+        padding: 2% calc(50% - 600px);
         .prod-img{
             display: flex;
              align-items: flex-start;
@@ -166,7 +166,8 @@
         }
     }
     &_list{
-        padding: 10px 10%;
+        width: 100%;
+        padding: 10px calc(50% - 600px);
         &>.title{
             margin: 20px 0;
             padding: 20px 2px 10px;

@@ -153,7 +153,7 @@ const ProductDetailPage = ()=>{
                     }
                 </div>
             </section>
-            <section className="productpage_list">
+            <section className="productpage_list" style={{marginBottom: '50px'}}>
                 <h3 className="title">Sản phẩm vừa xem</h3>
                 <div className="list">
                     {
