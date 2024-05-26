@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 
 import Productcard from '../../components/ProductCard'
 import { productAllCollection } from '../../services/FakeAPI'
+import './productpage.scss'
 
 const Shoppage = ()=>{
     const { category } = useParams()
