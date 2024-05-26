@@ -1,7 +1,8 @@
 .hotproducts{
     width: 100%;
     &_list{
-        padding: 2% 10%;
+        width: 1200px;
+        margin: 0 auto;
         display: flex;
         justify-content: space-between;
         gap: 2%;

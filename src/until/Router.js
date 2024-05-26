@@ -1,7 +1,7 @@
 
 import Homepage from '../pages/homepage/Homepage'
 import ProductDetailPage from '../pages/productdetailpage/ProductDetailPage'
-import ProductPage from '../pages/productpage/ProductPage'
+import ProductPage from '../pages/productpage/Productpage'
 import Checkoutpage from '../pages/checkoutpage/Checkoutpage'
 import { Login, Register } from '../pages/authenticationpage/AuthenticationPage'
 import UserPage from '../pages/userpage/UserPage'
