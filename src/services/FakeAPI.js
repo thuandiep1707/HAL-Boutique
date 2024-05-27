@@ -1376,12 +1376,21 @@ function checkLogin (username, passwork){
     console.log(`username: ${username}; passwork: ${passwork}`)
     let checkIndex = accountList.findIndex(item => item.username === username)
     if (checkIndex === -1){
-        return({message:'Tên đăng nhập không tồn tại'})
+        return({
+            state: false,
+            message: 'Tên đăng nhập không tồn tại'
+        })
     }
     if (accountList[checkIndex].passwork !== passwork){
-        return({message:'Sai mật khẩu'})
+        return({
+            state: false, 
+            message: 'Sai mật khẩu'
+        })
     }
-    return({...accountList[checkIndex], "passwork": null})
+    return({
+        state: true,
+        message: 'Đăng nhập thành công'
+    })
 }
 
 export { menu, slideData, newProd, productAllCollection, hotProd, checkLogin }
