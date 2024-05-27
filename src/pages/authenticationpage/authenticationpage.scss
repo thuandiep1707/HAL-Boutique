@@ -1,5 +1,23 @@
+.contain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
+}
 .login{
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: start;
+    width: 400px;
+    height: 400px;
+    border: 1px solid #000;
 }
 .register{
     min-height: 100vh;
