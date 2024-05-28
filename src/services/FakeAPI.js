@@ -98,6 +98,23 @@ import prod83 from "../assets/imgs/product/prod83.png"
 import prod84 from "../assets/imgs/product/prod84.png"
 import prod85 from "../assets/imgs/product/prod85.png"
 
+import NewsSlide1 from "../assets/imgs/news/slide1.png"
+import NewsSlide2 from "../assets/imgs/news/slide2.png"
+import NewsSlide3 from "../assets/imgs/news/slide3.png"
+
+import promotional1 from "../assets/imgs/news/promotional1.png"
+import promotional2 from "../assets/imgs/news/promotional2.png"
+import promotional3 from "../assets/imgs/news/promotional3.png"
+import promotional4 from "../assets/imgs/news/promotional4.png"
+import promotional5 from "../assets/imgs/news/promotional5.png"
+import promotional6 from "../assets/imgs/news/promotional6.png"
+import promotional7 from "../assets/imgs/news/promotional7.png"
+import promotional8 from "../assets/imgs/news/promotional8.png"
+
+import hotnews1 from "../assets/imgs/news/hotnews1.png"
+import hotnews2 from "../assets/imgs/news/hotnews2.png"
+import hotnews3 from "../assets/imgs/news/hotnews3.png"
+
 const menu = [
     {
         "category"   : "Đầm",
@@ -1372,6 +1389,69 @@ let accountList = [
     }
 ]
 
+let newsSlideList = [ NewsSlide1, NewsSlide2, NewsSlide3 ]
+
+let promotionList = [ 
+    {
+        img: promotional1,
+        title: "MID SUMMER SALE - MUA CÀNG NHIỀU - ƯU ĐÃI CÀNG LỚN",
+        content: " Đón hè rực rỡ, PANTIO tri ân các khách hàng trên toàn quốc chương trình mua sắm HOT NHẤT HÈ 2024 \"MID SUMMER SALE\" với nhiều ưu đãi cực SHOCK..."
+    }, 
+    {
+        img: promotional2,
+        title: "MEMBER’S DAY - NGÀY VÀNG HỘI VIÊN - NHÂN ĐÔI TÍCH ĐIỂM",
+        content: " Niềm vui nhân đôi, X2 tích điểm hội viên sử dụng ngay giá trị tích điểm cho đơn hàng tiếp theo, chương trình áp dụng DUY NHẤT 2 NGÀY 18/05 - 19/05 trên toàn hệ t..."
+    }, 
+    {
+        img: promotional3,
+        title: "PANTIO TTTM GO! QUY NHƠN - SALE THANH LÝ TOÀN BỘ CỬA HÀNG",
+        content: " SALE LỚN NHẤT HÈ tại tuần lễ thanh lý Showroom thời trang PANTIO TTTM GO! QUY NHƠN, PHƯỜNG GHỀNH RÁNG, TP. QUY NHƠN, TỈNH BÌNH ĐỊNH.Cơn lốc đồng giá vô cùng..."
+    }, 
+    {
+        img: promotional4,
+        title: "CHÀO ĐÓN SỰ TRỞ LẠI CỦA 2 SHOWROOM PANTIO TẠI TTTM VINCOM PLAZA QUANG TRUNG, QUẬN GÒ VẤ...",
+        content: " Đánh dấu sự quay trở lại với diện mạo hoàn toàn mới của 2 SHOWROOM:SHOWROOM 1:  PANTIO VINCOM PLAZA HÙNG VƯƠNG tại Gian hàng L2-10-11 - Tầ..."
+    }, 
+    {
+        img: promotional5,
+        title: "FLASH SALE - MUA CÀNG NHIỀU - ƯU ĐÃI CÀNG LỚN",
+        content: " Đón hè rực rỡ, PANTIO chiêu đãi các quý khách hàng trên toàn quốc đại tiệc \"SUMMER FLASH SALE\" vô cùng hấp dẫn:TRỪ NGAY 20% với HĐ từ 3sp.TRỪ NGAY 15% với HĐ có ..."
+    }, 
+    {
+        img: promotional6,
+        title: "CHÀO ĐÓN SỰ TRỞ LẠI CỦA SHOWROOM PANTIO TẠI TTTM TASCO MALL LONG BIÊN, P. GIA THỤY, Q....",
+        content: "Cùng chào đón sự quay trở lại với 1 diện mạo hoàn toàn mới của showroom thời trang PANTIO tại TTTM TASCO MALL LONG BIÊN (TTTM Savico Mega Mall cũ) tại: Gian hàng 124-1..."
+    }, 
+    {
+        img: promotional7,
+        title: "HOLIDAY SALE - MỪNG ĐẠI LỄ ĐÓN SIÊU SALE TRỪ THÊM TỚI 800K TỔNG GIÁ TRỊ ĐƠN HÀNG",
+        content: "Tưng bừng chào đón đại Lễ 30/04 và ngày quốc tế lao động. Từ ngày 20/04 - 01/05 PANTIO mang đến chương trình HOLIDAY SALE - HELLO SUMMER  với ƯU ĐÃI LỚN NHẤT MÙA ..."
+    }, 
+    {
+        img: promotional8,
+        title: "FLASH SALE - MUA CÀNG NHIỀU - ƯU ĐÃI CÀNG LỚN",
+        content: "Đáp ứng nhu cầu mua sắm lớn mùa mới của các quý khách hàng thân yêu, PANTIO xin gửi tới chương trình ưu đãi hot nhất tháng 4 TRỪ NGAY 20% với HĐ bất kỳ từ 3 ..."
+    },
+]
+
+let hotnewsList = [
+    {
+        img: hotnews1,
+        title: "ĐI BIỂN MẶC GÌ CHỤP HÌNH ĐẸP?",
+        content: "Mùa hè đã đến, đây là thời điểm lý tưởng để bạn tận hưởng những ngày nghỉ tuyệt vời tại biển."
+    },
+    {
+        img: hotnews2,
+        title: "CHÂN NGẮN ĐI BIỂN MẶC GÌ?",
+        content: "Bạn đang phân vân, không biết chân ngắn đi biển mặc gì để vừa thoải mái, tự tin vừa khiến bản thân trở nên nổi bật?"
+    },
+    {
+        img: hotnews3,
+        title: "ĐI BIỂN MẶC GÌ ĐỂ NỔI BẬT?",
+        content: "Mùa hè đã đến, đây là thời điểm lý tưởng cho những chuyến du lịch đến các vùng biển để tận hưởng không khí mát mẻ."
+    },
+]
+
 function checkLogin (username, password){
     // console.log(`username: ${username}; password: ${password}`)
     let checkIndex = accountList.findIndex(item => item.username === username)
@@ -1402,4 +1482,4 @@ function register (data){
     return ({state: true, message: 'đăng kí thành công'})
 }
 
-export { menu, slideData, newProd, productAllCollection, hotProd, checkLogin, register }
+export { menu, slideData, newProd, productAllCollection, hotProd, newsSlideList, promotionList, hotnewsList, checkLogin, register }
