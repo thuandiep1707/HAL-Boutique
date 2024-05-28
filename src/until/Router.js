@@ -1,7 +1,10 @@
 
 import Homepage from '../pages/homepage/Homepage'
-import ProductDetailPage from '../pages/productdetailpage/ProductDetailPage'
 import ProductPage from '../pages/productpage/Productpage'
+import ProductDetailPage from '../pages/productdetailpage/ProductDetailPage'
+import NewsPage from '../pages/newspage/NewsPage'
+import ContactsPage from '../pages/contactspage/ContactsPage'
+import StoreAddressPage from '../pages/storeaddresspage/StoreAddressPage'
 import Checkoutpage from '../pages/checkoutpage/Checkoutpage'
 import { LoginPage, RegisterPage } from '../pages/authenticationpage/AuthenticationPage'
 import UserPage from '../pages/userpage/UserPage'
@@ -18,6 +21,18 @@ const router =[
     {
         path: "/productdetail/:category/:id",
         element: ProductDetailPage
+    },
+    {
+        path: "/news",
+        element: NewsPage
+    },
+    {
+        path: "/address",
+        element: StoreAddressPage
+    },
+    {
+        path: "/contacts",
+        element: ContactsPage
     },
     {
         path: "/login",
