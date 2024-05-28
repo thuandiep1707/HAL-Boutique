@@ -1,6 +1,6 @@
 
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 
 import trashIcon from '../../assets/imgs/common/trash.png'
 import logoTp from '../../assets/imgs/common/logo-tp.png'
@@ -8,10 +8,15 @@ import logoMomo from '../../assets/imgs/common/logo-momo.png'
 import logoVnpay from '../../assets/imgs/common/logo-vnpay.png'
 import momo from '../../assets/imgs/common/momoQR.png'
 import bank from '../../assets/imgs/common/bankQR.png'
+import { globalContext } from '../../context/globalContext';
 import './Checkoutpage.scss'
 
 const Checkoutpage = ()=>{
     const nav = useNavigate()
+    const {userInfor} = useContext(globalContext)
+    useEffect(()=>{
+        if (!userInfor.state) nav('/login')
+    })
     const cartData = JSON.parse(localStorage.getItem("cart"))
     const [reload, setReload] = useState(true)
     const [payMethod, setPayMethod] = useState({"method" : "offline", "service" : null})
