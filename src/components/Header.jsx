@@ -1,5 +1,5 @@
 import { useNavigate, Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 
 import { menu } from '../services/FakeAPI'
 import Cart from './Cart'
@@ -7,15 +7,23 @@ import logo from '../assets/imgs/common/logo.png'
 import userIcon from '../assets/imgs/common/user-icon.png'
 import cartIcon from '../assets/imgs/common/cart-icon.png'
 import shopAllImg from '../assets/imgs/common/header-shop-all.png'
+import { globalContext } from '../context/globalContext'
 import './componentStyle/Header.scss'
 
 const Header = ()=>{
     const nav = useNavigate()
     const goToPath = (url)=>nav(url)
-
+    const { userInfor, setUserInfor } = useContext(globalContext)
     const [cartControl, setCartControl] = useState(false)
     const  handleCartControl = ()=>{
         setCartControl(!cartControl)
+    }
+    const goToLogin = () => {
+        if (!userInfor?.state) nav('/login')
+    }
+    const goToLogout = () => {
+        setUserInfor()
+        localStorage.removeItem("cart")
     }
     return(
         <header className="header">
@@ -56,13 +64,16 @@ const Header = ()=>{
                 <div className="feature_search">
                     <input type="text" className='search-header' placeholder='Tìm kiếm'/>
                 </div>
-                <div className="feature_personal pointer" onClick={()=> goToPath('/login')}>
+                <div className="feature_personal pointer" onClick={()=> goToLogin()}>
                     <img src={userIcon} alt="personal" className='feature-img'/>
-                    <ul className="feature_personal_sel">
-                        <li className="opt pointer">Thông tin cá nhân</li>
-                        <li className="opt pointer">Đơn mua</li>
-                        <li className="opt pointer">Đăng xuất</li>
-                    </ul>
+                    {
+                        userInfor?.state &&
+                        <ul className="feature_personal_sel">
+                            <li className="opt pointer">Thông tin cá nhân</li>
+                            <li className="opt pointer">Đơn mua</li>
+                            <li className="opt pointer" onClick={()=>goToLogout()} >Đăng xuất</li>
+                        </ul>
+                    }
                 </div>
                 <div className="feature_cart">
                     <img src={cartIcon} alt="cart" className='feature-img pointer' onClick={()=>handleCartControl()}/>

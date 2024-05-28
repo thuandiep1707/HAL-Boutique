@@ -19,7 +19,7 @@ const Checkoutpage = ()=>{
     const [payMethod, setPayMethod] = useState({"method" : "offline", "service" : null})
     window.scrollTo({top : 0, behavior : "smooth"})
     useEffect(()=>{
-        if (!userInfor.state) nav('/login')
+        if (!userInfor?.state) nav('/login')
         if (cartData == null) nav('/')
     })
     const handlRemoveItem = (index) => {

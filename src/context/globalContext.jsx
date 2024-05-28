@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 const globalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
-    const [ userInfor, setUserInfor] = useState({state: false});
+    const [ userInfor, setUserInfor] = useState();
     const value = {
         userInfor,
         setUserInfor
