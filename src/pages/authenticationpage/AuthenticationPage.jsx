@@ -1,13 +1,16 @@
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 import { checkLogin } from "../../services/FakeAPI";
+import { globalContext } from "../../context/globalContext";
 
 import './authenticationpage.scss'
 
 const Login = () => {
     const nav = useNavigate()
+    const { userInfor, setUserInfor } = useContext(globalContext)
+    console.log(userInfor)
     const [loginData, setLoginData] = useState({
         username: "",
         password: "",
@@ -21,7 +24,10 @@ const Login = () => {
         setTimeout(()=>{
             let response = checkLogin(loginData.username, loginData.password)
             alert(response.message)
-            if (response.state) {nav('/')}
+            if (response.state) {
+                setUserInfor({...userInfor, ...response.data, state: true})
+                nav('/checkout')
+            }
             else{setLoginData({...loginData, "loading": false})}
         },1000)
     }

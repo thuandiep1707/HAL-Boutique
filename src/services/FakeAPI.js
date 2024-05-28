@@ -1388,6 +1388,7 @@ function checkLogin (username, passwork){
         })
     }
     return({
+        data: {...accountList[checkIndex], passwork: ''},
         state: true,
         message: 'Đăng nhập thành công'
     })

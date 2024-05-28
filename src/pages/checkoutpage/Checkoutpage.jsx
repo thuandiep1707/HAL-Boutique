@@ -14,14 +14,14 @@ import './Checkoutpage.scss'
 const Checkoutpage = ()=>{
     const nav = useNavigate()
     const {userInfor} = useContext(globalContext)
-    useEffect(()=>{
-        if (!userInfor.state) nav('/login')
-    })
     const cartData = JSON.parse(localStorage.getItem("cart"))
     const [reload, setReload] = useState(true)
     const [payMethod, setPayMethod] = useState({"method" : "offline", "service" : null})
     window.scrollTo({top : 0, behavior : "smooth"})
-    if (cartData == null) nav('/')
+    useEffect(()=>{
+        if (!userInfor.state) nav('/login')
+        if (cartData == null) nav('/')
+    })
     const handlRemoveItem = (index) => {
         cartData.splice(index,1)
         localStorage.setItem("cart",cartData.length > 0 ? JSON.stringify(cartData) : null)
