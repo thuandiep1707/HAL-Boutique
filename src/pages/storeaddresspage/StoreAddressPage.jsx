@@ -4,9 +4,9 @@ import './storeaddresspage.scss'
 
 const StoreAddressPage = () => {
     return (
-        <div className='storeaddresspage'>
-            <h1>StoreAddressPage</h1>
-        </div>
+        <main className='storeaddresspage'>
+            <h1 style={{width:'100%', textAlign:'center', marginTop:'30px'}}>Page Not Found</h1>
+        </main>
     )
 }
 
