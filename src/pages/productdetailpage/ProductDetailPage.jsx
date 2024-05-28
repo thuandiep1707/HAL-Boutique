@@ -70,7 +70,7 @@ const ProductDetailPage = ()=>{
     return(
         <main className="productpage">
             <section className="productpage_path">
-                <h4>{`Trang chủ > Sản phẩm > ${categoryPath[category]} > ${productDetail?.title}`}</h4>
+                <p>{`Trang chủ / Sản phẩm / ${categoryPath[category]} / ${productDetail?.title}`}</p>
             </section>
             <section className="productpage_prod-detail">
                 <div className="prod-img unselect">

@@ -23,7 +23,7 @@ const Shoppage = ()=>{
     return(
         <main className="shoppage">
             <section className="shoppage_path">
-                <h4>{`Trang chủ > Sản phẩm > ${categoryPath[category]}`}</h4>
+                <p>{`Trang chủ / Sản phẩm / ${categoryPath[category]}`}</p>
             </section>
             <section className="shoppage_filter">
                 <div className="select">

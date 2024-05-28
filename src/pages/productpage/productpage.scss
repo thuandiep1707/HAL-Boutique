@@ -1,8 +1,10 @@
 .shoppage{
     &_path{
         background-color: rgb(230, 230, 230);
-        padding: 20px calc(50% - 600px);
+        padding: 15px calc(50% - 600px);
         width: 100%;
+        font-size: 14px;
+        font-weight: 500;
     }
     &_filter{
         display: flex;
