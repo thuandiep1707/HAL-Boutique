@@ -3,7 +3,7 @@ import Homepage from '../pages/homepage/Homepage'
 import ProductDetailPage from '../pages/productdetailpage/ProductDetailPage'
 import ProductPage from '../pages/productpage/Productpage'
 import Checkoutpage from '../pages/checkoutpage/Checkoutpage'
-import { Login, Register } from '../pages/authenticationpage/AuthenticationPage'
+import { LoginPage, RegisterPage } from '../pages/authenticationpage/AuthenticationPage'
 import UserPage from '../pages/userpage/UserPage'
 
 const router =[
@@ -21,11 +21,11 @@ const router =[
     },
     {
         path: "/login",
-        element: Login
+        element: LoginPage
     },
     {
         path: "/register",
-        element: Register
+        element: RegisterPage
     },
     {
         path: "/checkout",

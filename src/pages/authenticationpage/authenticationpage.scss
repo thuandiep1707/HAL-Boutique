@@ -10,7 +10,7 @@
     background-color: white;
     height: 100vh;
     width: 100vw;
-    .title{
+    .title-login{
         background-color: black;
         width: 400px;
         border-top-left-radius: 12px;
@@ -61,7 +61,9 @@
             font-size: 16px;
             font-weight: 600;
             border: unset;
+            border-radius: 4px;
             outline: unset;
+            box-shadow: 3px 3px 3px 0 rgb(138, 138, 138);
         }
         .go-to-register{
             display: flex;
@@ -87,7 +89,68 @@
             }
         }
     }
+    .title-register{
+        background-color: black;
+        width: 770px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        text-align: center;
+        color: white;
+        line-height: 60px;
+        font-size: 26px;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
     .register{
-        min-height: 100vh;
+        width: 770px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 20px;
+        align-items: start;
+        border: 1px solid #000;
+        &_input{
+            display: flex;
+            gap: 10px;
+            &>div{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 360px;
+                &>label{
+                    font-size: 15px;
+                    margin: 10px 2px -5px;
+                }
+                &>input{
+                    width: 100%;
+                    height: 40px;
+                    border-radius: 4px;
+                    padding: 5px 10px;
+                }
+            }
+        }
+        &_term{
+            display: flex;
+            gap: 5px;
+            margin-left: 2px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .btn-register{
+            background-color: black;
+            width: 100%;
+            height: 40px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            border: unset;
+            outline: unset;
+            border-radius: 4px;
+            box-shadow: 3px 3px 3px 0 rgb(138, 138, 138);
+        }
+        .go-to-login{
+            margin: 5px auto;
+            font-size: 14px;
+        }
     }
 }

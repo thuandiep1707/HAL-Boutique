@@ -1355,7 +1355,7 @@ let accountList = [
     {
         "id": 1,
         "username": "user01",
-        "passwork": "user01",
+        "password": "user01",
         "email": "user01@gmail.com",
         "phoneNumber": "0111222333",
         "address": "Phường 6, quận Gò vấp, tp. Hồ Chí Minh",
@@ -1364,7 +1364,7 @@ let accountList = [
     {
         "id": 2,
         "username": "user02",
-        "passwork": "user02",
+        "password": "user02",
         "email": "user02@gmail.com",
         "phoneNumber": "0111222333",
         "address": "Phường 8, quận Tân Bình, tp. Hồ Chí Minh",
@@ -1372,8 +1372,8 @@ let accountList = [
     }
 ]
 
-function checkLogin (username, passwork){
-    console.log(`username: ${username}; passwork: ${passwork}`)
+function checkLogin (username, password){
+    // console.log(`username: ${username}; password: ${password}`)
     let checkIndex = accountList.findIndex(item => item.username === username)
     if (checkIndex === -1){
         return({
@@ -1381,17 +1381,25 @@ function checkLogin (username, passwork){
             message: 'Tên đăng nhập không tồn tại'
         })
     }
-    if (accountList[checkIndex].passwork !== passwork){
+    if (accountList[checkIndex].password !== password){
         return({
             state: false, 
             message: 'Sai mật khẩu'
         })
     }
     return({
-        data: {...accountList[checkIndex], passwork: ''},
+        data: {...accountList[checkIndex], password: ''},
         state: true,
         message: 'Đăng nhập thành công'
     })
 }
 
-export { menu, slideData, newProd, productAllCollection, hotProd, checkLogin }
+function register (data){
+    let check = accountList.findIndex(item => item.username === data.username) !== -1
+    if (check) return ({state: false, message: `Ttên đăng nhập "${data.username}" đã tồn tại!`})
+    accountList.push({...data, id: accountList.length + 1})
+    console.log(accountList)
+    return ({state: true, message: 'đăng kí thành công'})
+}
+
+export { menu, slideData, newProd, productAllCollection, hotProd, checkLogin, register }
