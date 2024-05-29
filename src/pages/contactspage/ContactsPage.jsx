@@ -2,6 +2,7 @@
 import './contactspage.scss'
 
 const ContactsPage = () => {
+    window.scrollTo({top: '0', behavior: 'smooth'})
     return (
         <main className="contactspage">
             <div className="infor">
