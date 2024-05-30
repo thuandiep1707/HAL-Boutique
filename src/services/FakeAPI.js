@@ -1488,4 +1488,12 @@ function register (data){
     return ({state: true, message: 'đăng kí thành công'})
 }
 
-export { menu, slideData, newProd, productAllCollection, hotProd, newsSlideList, promotionList, hotnewsList, checkLogin, register }
+function updateUserInfor (data){
+    accountList[Number(data.id) - 1] = {...data}
+    return({
+        state: true,
+        message: 'thay đổi thông tin thành công'
+    })
+}
+
+export { menu, slideData, newProd, productAllCollection, hotProd, newsSlideList, promotionList, hotnewsList, checkLogin, register, updateUserInfor }
