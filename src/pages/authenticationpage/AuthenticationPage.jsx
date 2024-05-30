@@ -10,14 +10,12 @@ import './authenticationpage.scss'
 const LoginPage = () => {
     const nav = useNavigate()
     const { userInfor, setUserInfor } = useContext(globalContext)
-    console.log(userInfor)
     const [loginData, setLoginData] = useState({
         username: "",
         password: "",
         remember: false,
         loading: false
     })
-    // console.log(loginData)
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoginData({...loginData, "loading": true})
@@ -80,7 +78,7 @@ const RegisterPage = () => {
         password: "",
         passwordAgain: "",
         email: "",
-        phone: "",
+        phoneNumber: "",
         address: "",
         term: false,
         loading: false
@@ -136,7 +134,7 @@ const RegisterPage = () => {
                         <label htmlFor="email">Email:</label>
                         <input type="email" name="email" id="email" placeholder="abc@gmail.com"required onChange={(e) => handlSetData('email', e.target.value)} />
                         <label htmlFor="phone">Số điện thoại:</label>
-                        <input type="tel" name="phone" id="phone" placeholder="0123456789" required pattern="[0-9]{10}" onChange={(e) => handlSetData('phone', e.target.value)} />
+                        <input type="tel" name="phone" id="phone" placeholder="0123456789" required pattern="[0-9]{10}" onChange={(e) => handlSetData('phoneNumber', e.target.value)} />
                         <label htmlFor="address">Address:</label>
                         <input type="text" name="address" id="address" placeholder="số 10, phường 10, quận 10, tp. Hồ Chí Minh" required onChange={(e) => handlSetData('address', e.target.value)} />
                     </div>
