@@ -47,7 +47,7 @@ const router =[
         element: Checkoutpage
     },
     {
-        path: "/user",
+        path: "/user/:feature",
         element: UserPage
     }
     
