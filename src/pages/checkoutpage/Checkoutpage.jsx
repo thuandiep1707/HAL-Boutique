@@ -18,7 +18,6 @@ const Checkoutpage = ()=>{
     const [reload, setReload] = useState(true)
     const [payMethod, setPayMethod] = useState({"method" : "offline", "service" : null})
     const [inforCheckout, setInforCheckout] = useState({...userInfor, password: ''})
-    console.log(inforCheckout)
     window.scrollTo({top : 0, behavior : "smooth"})
     useEffect(()=>{
         if (!userInfor?.state) nav('/login')
