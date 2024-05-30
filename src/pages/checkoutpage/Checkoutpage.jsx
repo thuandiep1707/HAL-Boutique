@@ -18,6 +18,7 @@ const Checkoutpage = ()=>{
     const [reload, setReload] = useState(true)
     const [payMethod, setPayMethod] = useState({"method" : "offline", "service" : null})
     const [inforCheckout, setInforCheckout] = useState({...userInfor, password: ''})
+    console.log(inforCheckout)
     window.scrollTo({top : 0, behavior : "smooth"})
     useEffect(()=>{
         if (!userInfor?.state) nav('/login')
@@ -93,9 +94,9 @@ const Checkoutpage = ()=>{
             <div className="infor-custommer">
                 <h2>THÔNG TIN GIAO HÀNG</h2>
                 <form className="custommer-form" onSubmit={(e)=>{handleSubmit(e)}}>
-                    <input required type="text" name="name" id="name" placeholder='Họ và tên' className='col12' defaultValue={inforCheckout?.username} onChange={(e) => handleSetInforCheckout('username', e.target.value)}/>
+                    <input required type="text" name="name" id="name" placeholder='Họ và tên' className='col12' defaultValue={inforCheckout?.name} onChange={(e) => handleSetInforCheckout('name', e.target.value)}/>
                     <input required type="email" name="email" id="email" placeholder='Email' defaultValue={inforCheckout?.email} onChange={(e) => handleSetInforCheckout('email', e.target.value)}/>
-                    <input required type="tel" name="tel" id="tel" placeholder='Số điện thoại' pattern='[0-9]{10}' defaultValue={inforCheckout?.phone} onChange={(e) => handleSetInforCheckout('phone', e.target.value)}/>
+                    <input required type="tel" name="tel" id="tel" placeholder='Số điện thoại' pattern='[0-9]{10}' defaultValue={inforCheckout?.phoneNumber} onChange={(e) => handleSetInforCheckout('phoneNumber', e.target.value)}/>
                     <input required type="text" name="address" id="address" placeholder='Địa chỉ' defaultValue={inforCheckout?.address} onChange={(e) => handleSetInforCheckout('address', e.target.value)}/>
                     <div className="pay-method col12">
                         <h3>PHƯƠNG THỨC THANH TOÁN</h3>
