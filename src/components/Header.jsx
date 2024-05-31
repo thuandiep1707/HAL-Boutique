@@ -70,7 +70,7 @@ const Header = ()=>{
                         userInfor?.state &&
                         <ul className="feature_personal_sel">
                             <li className="opt pointer" onClick={()=>goToPath('/user/profile')}>Thông tin cá nhân</li>
-                            <li className="opt pointer" onClick={()=>goToPath('/user/bill')}>Đơn mua</li>
+                            <li className="opt pointer" onClick={()=>goToPath('/user/order')}>Đơn mua</li>
                             <li className="opt pointer" onClick={()=>goToLogout()} >Đăng xuất</li>
                         </ul>
                     }

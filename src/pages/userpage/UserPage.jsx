@@ -27,6 +27,8 @@ const UserPage = ()=>{
         if (!userInfor?.state) nav('/login')
     })
 
+    const goToPath = (url)=>nav(url)
+
     const handleChangeUserData = (key, value) => {
         setUserData({...userData, [key]: value})
     }
@@ -43,21 +45,21 @@ const UserPage = ()=>{
                     <img src={userData?.avatar} alt="avt" className="sidebar_avt_img" />
                     <div className="sidebar_avt_username">
                         <p>{userData.username}</p>
-                        <p>Sửa hồ sơ</p>
+                        <p onClick={()=>goToPath('/user/profile')} >Sửa hồ sơ</p>
                     </div>
                 </div>
                 <nav className="sidebar_nav">
                     <ul>
-                        <li>Tài khoản của tôi</li>
+                        <li onClick={()=>goToPath('/user/profile')} >Tài khoản của tôi</li>
                         <ul className="sidebar_nav_list">
-                            <li>Hồ sơ</li>
+                            <li onClick={()=>goToPath('/user/profile')} >Hồ sơ</li>
                             <li>Ngân Hàng</li>
                             <li>Địa Chỉ</li>
                             <li>Đổi Mật Khẩu</li>
                             <li>Cài Đặt Thông Báo</li>
                             <li>Những  Thiết Lập Riêng Tư</li>
                         </ul>
-                        <li>Đơn Mua</li>
+                        <li onClick={()=>goToPath('/user/order')} >Đơn Mua</li>
                         <li>Thông báo</li>
                         <li>Kho Voucher</li>
                     </ul>
