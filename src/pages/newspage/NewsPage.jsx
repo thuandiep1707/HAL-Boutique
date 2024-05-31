@@ -8,17 +8,6 @@ import './newspageStyle/newspage.scss'
 const NewsPage = ()=>{
     const [changeSlide, setChangeSlide] = useState(true)
     const [dataSlide, setDataSlide] = useState(newsSlideList)
-    // clearTimeout(newsSlideTimeout)
-    // clearTimeout(newsSlideTimeout)
-    // setTimeout(()=>{
-    //     let data = dataSlide
-    //     data.push(data.shift())
-    //     console.log(data)
-    //     setDataSlide(data)
-    // },5000)
-    // useEffect(()=>{
-    //     setChangeSlide(!changeSlide)
-    // },[dataSlide])
     useEffect(()=>{
         window.scrollTo({top: 0, behavior: 'smooth'})
     },)

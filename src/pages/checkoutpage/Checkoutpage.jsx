@@ -59,7 +59,6 @@ const Checkoutpage = ()=>{
             oderList: cartData
         }
         let response = requestUpdateOderList(data)
-        console.table(response)
 
         // alert(payMethod.service == 'complete' ? 'Xác nhận thanh toán thành công! đơn hàng đã được tiếp nhận!' :'đơn hàng của bạn đã được tiếp nhận, vui lòng thành toán khi nhận hàng')
 

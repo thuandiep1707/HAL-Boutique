@@ -38,7 +38,7 @@ const UserPage = ()=>{
         let response = updateUserInfor(userData)
         alert(response.message)
     }
-    
+
     return(
         <main className="userpage">
             <aside className="sidebar">
@@ -88,7 +88,7 @@ const UserPage = ()=>{
                                 <input type="text" name="name" id="name" defaultValue={userData.name} onChange={(e)=>handleChangeUserData('name',e.target.value)} />
                                 <input type="email" name="email" id="email" defaultValue={userData.email}/>
                                 <input type="tel" name="phone" id="phone" defaultValue={userData.phoneNumber} required pattern="[0-9]{10}" onChange={(e)=>handleChangeUserData('phoneNumber',e.target.value)} />
-                                <input type="date" name="birthday" id="birthday" defaultValue={userData.birthday} onChange={(e)=>console.log(e.target.value)}/>
+                                <input type="date" name="birthday" id="birthday" defaultValue={userData.birthday} />
                                 <div className="sex-options">
                                     <input type="radio" name="sex" id="male" checked={userData.sex == "male" ? true : false}  onChange={()=>handleChangeUserData('sex', 'male')}/>
                                     <label htmlFor="male"> Nam </label>

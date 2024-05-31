@@ -103,7 +103,6 @@ const RegisterPage = () => {
             let requestData = {...regData}
             delete requestData.term
             delete requestData.loading
-            console.log(requestData)
             const response = register(requestData)
             alert(response.message)
             nav('/login')

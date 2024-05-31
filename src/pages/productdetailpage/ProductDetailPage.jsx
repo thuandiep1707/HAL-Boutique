@@ -57,7 +57,6 @@ const ProductDetailPage = ()=>{
             return null
         }
         let checkIndex = findIndex()
-        console.log(checkIndex)
         let countQuantity = [-1,null].includes(checkIndex) ? Number(quantity) : Number(quantity) + Number(cart[checkIndex].quantity)
         let count = countQuantity * Number(productDetail.price)
         let newProd = {
@@ -105,7 +104,7 @@ const ProductDetailPage = ()=>{
                             productDetail?.size.map((size, index)=>{
                                 return(
                                     <div key={index} style={{display: 'inline-block'}}>
-                                        <input id={'size'+index} name='size' type="radio" onChange={()=> {setProdSize(size); console.log(size)}} defaultChecked={size == 'S'}/>
+                                        <input id={'size'+index} name='size' type="radio" onChange={()=> {setProdSize(size)}} defaultChecked={size == 'S'}/>
                                         <label htmlFor={'size'+index} >{size}</label>
                                     </div>
                                 )

@@ -1552,7 +1552,6 @@ let OderList = [
 ]
 
 function checkLogin (username, password){
-    // console.log(`username: ${username}; password: ${password}`)
     let checkIndex = accountList.findIndex(item => item.username === username)
     if (checkIndex === -1){
         return({
@@ -1575,9 +1574,8 @@ function checkLogin (username, password){
 
 function register (data){
     let check = accountList.findIndex(item => item.username === data.username) !== -1
-    if (check) return ({state: false, message: `Ttên đăng nhập "${data.username}" đã tồn tại!`})
+    if (check) return ({state: false, message: `Tên đăng nhập "${data.username}" đã tồn tại!`})
     accountList.push({...data, id: accountList.length + 1})
-    console.log(accountList)
     return ({state: true, message: 'đăng kí thành công'})
 }
 
