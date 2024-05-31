@@ -9,6 +9,7 @@ import logoVnpay from '../../assets/imgs/common/logo-vnpay.png'
 import momo from '../../assets/imgs/common/momoQR.png'
 import bank from '../../assets/imgs/common/bankQR.png'
 import { globalContext } from '../../context/globalContext';
+import { requestUpdateOderList } from '../../services/FakeAPI';
 import './Checkoutpage.scss'
 
 const Checkoutpage = ()=>{
@@ -18,10 +19,13 @@ const Checkoutpage = ()=>{
     const [reload, setReload] = useState(true)
     const [payMethod, setPayMethod] = useState({"method" : "offline", "service" : null})
     const [inforCheckout, setInforCheckout] = useState({...userInfor, password: ''})
+    const [ totalBill, setTotalBill] = useState(0)
+
     window.scrollTo({top : 0, behavior : "smooth"})
     useEffect(()=>{
         if (!userInfor?.state) nav('/login')
         if (cartData == null) nav('/')
+        setTotalBill(cartData?.reduce((a, e)=>a+e.count,0))
     })
     const handlRemoveItem = (index) => {
         cartData.splice(index,1)
@@ -41,9 +45,27 @@ const Checkoutpage = ()=>{
             return
         }
 
-        alert(payMethod.service == 'complete' ? 'Xác nhận thanh toán thành công! đơn hàng đã được tiếp nhận!' :'đơn hàng của bạn đã được tiếp nhận, vui lòng thành toán khi nhận hàng')
-        localStorage.setItem("cart", null)
-        nav('/')
+        const date = new Date();
+        let day = date.getDay() / 10 < 1 ? '0' + date.getDay() : date.getDay();
+        let month = date.getMonth() / 10 < 1 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+        let oderDay = `${date.getFullYear()}-${month}-${day}`
+
+        let data = {
+            username: userInfor.username,
+            oderDay: oderDay,
+            deliveryDate: null,
+            oderStatus: 'pending',
+            totalOder: totalBill,
+            oderList: cartData
+        }
+        let response = requestUpdateOderList(data)
+        console.table(response)
+
+        // alert(payMethod.service == 'complete' ? 'Xác nhận thanh toán thành công! đơn hàng đã được tiếp nhận!' :'đơn hàng của bạn đã được tiếp nhận, vui lòng thành toán khi nhận hàng')
+
+
+        // localStorage.setItem("cart", null)
+        // nav('/')
     }
     const handleSetInforCheckout = (type,value)=>{
         setInforCheckout({...inforCheckout, [type] : value})
@@ -58,7 +80,7 @@ const Checkoutpage = ()=>{
                             return(
                                 <div className="card" key={index}>
                                     <div className="card-img">
-                                        <img src={data?.img[0]} alt="hal boutique" />
+                                        <img src={data?.img} alt="hal boutique" />
                                     </div>
                                     <div className="infor">
                                         <div className="title">
@@ -83,10 +105,10 @@ const Checkoutpage = ()=>{
                 </div>
                 <div className="pay">
                     <p className="total">
-                        Tổng tiền: <span>{cartData?.reduce((a,e)=>a+e.count,0).toLocaleString('it-IT', {style : 'currency', currency : 'VND'})}</span>
+                        Tổng tiền: <span>{totalBill.toLocaleString('it-IT', {style : 'currency', currency : 'VND'})}</span>
                     </p>
                     <div className="total">
-                        Tổng số lượng: <span>{cartData?.reduce((a, e)=>a+e.quantity,0)}</span>
+                        Tổng số lượng: <span>{cartData?.reduce((a,e)=>a+e.quantity,0)}</span>
                     </div>
                 </div>
             </div>

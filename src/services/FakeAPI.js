@@ -1375,7 +1375,7 @@ let accountList = [
         "password": "user01",
         "name": "Ngọ Văn Long",
         "sex": "male",
-        "birthday": "2000-01-01",
+        "birthday": "1880-01-01",
         "email": "user01@gmail.com",
         "phoneNumber": "0111222333",
         "address": "Phường 6, quận Gò vấp, tp. Hồ Chí Minh",
@@ -1387,7 +1387,7 @@ let accountList = [
         "password": "user02",
         "name": "Nguyễn Minh Thy",
         "sex": "female",
-        "birthday": "2000-01-01",
+        "birthday": "2000-01-03",
         "email": "user02@gmail.com",
         "phoneNumber": "0111222333",
         "address": "Phường 8, quận Tân Bình, tp. Hồ Chí Minh",
@@ -1458,6 +1458,99 @@ let hotnewsList = [
     },
 ]
 
+let OderList = [
+    {
+        id: 1,
+        username: 'user01',
+        oderDay: '2024-01-01',
+        deliveryDate: '2024-1-3',
+        oderStatus: 'complete',
+        totalOder: 1178000,
+        oderList: [
+            {
+                "id" : 8,
+                "category" : "chanvay",
+                "img": [prod83],
+                "title": "Chân váy ngắn dây chéo eo",
+                "price": 179000,
+                "size": "S",
+                "quantity": 1,
+                "count": 179000
+            },
+            {
+                "id" : 9,
+                "category" : "chanvay",
+                "img": [prod84],
+                "title": "Chân váy ngắn kaki họa tiết hoa",
+                "price": 149000,
+                "size": "XL",
+                "quantity": 1,
+                "count": 149000,
+            },
+            {
+                "id" : 10,
+                "category" : "chanvay",
+                "img": [prod85],
+                "title": "Chân váy ren xếp ly",
+                "price": 850000,
+                "size": "M",
+                "quantity": 1,
+                "count": 850000
+            }
+        ]
+    },
+    {
+        id: 2,
+        username: 'user01',
+        oderDay: '2024-01-01',
+        deliveryDate: '2024-1-3',
+        oderStatus: 'pending',
+        totalOder: 328000,
+        oderList: [
+            {
+                "id" : 8,
+                "category" : "chanvay",
+                "img": [prod83],
+                "title": "Chân váy ngắn dây chéo eo",
+                "price": 179000,
+                "size": "S",
+                "quantity": 1,
+                "count": 179000
+            },
+            {
+                "id" : 9,
+                "category" : "chanvay",
+                "img": [prod84],
+                "title": "Chân váy ngắn kaki họa tiết hoa",
+                "price": 149000,
+                "size": "XL",
+                "quantity": 1,
+                "count": 149000
+            }
+        ]
+    },
+    {
+        id: 3,
+        username: 'user01',
+        oderDay: '2024-01-01',
+        deliveryDate: '2024-1-3',
+        oderStatus: 'cancled',
+        totalOder: 850000,
+        oderList: [
+            {
+                "id" : 10,
+                "category" : "chanvay",
+                "img": [prod85],
+                "title": "Chân váy ren xếp ly",
+                "price": 850000,
+                "size": "M",
+                "quantity": 1,
+                "count": 850000
+            }
+        ]
+    }
+]
+
 function checkLogin (username, password){
     // console.log(`username: ${username}; password: ${password}`)
     let checkIndex = accountList.findIndex(item => item.username === username)
@@ -1496,4 +1589,13 @@ function updateUserInfor (data){
     })
 }
 
-export { menu, slideData, newProd, productAllCollection, hotProd, newsSlideList, promotionList, hotnewsList, checkLogin, register, updateUserInfor }
+function requestOrderList(username){
+    return OderList.filter(item => item.username === username)
+}
+
+function requestUpdateOderList(data){
+    OderList = [{...data, id: OderList.length + 1}, ...OderList]
+    return OderList
+}
+
+export { menu, slideData, newProd, productAllCollection, hotProd, newsSlideList, promotionList, hotnewsList, requestOrderList, requestUpdateOderList, checkLogin, register, updateUserInfor }

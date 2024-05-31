@@ -25,7 +25,7 @@ const ProductDetailPage = ()=>{
         "phukien" :  "Phụ kiện",
         "chanvay" : "Chân váy",
     }
-    let prodSize = 'S'
+    const [prodSize, setProdSize ] = useState('S')
     useEffect(()=>{
         const prodSuggest = prodList.slice(id,Number(id)+5)
         if (prodSuggest.length < 5){
@@ -49,14 +49,26 @@ const ProductDetailPage = ()=>{
     }
     const handleAddToCart = ()=>{
         let cart = JSON.parse(localStorage.getItem("cart"))
-        let checkIndex = cart && cart.findIndex((value)=>value.title === productDetail.title)
+        const findIndex = () => {
+            if (cart === null) return null
+            for ( let i in cart ){
+                if (cart[i].title === productDetail.title && cart[i].size === prodSize) return i
+            }
+            return null
+        }
+        let checkIndex = findIndex()
+        console.log(checkIndex)
         let countQuantity = [-1,null].includes(checkIndex) ? Number(quantity) : Number(quantity) + Number(cart[checkIndex].quantity)
         let count = countQuantity * Number(productDetail.price)
         let newProd = {
+            "id" : 10,
+            "category" : category,
+            "img": productDetail.img[0],
+            "title": productDetail.title,
+            "price": productDetail.price,
+            "size": prodSize,
             "quantity": countQuantity,
-            "count" : count,
-            ...productDetail,
-            "size" : prodSize,
+            "count": count
         }
         if (![-1,null].includes(checkIndex)) cart.splice(checkIndex,1)
         let newCart = cart ? [newProd,...cart] : [newProd]
@@ -93,7 +105,7 @@ const ProductDetailPage = ()=>{
                             productDetail?.size.map((size, index)=>{
                                 return(
                                     <div key={index} style={{display: 'inline-block'}}>
-                                        <input id={'size'+index} name='size' type="radio" onClick={()=> prodSize = size} defaultChecked={size == 'S'}/>
+                                        <input id={'size'+index} name='size' type="radio" onChange={()=> {setProdSize(size); console.log(size)}} defaultChecked={size == 'S'}/>
                                         <label htmlFor={'size'+index} >{size}</label>
                                     </div>
                                 )

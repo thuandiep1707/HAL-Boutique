@@ -38,6 +38,7 @@ const UserPage = ()=>{
         let response = updateUserInfor(userData)
         alert(response.message)
     }
+    
     return(
         <main className="userpage">
             <aside className="sidebar">

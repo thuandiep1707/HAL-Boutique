@@ -29,7 +29,7 @@ const Cart = ({ setCartControl })=>{
                                 return(
                                     <div className="card" key={index}>
                                         <div className="card-img">
-                                            <img src={data.img[0]} alt="hal boutique" />
+                                            <img src={data.img} alt="hal boutique" />
                                         </div>
                                         <div className="infor">
                                             <div className="title">
