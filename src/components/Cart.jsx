@@ -56,7 +56,7 @@ const Cart = ({ setCartControl })=>{
                         <p className="total">
                             Tổng tiền: <span>{cartData.reduce((a,e)=>a+e.count,0).toLocaleString('it-IT', {style : 'currency', currency : 'VND'})}</span>
                         </p>
-                        <div className="btn pointer unselect" onClick={() => nav('/checkout')}>Mua hàng</div>
+                        <div className="btn pointer unselect" onClick={() => {setCartControl(false); nav('/checkout')}}>Mua hàng</div>
                     </div>
                 </div>
             }
