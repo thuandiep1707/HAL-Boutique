@@ -1466,6 +1466,7 @@ let OderList = [
         deliveryDate: '2024-1-3',
         oderStatus: 'complete',
         totalOder: 1178000,
+        checkout: 'online',
         oderList: [
             {
                 "id" : 8,
@@ -1506,6 +1507,7 @@ let OderList = [
         deliveryDate: '2024-1-3',
         oderStatus: 'pending',
         totalOder: 328000,
+        checkout: 'online', 
         oderList: [
             {
                 "id" : 8,
@@ -1536,6 +1538,7 @@ let OderList = [
         deliveryDate: '2024-1-3',
         oderStatus: 'cancled',
         totalOder: 850000,
+        checkout: 'offline',
         oderList: [
             {
                 "id" : 10,
@@ -1593,7 +1596,13 @@ function requestOrderList(username){
 
 function requestUpdateOderList(data){
     OderList = [{...data, id: OderList.length + 1}, ...OderList]
-    return OderList
+    return({
+        state: true,
+        message: data.checkout === 'offline' ?
+        'Đặt hàng thành công, đơn hàng quý khách sẽ được giao trong thời gian sớm nhất, vui lòng thanh toán khi nhận hàng'
+        :
+        'Xác nhận thanh toán! Đơn hàng sẽ được giao trong thời gian sớm nhất'
+    })
 }
 
 export { menu, slideData, newProd, productAllCollection, hotProd, newsSlideList, promotionList, hotnewsList, requestOrderList, requestUpdateOderList, checkLogin, register, updateUserInfor }

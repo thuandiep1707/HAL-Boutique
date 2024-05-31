@@ -56,15 +56,13 @@ const Checkoutpage = ()=>{
             deliveryDate: null,
             oderStatus: 'pending',
             totalOder: totalBill,
-            oderList: cartData
+            oderList: cartData,
+            checkout: payMethod.method
         }
         let response = requestUpdateOderList(data)
-
-        // alert(payMethod.service == 'complete' ? 'Xác nhận thanh toán thành công! đơn hàng đã được tiếp nhận!' :'đơn hàng của bạn đã được tiếp nhận, vui lòng thành toán khi nhận hàng')
-
-
-        // localStorage.setItem("cart", null)
-        // nav('/')
+        alert(response.message)
+        localStorage.removeItem("cart")
+        nav('/')
     }
     const handleSetInforCheckout = (type,value)=>{
         setInforCheckout({...inforCheckout, [type] : value})
