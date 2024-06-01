@@ -3,7 +3,7 @@ import { useState, useContext, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { globalContext } from '../../context/globalContext'
-import { updateUserInfor } from '../../services/FakeAPI'
+import { updateUserInfor, requestOrderList } from '../../services/FakeAPI'
 import './userpage.scss'
 
 const UserPage = ()=>{
@@ -11,6 +11,7 @@ const UserPage = ()=>{
     const {feature} = useParams()
     const { userInfor, setUserInfor } = useContext(globalContext)
     const [ board, setBoard ] = useState()
+    const [orderList, setOrderList] = useState(requestOrderList(userInfor?.username))
     const [ userData, setUserData ] = useState({
         "id": userInfor?.id,
         "username": userInfor?.username,
@@ -26,7 +27,7 @@ const UserPage = ()=>{
         window.scrollTo({top: '0', behavior: 'smooth'})
         if (!userInfor?.state) nav('/login')
     })
-
+    console.log(orderList)
     const goToPath = (url)=>nav(url)
 
     const handleChangeUserData = (key, value) => {
@@ -106,6 +107,23 @@ const UserPage = ()=>{
                                 <p>Dung lượng file tối đa 1MB <br /> Định dạng: JPEG, PNG</p>
                             </div>
                         </form>
+                    </div>
+                }
+                {
+                    board === 'order' &&
+                    <div className="order-list">
+                        <p>Danh sách đơn mua</p>
+                        <div className="order-list_list">
+                            {
+                                orderList?.map((order, index) => {
+                                    return (
+                                        <div className="order-list_item" key={index}>
+                                            <div className="item-order">{order.username}</div>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
                     </div>
                 }
             </section>
