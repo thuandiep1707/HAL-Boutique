@@ -1471,7 +1471,7 @@ let OderList = [
             {
                 "id" : 8,
                 "category" : "chanvay",
-                "img": [prod83],
+                "img": prod83,
                 "title": "Chân váy ngắn dây chéo eo",
                 "price": 179000,
                 "size": "S",
@@ -1480,7 +1480,7 @@ let OderList = [
             {
                 "id" : 9,
                 "category" : "chanvay",
-                "img": [prod84],
+                "img": prod84,
                 "title": "Chân váy ngắn kaki họa tiết hoa",
                 "price": 149000,
                 "size": "XL",
@@ -1489,7 +1489,7 @@ let OderList = [
             {
                 "id" : 10,
                 "category" : "chanvay",
-                "img": [prod85],
+                "img": prod85,
                 "title": "Chân váy ren xếp ly",
                 "price": 850000,
                 "size": "M",
@@ -1509,7 +1509,7 @@ let OderList = [
             {
                 "id" : 8,
                 "category" : "chanvay",
-                "img": [prod83],
+                "img": prod83,
                 "title": "Chân váy ngắn dây chéo eo",
                 "price": 179000,
                 "size": "S",
@@ -1518,7 +1518,7 @@ let OderList = [
             {
                 "id" : 9,
                 "category" : "chanvay",
-                "img": [prod84],
+                "img": prod84,
                 "title": "Chân váy ngắn kaki họa tiết hoa",
                 "price": 149000,
                 "size": "XL",
@@ -1538,7 +1538,7 @@ let OderList = [
             {
                 "id" : 10,
                 "category" : "chanvay",
-                "img": [prod85],
+                "img": prod85,
                 "title": "Chân váy ren xếp ly",
                 "price": 850000,
                 "size": "M",

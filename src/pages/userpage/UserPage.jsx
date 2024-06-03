@@ -145,7 +145,7 @@ const UserPage = ()=>{
                                                     order.oderList.map((item, index) => {
                                                         return(
                                                             <div className='item'>
-                                                                <img src={item.img[0]} className='pointer' alt="item" onClick={()=> goToPath(`/productdetail/${item.category}/${item.id}`)}/>
+                                                                <img src={item.img} className='pointer' alt="item" onClick={()=> goToPath(`/productdetail/${item.category}/${item.id}`)}/>
                                                                 <p className="infor">
                                                                     <span>{item.title}</span>
                                                                     <span>Size: {item.size}</span>
