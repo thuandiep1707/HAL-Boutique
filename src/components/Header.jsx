@@ -37,7 +37,7 @@ const Header = ()=>{
                 <Link to='/' className="nav-t1 pointer">Trang chủ</Link>
                 <Link to='/shop/all' className="nav-t1 hover-handle-nav-t2 pointer">Sản phẩm</Link>
                 <Link to='/news' className="nav-t1 pointer">Tin tức</Link>
-                <Link to='/address' className="nav-t1 pointer">Cửa hàng</Link>
+                {/* <Link to='/address' className="nav-t1 pointer">Cửa hàng</Link> */}
                 <Link to='/contacts' className="nav-t1 pointer">Liên hệ</Link>
                 <div className="nav-t2">
                     <div className="nav-list">
