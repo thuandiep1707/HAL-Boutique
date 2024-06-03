@@ -1,7 +1,9 @@
 
 import './contactspage.scss'
+import { useNavigate } from 'react-router-dom'
 
 const ContactsPage = () => {
+    const nav = useNavigate()
     window.scrollTo({top: '0', behavior: 'smooth'})
     return (
         <main className="contactspage">
@@ -47,7 +49,7 @@ const ContactsPage = () => {
                 </p>
                 <p>
                     <b>Danh sách cửa hàng: </b>
-                    <a href="/address">Hệ thống cửa hàng Hal - Boutique trên toàn quốc</a>
+                    <u onClick={()=> nav('/address')}>Hệ thống cửa hàng Hal - Boutique trên toàn quốc</u>
                 </p>
             </div>
         </main>
