@@ -1476,7 +1476,6 @@ let OderList = [
                 "price": 179000,
                 "size": "S",
                 "quantity": 1,
-                "count": 179000
             },
             {
                 "id" : 9,
@@ -1486,7 +1485,6 @@ let OderList = [
                 "price": 149000,
                 "size": "XL",
                 "quantity": 1,
-                "count": 149000,
             },
             {
                 "id" : 10,
@@ -1496,7 +1494,6 @@ let OderList = [
                 "price": 850000,
                 "size": "M",
                 "quantity": 1,
-                "count": 850000
             }
         ]
     },
@@ -1517,7 +1514,6 @@ let OderList = [
                 "price": 179000,
                 "size": "S",
                 "quantity": 1,
-                "count": 179000
             },
             {
                 "id" : 9,
@@ -1527,7 +1523,6 @@ let OderList = [
                 "price": 149000,
                 "size": "XL",
                 "quantity": 1,
-                "count": 149000
             }
         ]
     },
@@ -1548,7 +1543,6 @@ let OderList = [
                 "price": 850000,
                 "size": "M",
                 "quantity": 1,
-                "count": 850000
             }
         ]
     }

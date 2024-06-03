@@ -111,14 +111,67 @@ const UserPage = ()=>{
                 }
                 {
                     board === 'order' &&
-                    <div className="order-list">
-                        <p>Danh sách đơn mua</p>
-                        <div className="order-list_list">
+                    <div className="order">
+                        <p className="order_title">Danh sách đơn mua</p>
+                        <div className="order_list">
                             {
                                 orderList?.map((order, index) => {
                                     return (
-                                        <div className="order-list_item" key={index}>
-                                            <div className="item-order">{order.username}</div>
+                                        <div className="order_list_item" key={index}>
+                                            <div className="order_list_item_header">
+                                                <div></div>
+                                                {
+                                                    order.oderStatus === "complete" &&
+                                                    <p>
+                                                        <span className='state'> Giao hàng thành công </span>
+                                                        <span className='oder-status'> Hoàn Thành </span>
+                                                    </p>
+                                                }
+                                                {
+                                                    order.oderStatus === "pending" &&
+                                                    <p>
+                                                        <span className='pending'> Đang xử lý </span>
+                                                    </p>
+                                                }
+                                                {
+                                                    order.oderStatus === "cancled" &&
+                                                    <p>
+                                                        <span className='cancled'> Đơn hàng đã bị huỷ </span>
+                                                    </p>
+                                                }
+                                            </div>
+                                            <div className="order_list_item_list">
+                                                {
+                                                    order.oderList.map((item, index) => {
+                                                        return(
+                                                            <div className='item'>
+                                                                <img src={item.img[0]} className='pointer' alt="item" onClick={()=> goToPath(`/productdetail/${item.category}/${item.id}`)}/>
+                                                                <p className="infor">
+                                                                    <span>{item.title}</span>
+                                                                    <span>Size: {item.size}</span>
+                                                                    <span>Số lượng: x{item.quantity}</span>
+                                                                    <span className='free'>Trả hàng miễn phí 15 ngày</span>
+                                                                </p>
+                                                                <p className='price'>{item.price.toLocaleString('it-IT', {style :"currency", currency : "VND"})}</p>
+                                                            </div>
+                                                        )
+                                                    })
+                                                }
+                                            </div>
+                                            <div className="order_list_item_footer">
+                                                <p>
+                                                    Thành tiền: { order.totalOder.toLocaleString('it-IT', {style :"currency", currency : "VND"})}
+                                                </p>
+                                                <div className="footer-btn">
+                                                    {
+                                                        order.oderStatus !== "pending" && <div className="btn bg-black" onClick={()=>handleReBuy()}>Mua lại</div>
+                                                    }
+                                                    {
+                                                        order.oderStatus === "pending" && <div className="btn bg-black">Hủy đơn</div>
+                                                    }
+                                                    <div className="btn" onClick={()=> goToPath('/contacts')}>Liên hệ người bán</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     )
                                 })
