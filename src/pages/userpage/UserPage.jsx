@@ -3,7 +3,7 @@ import { useState, useContext, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { globalContext } from '../../context/globalContext'
-import { updateUserInfor, requestOrderList } from '../../services/FakeAPI'
+import { updateUser, getOrderList } from '../../services/controller/user.controller'
 import './userpage.scss'
 
 const UserPage = ()=>{
@@ -11,7 +11,7 @@ const UserPage = ()=>{
     const {feature} = useParams()
     const { userInfor, setUserInfor } = useContext(globalContext)
     const [ board, setBoard ] = useState()
-    const [orderList, setOrderList] = useState(requestOrderList(userInfor?.username))
+    const [orderList, setOrderList] = useState(getOrderList(userInfor?.username))
     const [ userData, setUserData ] = useState({
         "id": userInfor?.id,
         "username": userInfor?.username,
@@ -36,7 +36,7 @@ const UserPage = ()=>{
 
     const handleSaveInfor = (e)=>{
         e.preventDefault()
-        let response = updateUserInfor(userData)
+        let response = updateUser(userData)
         alert(response.message)
     }
 
@@ -144,7 +144,7 @@ const UserPage = ()=>{
                                                 {
                                                     order.oderList.map((item, index) => {
                                                         return(
-                                                            <div className='item'>
+                                                            <div className='item' key={index}>
                                                                 <img src={item.img} className='pointer' alt="item" onClick={()=> goToPath(`/productdetail/${item.category}/${item.id}`)}/>
                                                                 <p className="infor">
                                                                     <span>{item.title}</span>

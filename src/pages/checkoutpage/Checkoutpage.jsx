@@ -9,7 +9,7 @@ import logoVnpay from '../../assets/imgs/common/logo-vnpay.png'
 import momo from '../../assets/imgs/common/momoQR.png'
 import bank from '../../assets/imgs/common/bankQR.png'
 import { globalContext } from '../../context/globalContext';
-import { requestUpdateOderList } from '../../services/FakeAPI';
+import { addNewOder } from '../../services/controller/user.controller';
 import './Checkoutpage.scss'
 
 const Checkoutpage = ()=>{
@@ -51,7 +51,6 @@ const Checkoutpage = ()=>{
         let oderDay = `${date.getFullYear()}-${month}-${day}`
 
         let data = {
-            username: userInfor.username,
             oderDay: oderDay,
             deliveryDate: null,
             oderStatus: 'pending',
@@ -59,7 +58,7 @@ const Checkoutpage = ()=>{
             oderList: cartData,
             checkout: payMethod.method
         }
-        let response = requestUpdateOderList(data)
+        let response = addNewOder(data, userInfor.username)
         alert(response.message)
         localStorage.removeItem("cart")
         nav('/')
@@ -135,7 +134,7 @@ const Checkoutpage = ()=>{
                         </div>
                     </div>
                     <div className="btn-checkout col12 unselect">
-                        <div className="btn pointer">Trở về trang chủ</div>
+                        <div className="btn pointer" onClick={()=>nav('/')}>Trở về trang chủ</div>
                         <button className="btn pointer">Xác nhận đặt hàng</button>
                     </div>
                 </form>

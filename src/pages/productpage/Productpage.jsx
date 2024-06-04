@@ -2,14 +2,14 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 import Productcard from '../../components/ProductCard'
-import { productAllCollection } from '../../services/FakeAPI'
+import { getProducts } from '../../services/controller/product.controller'
 import './productpage.scss'
 
 const Shoppage = ()=>{
     const { category } = useParams()
-    const [productList, setProductList] = useState(productAllCollection[category])
+    const [productList, setProductList] = useState()
     useEffect(()=>{
-        setProductList(productAllCollection[category])
+        setProductList(getProducts(category))
         scrollTo({top: 0, behavior: 'smooth'})
     },[category])
     const categoryPath = {
@@ -56,12 +56,12 @@ const Shoppage = ()=>{
             </section>
             <section className="shoppage_product-list">
                 {
-                    productList.map((prod, index)=>{
-                        return(<Productcard data={prod} category={category} key={`prod${index}` } />)
+                    productList?.map((prod, index)=>{
+                        return(<Productcard data={prod} key={`prod${index}` } />)
                     })
                 }
             </section>
-        </main>
+        </main> 
     )
 }
 

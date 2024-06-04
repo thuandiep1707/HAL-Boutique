@@ -1,9 +1,11 @@
 
-import { newProd } from '../../services/FakeAPI.js'
+import { newProducts } from '../../services/controller/product.controller.js'
 import Productcard from '../../components/ProductCard.jsx'
+import newbanner from '../../assets/imgs/home/newbanner.png'
 import './homepageStyle/NewProductList.scss'
 
 const NewProductList = ()=>{
+    const newProd = newProducts()
     return(
         <section className="new-prod">
             <h2 className="section-title">Sản phẩm mới trong tháng</h2>
@@ -22,11 +24,11 @@ function NewProdOfTyle({value}){
     return(
         <div className="prod-of-type">
             <div className="banner">
-                <img src={value.banner} alt="hal boutique" />
+                <img src={newbanner} alt="hal boutique" />
             </div>
             <div className="list">
                 {
-                    value.list.map((prod, index) => {return <Productcard data={prod} key={`new${index}`}/>})
+                    value.map((prod, index) => {return <Productcard data={prod} key={`new${index}`}/>})
                 }
             </div>
         </div>

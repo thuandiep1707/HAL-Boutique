@@ -2,7 +2,7 @@
 import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-import { checkLogin, register } from "../../services/FakeAPI";
+import { login, register } from "../../services/controller/user.controller";
 import { globalContext } from "../../context/globalContext";
 
 import './authenticationpage.scss'
@@ -20,7 +20,7 @@ const LoginPage = () => {
         e.preventDefault();
         setLoginData({...loginData, "loading": true})
         setTimeout(()=>{
-            let response = checkLogin(loginData.username, loginData.password)
+            let response = login(loginData.username, loginData.password)
             alert(response.message)
             if (response.state) {
                 setUserInfor({...userInfor, ...response.data, state: true})

@@ -1,10 +1,10 @@
 
 import Productcard from '../../components/ProductCard';
-import { hotProd } from '../../services/FakeAPI'
+import { hotProducts } from '../../services/controller/product.controller'
 import './homepageStyle/HotProducts.scss'
 
 const HotProducts = () => {
-
+    const hotProd = hotProducts()
     return(
         <section className="hotproducts">
             <h2 className="section-title">Sản phẩm nổi bật</h2>

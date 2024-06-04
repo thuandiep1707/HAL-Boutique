@@ -3,20 +3,21 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
 import ProductCard from '../../components/ProductCard'
-import { productAllCollection,hotProd } from '../../services/FakeAPI'
+import { productSugggest, productDetail } from '../../services/controller/product.controller'
 import cartIcon from '../../assets/imgs/common/cart-icon.png' 
 import greenStar from '../../assets/imgs/common/green-star.png' 
 import returnIcon from '../../assets/imgs/common/return-icon.png' 
 import shipIcon from '../../assets/imgs/common/ship-icon.png' 
 import './productdetailpage.scss'
 
-const ProductDetailPage = ()=>{
+const prodDataPage = ()=>{
     const nav = useNavigate()
     const { category, id } = useParams()
-    const prodList = [...productAllCollection[category]]
-    const [productDetail, setProductDetail] = useState(prodList[id-1])
-    const [prodSuggest, setProdSugget] = useState([])
+    const [prodData, setprodData] = useState()
+    const [prodSuggest, setProdSugget] = useState()
+    const [prodViewed, setProdViewed] = useState()
     const [quantity, setQuantity] = useState(1)
+    const [prodSize, setProdSize ] = useState('S')
     const categoryPath = {
         "all" : "Tất cả sản phẩm",
         "dam" : "Đầm",
@@ -25,23 +26,35 @@ const ProductDetailPage = ()=>{
         "phukien" :  "Phụ kiện",
         "chanvay" : "Chân váy",
     }
-    const [prodSize, setProdSize ] = useState('S')
     useEffect(()=>{
-        const prodSuggest = prodList.slice(id,Number(id)+5)
-        if (prodSuggest.length < 5){
-            let lenght = 5 - prodSuggest.length
-            for (let i = 0; i < lenght; i++){
-                prodSuggest.push(prodList[i])
-            }
-        }
-        setProductDetail(prodList[id-1])
-        setQuantity(1)
-        setProdSugget(prodSuggest)
         window.scrollTo({top : 0, behavior : 'smooth'})
-    },[category,id])  
+        let productViewed = JSON.parse(sessionStorage.getItem("productViewed"))
+        let productData = productDetail(Number(id))
+        let productSuggest = productSugggest(category, id)
+        productViewed = productViewed && productViewed?.length > 5 ? productViewed.slice(0,5) : productViewed 
+
+        setProdSugget(productSuggest)
+        setprodData(productData)
+        setQuantity(1)
+        setProdSize('S')
+        setProdViewed(productViewed)
+
+
+        const findIndex = () => {
+            if (!productViewed || !productViewed[0]) return null
+            for ( let i in productViewed ){
+                if (productViewed[i].title === productData.title) return i
+            }
+            return null
+        }
+        // console.log("findIndex",findIndex())
+        if (findIndex() !== null) productViewed.splice(findIndex(),1)
+        productViewed = productViewed ? [productData,...productViewed] : [productData]
+        sessionStorage.setItem("productViewed", JSON.stringify(productViewed))
+    },[id])  
     const handleChangeQuantity = (num)=>{
         let newQuantity = num + quantity
-        if(newQuantity <= 0 || newQuantity > productDetail.warehouse){
+        if(newQuantity <= 0 || newQuantity > prodData.warehouse){
             alert("Số lượng không hợp lệ")
             return
         }
@@ -52,19 +65,19 @@ const ProductDetailPage = ()=>{
         const findIndex = () => {
             if (cart === null) return null
             for ( let i in cart ){
-                if (cart[i].title === productDetail.title && cart[i].size === prodSize) return i
+                if (cart[i].title === prodData.title && cart[i].size === prodSize) return i
             }
             return null
         }
         let checkIndex = findIndex()
         let countQuantity = [-1,null].includes(checkIndex) ? Number(quantity) : Number(quantity) + Number(cart[checkIndex].quantity)
-        let count = countQuantity * Number(productDetail.price)
+        let count = countQuantity * Number(prodData.price)
         let newProd = {
             "id" : 10,
             "category" : category,
-            "img": productDetail.img[0],
-            "title": productDetail.title,
-            "price": productDetail.price,
+            "img": prodData.img[0],
+            "title": prodData.title,
+            "price": prodData.price,
             "size": prodSize,
             "quantity": countQuantity,
             "count": count
@@ -81,27 +94,27 @@ const ProductDetailPage = ()=>{
     return(
         <main className="productpage">
             <section className="productpage_path">
-                <p>{`Trang chủ / Sản phẩm / ${categoryPath[category]} / ${productDetail?.title}`}</p>
+                <p>{`Trang chủ / Sản phẩm / ${categoryPath[category]} / ${prodData?.title}`}</p>
             </section>
             <section className="productpage_prod-detail">
                 <div className="prod-img unselect">
                     <div className="img-list">
-                        <img src={productDetail?.img} alt="hal boutique" />
-                        <img src={productDetail?.img} alt="hal boutique" />
-                        <img src={productDetail?.img} alt="hal boutique" />
+                        <img src={prodData?.img} alt="hal boutique" />
+                        <img src={prodData?.img} alt="hal boutique" />
+                        <img src={prodData?.img} alt="hal boutique" />
                     </div>
                     <div className="main-img">
-                        <img src={productDetail?.img} alt="hal boutique"/>
+                        <img src={prodData?.img} alt="hal boutique"/>
                     </div>
                 </div>
                 <div className="prod-infor">
-                    <h3 className='title'>{productDetail?.title}</h3>
+                    <h3 className='title'>{prodData?.title}</h3>
                     <h4 className='id'>Mã sản phẩm: {category+id}</h4>
-                    <p className="price">{productDetail?.price.toLocaleString('it-IT', {style : "currency", currency : "VND"})}</p>
+                    <p className="price">{prodData?.price.toLocaleString('it-IT', {style : "currency", currency : "VND"})}</p>
                     <div className="size unselect">
                         <p>Chọn size: </p>
                         {
-                            productDetail?.size.map((size, index)=>{
+                            prodData?.size.map((size, index)=>{
                                 return(
                                     <div key={index} style={{display: 'inline-block'}}>
                                         <input id={'size'+index} name='size' type="radio" onChange={()=> {setProdSize(size)}} defaultChecked={size == 'S'}/>
@@ -111,7 +124,7 @@ const ProductDetailPage = ()=>{
                             })
                         }
                     </div>
-                    <p className="warehouse unselect">Số lượng trong kho: <b>{productDetail?.warehouse}</b></p>
+                    <p className="warehouse unselect">Số lượng trong kho: <b>{prodData?.warehouse}</b></p>
                     <div className="set-quantity-cart unselect">
                         <p className="setquantity">
                             <span className='btn pointer' onClick={()=>handleChangeQuantity(-1)}> - </span>
@@ -168,7 +181,7 @@ const ProductDetailPage = ()=>{
                 <h3 className="title">Sản phẩm vừa xem</h3>
                 <div className="list">
                     {
-                        prodSuggest?.map((prod, index)=><ProductCard data={prod} category={category} key={`prod${index}`}/>)
+                        prodViewed?.map((prod, index)=><ProductCard data={prod} category={category} key={`prod${index}`}/>)
                     }
                 </div>
             </section>
@@ -176,4 +189,4 @@ const ProductDetailPage = ()=>{
     )
 }
 
-export default ProductDetailPage;
+export default prodDataPage;
