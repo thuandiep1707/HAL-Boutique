@@ -49,11 +49,7 @@ const ContactsPage = () => {
                 </p>
                 <p>
                     <b>Danh sách cửa hàng: </b>
-<<<<<<< HEAD
                     <u onClick={()=> nav('/address')} className='pointer'>Hệ thống cửa hàng Hal - Boutique trên toàn quốc</u>
-=======
-                    <u className="pointer" onClick={()=> nav('/address')}>Hệ thống cửa hàng Hal - Boutique trên toàn quốc</u>
->>>>>>> 46fe0dfe396cc6b643cf156ccd498978218301ff
                 </p>
             </div>
         </main>
