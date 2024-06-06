@@ -30,7 +30,7 @@ function newProducts (){
 function getProducts (category){
     let newlist = [...products]
     if (category == 'all') return newlist.splice(0, 25)
-        return newlist.filter(product => product.category === category)
+    return newlist.filter(product => product.category === category)
 }
 
 function productDetail (id){
