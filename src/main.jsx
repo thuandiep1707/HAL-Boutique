@@ -8,7 +8,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 
 import { GlobalProvider } from './context/globalContext'
-import { router } from './until/Router'
+import { router } from './utils/Router'
 import './assets/g-style/main.scss'
 
 ReactDOM.createRoot(document.getElementById('root')).render(

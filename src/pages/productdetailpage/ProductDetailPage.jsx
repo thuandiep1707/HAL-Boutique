@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
 import ProductCard from '../../components/ProductCard'
-import { productSugggest, productDetail } from '../../services/controller/product.controller'
+import { productDetail, suggestListProduct } from '../../services/products.api'
 import cartIcon from '../../assets/imgs/common/cart-icon.png' 
 import greenStar from '../../assets/imgs/common/green-star.png' 
 import returnIcon from '../../assets/imgs/common/return-icon.png' 
@@ -13,44 +13,23 @@ import './productdetailpage.scss'
 const prodDataPage = ()=>{
     const nav = useNavigate()
     const { category, id } = useParams()
-    const [prodData, setprodData] = useState()
-    const [prodSuggest, setProdSugget] = useState()
-    const [prodViewed, setProdViewed] = useState()
+    const [data, setData] = useState(null)
     const [quantity, setQuantity] = useState(1)
     const [prodSize, setProdSize ] = useState('S')
-    const categoryPath = {
-        "all" : "Tất cả sản phẩm",
-        "dam" : "Đầm",
-        "quan" : "Quần",
-        "ao" : "Áo",
-        "phukien" :  "Phụ kiện",
-        "chanvay" : "Chân váy",
-    }
     useEffect(()=>{
         window.scrollTo({top : 0, behavior : 'smooth'})
-        let productViewed = JSON.parse(sessionStorage.getItem("productViewed"))
-        let productData = productDetail(Number(id))
-        let productSuggest = productSugggest(category, id)
-        productViewed = productViewed && productViewed?.length > 5 ? productViewed.slice(0,5) : productViewed 
-
-        setProdSugget(productSuggest)
-        setprodData(productData)
+        setData()
+        console.log(data)
+        async function getData(category, id){
+            console.log("check")
+            let prodData = await productDetail(id)
+            let prodSuggest = await suggestListProduct(category, id)
+            let newData = {prodData: prodData, prodSuggest: prodSuggest}
+            setData(newData)
+        }
+        getData(category, id)
         setQuantity(1)
         setProdSize('S')
-        setProdViewed(productViewed)
-
-
-        const findIndex = () => {
-            if (!productViewed || !productViewed[0]) return null
-            for ( let i in productViewed ){
-                if (productViewed[i].title === productData.title) return i
-            }
-            return null
-        }
-        // console.log("findIndex",findIndex())
-        if (findIndex() !== null) productViewed.splice(findIndex(),1)
-        productViewed = productViewed ? [productData,...productViewed] : [productData]
-        sessionStorage.setItem("productViewed", JSON.stringify(productViewed))
     },[id])  
     const handleChangeQuantity = (num)=>{
         let newQuantity = num + quantity
@@ -94,27 +73,27 @@ const prodDataPage = ()=>{
     return(
         <main className="productpage">
             <section className="productpage_path">
-                <p>{`Trang chủ / Sản phẩm / ${categoryPath[category]} / ${prodData?.title}`}</p>
+                <p>{`Trang chủ / Sản phẩm / ${data?.prodData?.title}`}</p>
             </section>
             <section className="productpage_prod-detail">
                 <div className="prod-img unselect">
                     <div className="img-list">
-                        <img src={prodData?.img} alt="hal boutique" />
-                        <img src={prodData?.img} alt="hal boutique" />
-                        <img src={prodData?.img} alt="hal boutique" />
+                        <img src={data?.prodData?.img} alt="hal boutique" />
+                        <img src={data?.prodData?.img} alt="hal boutique" />
+                        <img src={data?.prodData?.img} alt="hal boutique" />
                     </div>
                     <div className="main-img">
-                        <img src={prodData?.img} alt="hal boutique"/>
+                        <img src={data?.prodData?.img} alt="hal boutique"/>
                     </div>
                 </div>
                 <div className="prod-infor">
-                    <h3 className='title'>{prodData?.title}</h3>
-                    <h4 className='id'>Mã sản phẩm: {category+id}</h4>
-                    <p className="price">{prodData?.price.toLocaleString('it-IT', {style : "currency", currency : "VND"})}</p>
+                    <h3 className='title'>{data?.prodData?.title}</h3>
+                    <h4 className='id'>Mã sản phẩm: {id}</h4>
+                    <p className="price">{data?.prodData?.price?.toLocaleString('it-IT', {style : "currency", currency : "VND"})}</p>
                     <div className="size unselect">
                         <p>Chọn size: </p>
                         {
-                            prodData?.size.map((size, index)=>{
+                            data?.prodData?.size?.map((size, index)=>{
                                 return(
                                     <div key={index} style={{display: 'inline-block'}}>
                                         <input id={'size'+index} name='size' type="radio" onChange={()=> {setProdSize(size)}} defaultChecked={size == 'S'}/>
@@ -124,7 +103,7 @@ const prodDataPage = ()=>{
                             })
                         }
                     </div>
-                    <p className="warehouse unselect">Số lượng trong kho: <b>{prodData?.warehouse}</b></p>
+                    <p className="warehouse unselect">Số lượng trong kho: <b>{data?.prodData?.warehouse}</b></p>
                     <div className="set-quantity-cart unselect">
                         <p className="setquantity">
                             <span className='btn pointer' onClick={()=>handleChangeQuantity(-1)}> - </span>
@@ -173,18 +152,23 @@ const prodDataPage = ()=>{
                 <h3 className="title">Sản phẩm liên quan</h3>
                 <div className="list">
                     {
-                        prodSuggest?.map((prod, index)=><ProductCard data={prod} category={category} key={`prod${index}`}/>)
+                        data?.prodSuggest?.map((id, index)=>{
+                            console.log("suggest ",data?.prodSuggest)    
+                            return <ProductCard id={id} key={index}/>
+                        })
                     }
                 </div>
             </section>
-            <section className="productpage_list" style={{marginBottom: '50px'}}>
+            {/* <section className="productpage_list" style={{marginBottom: '50px'}}>
                 <h3 className="title">Sản phẩm vừa xem</h3>
                 <div className="list">
                     {
-                        prodViewed?.map((prod, index)=><ProductCard data={prod} category={category} key={`prod${index}`}/>)
+                        prodViewed?.map((id, index)=>{
+                            // console.log("detail",id)
+                            return <ProductCard id={id} key={`prod${index}`}/>})
                     }
                 </div>
-            </section>
+            </section> */}
         </main>
     )
 }

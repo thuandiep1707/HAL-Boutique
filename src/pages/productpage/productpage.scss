@@ -75,6 +75,7 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 0 2%;
+        min-height: 100vh;
         padding: 20px calc(50% - 600px);
         opacity: 0;
         animation: start-page .5s .2s linear forwards;

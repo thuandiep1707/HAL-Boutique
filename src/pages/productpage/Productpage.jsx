@@ -2,15 +2,22 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 import Productcard from '../../components/ProductCard'
-import { getProducts } from '../../services/controller/product.controller'
+import {categoryAPI} from '../../services/products.api'
 import './productpage.scss'
 
 const Shoppage = ()=>{
     const { category } = useParams()
     const [productList, setProductList] = useState()
+    console.log(category)
     useEffect(()=>{
-        setProductList(getProducts(category))
         scrollTo({top: 0, behavior: 'smooth'})
+        async function getCategory(category){
+            const data = await categoryAPI(category)
+            setProductList(data)
+        }
+        setProductList()
+        getCategory(category)
+
     },[category])
     const categoryPath = {
         "all" : "Tất cả sản phẩm",
@@ -54,14 +61,22 @@ const Shoppage = ()=>{
                     </div>
                     </div>
             </section>
-            <section className="shoppage_product-list">
-                {
-                    productList?.map((prod, index)=>{
-                        return(<Productcard data={prod} key={`prod${index}` } />)
-                    })
-                }
-            </section>
+            {
+                !productList ?
+                <section className="shoppage_product-list">
+                    loading...
+                </section> 
+                :
+                <section className="shoppage_product-list">
+                    {
+                        productList?.map((id, index)=>{
+                            return(<Productcard id={id} key={`prod${index}` } />)
+                        })
+                    }
+                </section>
+            }
         </main> 
+
     )
 }
 

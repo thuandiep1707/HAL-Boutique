@@ -15,7 +15,7 @@ const Homepage = ()=>{
             <Slide />
             <Collections />
             <HotProducts />
-            <NewProductList />
+            {/* <NewProductList /> */}
             <News />
         </main>
     )

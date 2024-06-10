@@ -1,10 +1,18 @@
 
+import { useState, useEffect } from 'react';
+import { hotProductsList } from '../../services/products.api';
 import Productcard from '../../components/ProductCard';
-import { hotProducts } from '../../services/controller/product.controller'
 import './homepageStyle/HotProducts.scss'
 
 const HotProducts = () => {
-    const hotProd = hotProducts()
+    const [hotProd, setHotProd] = useState([]);
+    console.log(hotProd)
+    useEffect(()=>{
+        async function getHotProd (){
+            setHotProd(await hotProductsList());
+        }
+        getHotProd()
+    },[])
     return(
         <section className="hotproducts">
             <h2 className="section-title">Sản phẩm nổi bật</h2>
@@ -12,7 +20,7 @@ const HotProducts = () => {
                 {
                     hotProd.map((product, index)=>{
                         return(
-                            <Productcard data={product} key={index}/>
+                            <Productcard id={product} key={index}/>
                         )
                     })
                 }

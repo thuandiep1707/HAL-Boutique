@@ -1,7 +1,10 @@
 .productcard{
     flex: 1 1 0;
+    position: relative;
+    min-height: 400px;
     padding: 5px 5px 20px;
     border-radius: 14.5px;
+    overflow: hidden;
     &:hover{
         transition: all .2s linear;
         box-shadow: 0 0 5px 0 #00000035;
@@ -23,5 +26,23 @@
     .price{
         text-align: center;
         margin-bottom: 0;
+    }
+    .loading{
+        position: absolute;
+        rotate: 135deg;
+        background: white;
+        height: 160%;
+        width: 80px;
+        animation: img-loading 1s 1s forwards linear infinite;
+    }
+    @keyframes img-loading {
+        from{
+            bottom: -32%;
+            left: -100%;
+        }    
+        to{
+            bottom: -30%;
+            left: 200%;
+        }    
     }
 }
