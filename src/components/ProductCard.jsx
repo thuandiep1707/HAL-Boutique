@@ -14,7 +14,7 @@ const Productcard = ({ id })=>{
         getProductDetail(id)
     },[])
     const handleGoToUrl = ()=>{
-        nav(`/productdetail/${productData?.category}/${productData?.id}`)
+        nav(`/productdetail/${productData?.category}/${productData?._id}`)
     }
     if (!productData){
         return (
