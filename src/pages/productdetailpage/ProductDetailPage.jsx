@@ -19,9 +19,7 @@ const prodDataPage = ()=>{
     useEffect(()=>{
         window.scrollTo({top : 0, behavior : 'smooth'})
         setData()
-        console.log(data)
         async function getData(category, id){
-            console.log("check")
             let prodData = await productDetail(id)
             let prodSuggest = await suggestListProduct(category, id)
             let newData = {prodData: prodData, prodSuggest: prodSuggest}
@@ -152,10 +150,7 @@ const prodDataPage = ()=>{
                 <h3 className="title">Sản phẩm liên quan</h3>
                 <div className="list">
                     {
-                        data?.prodSuggest?.map((id, index)=>{
-                            console.log("suggest ",data?.prodSuggest)    
-                            return <ProductCard id={id} key={index}/>
-                        })
+                        data?.prodSuggest?.map((id, index)=> <ProductCard id={id} key={index}/>)
                     }
                 </div>
             </section>
@@ -164,7 +159,6 @@ const prodDataPage = ()=>{
                 <div className="list">
                     {
                         prodViewed?.map((id, index)=>{
-                            // console.log("detail",id)
                             return <ProductCard id={id} key={`prod${index}`}/>})
                     }
                 </div>

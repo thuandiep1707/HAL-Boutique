@@ -8,7 +8,6 @@ import './productpage.scss'
 const Shoppage = ()=>{
     const { category } = useParams()
     const [productList, setProductList] = useState()
-    console.log(category)
     useEffect(()=>{
         scrollTo({top: 0, behavior: 'smooth'})
         async function getCategory(category){

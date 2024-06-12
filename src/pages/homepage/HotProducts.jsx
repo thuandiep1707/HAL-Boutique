@@ -6,7 +6,6 @@ import './homepageStyle/HotProducts.scss'
 
 const HotProducts = () => {
     const [hotProd, setHotProd] = useState([]);
-    console.log(hotProd)
     useEffect(()=>{
         async function getHotProd (){
             setHotProd(await hotProductsList());

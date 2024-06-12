@@ -27,7 +27,6 @@ const UserPage = ()=>{
         window.scrollTo({top: '0', behavior: 'smooth'})
         if (!userInfor?.state) nav('/login')
     })
-    console.log(orderList)
     const goToPath = (url)=>nav(url)
 
     const handleChangeUserData = (key, value) => {

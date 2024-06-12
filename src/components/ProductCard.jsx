@@ -8,7 +8,6 @@ import './componentStyle/ProductCard.scss'
 const Productcard = ({ id })=>{  
     const nav = useNavigate()
     const [productData, setProductData] = useState()
-    console.log(productData)
     useEffect(()=>{
         async function getProductDetail(id){setProductData(await productDetail(id))}
         getProductDetail(id)
