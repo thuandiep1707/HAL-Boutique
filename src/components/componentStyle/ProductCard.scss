@@ -27,22 +27,4 @@
         text-align: center;
         margin-bottom: 0;
     }
-    .loading{
-        position: absolute;
-        rotate: 135deg;
-        background: white;
-        height: 160%;
-        width: 80px;
-        animation: img-loading 1s 1s forwards linear infinite;
-    }
-    @keyframes img-loading {
-        from{
-            bottom: -32%;
-            left: -100%;
-        }    
-        to{
-            bottom: -30%;
-            left: 200%;
-        }    
-    }
 }

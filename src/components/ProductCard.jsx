@@ -18,7 +18,7 @@ const Productcard = ({ id })=>{
     if (!productData){
         return (
             <div className="productcard">
-                <div className="loading"></div>
+                <div className="api-loading"></div>
             </div>
         )
     }
