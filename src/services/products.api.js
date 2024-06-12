@@ -4,7 +4,7 @@ const url = "https://hal-boutique-be.vercel.app/products"
 
 async function categoryAPI(category){
     const categoryData = await fetch(`${url}/category/${category}`).then(res=>res.json())
-    console.log(categoryData)
+    // console.log(categoryData)
     return categoryData
 }
 
