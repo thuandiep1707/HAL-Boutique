@@ -31,7 +31,7 @@ const prodDataPage = ()=>{
     },[id])  
     const handleChangeQuantity = (num)=>{
         let newQuantity = num + quantity
-        if(newQuantity <= 0 || newQuantity > prodData.warehouse){
+        if(newQuantity <= 0 || newQuantity > data?.prodData.warehouse){
             alert("Số lượng không hợp lệ")
             return
         }
@@ -42,19 +42,19 @@ const prodDataPage = ()=>{
         const findIndex = () => {
             if (cart === null) return null
             for ( let i in cart ){
-                if (cart[i].title === prodData.title && cart[i].size === prodSize) return i
+                if (cart[i].title === data?.prodData.title && cart[i].size === prodSize) return i
             }
             return null
         }
         let checkIndex = findIndex()
         let countQuantity = [-1,null].includes(checkIndex) ? Number(quantity) : Number(quantity) + Number(cart[checkIndex].quantity)
-        let count = countQuantity * Number(prodData.price)
+        let count = countQuantity * Number(data?.prodData.price)
         let newProd = {
             "id" : 10,
             "category" : category,
-            "img": prodData.img[0],
-            "title": prodData.title,
-            "price": prodData.price,
+            "img": data?.prodData.img[0],
+            "title": data?.prodData.title,
+            "price": data?.prodData.price,
             "size": prodSize,
             "quantity": countQuantity,
             "count": count
@@ -101,15 +101,6 @@ const prodDataPage = ()=>{
                     }
                 </div>
             </section>
-            {/* <section className="productpage_list" style={{marginBottom: '50px'}}>
-                <h3 className="title">Sản phẩm vừa xem</h3>
-                <div className="list">
-                    {
-                        prodViewed?.map((id, index)=>{
-                            return <ProductCard id={id} key={`prod${index}`}/>})
-                    }
-                </div>
-            </section> */}
         </main>
     )
     return(
