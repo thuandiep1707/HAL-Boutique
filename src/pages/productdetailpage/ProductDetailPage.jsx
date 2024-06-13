@@ -68,6 +68,50 @@ const prodDataPage = ()=>{
         handleAddToCart()
         nav('/checkout')
     }
+    if (!data) return (
+        
+        <main className="productpage">
+            <section className="productpage_path">
+                <p>{`Trang chủ / Sản phẩm / ${data?.prodData?.title}`}</p>
+            </section>
+            <section className="productpage_prod-detail">
+                <div className="prod-img unselect">
+                    <div className="img-list">
+                        <div className='img'>
+                            <div className="api-loading"></div>
+                        </div>
+                        <div className='img'>
+                            <div className="api-loading"></div>
+                        </div>
+                        <div className='img'>
+                            <div className="api-loading"></div>
+                        </div>
+                    </div>
+                    <div className="main-img">
+                        <div className="api-loading"></div>
+                    </div>
+                </div>
+                <div className="prod-infor"></div>
+            </section>
+            <section className="productpage_list">
+                <h3 className="title">Sản phẩm liên quan</h3>
+                <div className="list">
+                    {
+                        data?.prodSuggest?.map((id, index)=> <ProductCard id={id} key={index}/>)
+                    }
+                </div>
+            </section>
+            {/* <section className="productpage_list" style={{marginBottom: '50px'}}>
+                <h3 className="title">Sản phẩm vừa xem</h3>
+                <div className="list">
+                    {
+                        prodViewed?.map((id, index)=>{
+                            return <ProductCard id={id} key={`prod${index}`}/>})
+                    }
+                </div>
+            </section> */}
+        </main>
+    )
     return(
         <main className="productpage">
             <section className="productpage_path">
@@ -76,9 +120,9 @@ const prodDataPage = ()=>{
             <section className="productpage_prod-detail">
                 <div className="prod-img unselect">
                     <div className="img-list">
-                        <img src={data?.prodData?.img} alt="hal boutique" />
-                        <img src={data?.prodData?.img} alt="hal boutique" />
-                        <img src={data?.prodData?.img} alt="hal boutique" />
+                        <img src={data?.prodData?.img} alt="hal boutique" className='img' />
+                        <img src={data?.prodData?.img} alt="hal boutique" className='img' />
+                        <img src={data?.prodData?.img} alt="hal boutique" className='img' />
                     </div>
                     <div className="main-img">
                         <img src={data?.prodData?.img} alt="hal boutique"/>
