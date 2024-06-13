@@ -10,7 +10,7 @@ const Productcard = ({ id })=>{
     const [productData, setProductData] = useState()
     useEffect(()=>{
         async function getProductDetail(id){setProductData(await productDetail(id))}
-        getProductDetail(id)
+        if (id) getProductDetail(id)
     },[])
     const handleGoToUrl = ()=>{
         nav(`/productdetail/${productData?.category}/${productData?._id}`)

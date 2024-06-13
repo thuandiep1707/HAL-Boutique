@@ -1,16 +1,23 @@
 
-import { newProducts } from '../../services/controller/product.controller.js'
 import Productcard from '../../components/ProductCard.jsx'
 import newbanner from '../../assets/imgs/home/newbanner.png'
+import { newProducts } from '../../services/products.api.js'
 import './homepageStyle/NewProductList.scss'
+import { useEffect, useState } from 'react'
 
 const NewProductList = ()=>{
-    const newProd = newProducts()
+    const [newProd, setNewProd] = useState()
+    useEffect(()=>{
+        async function getNewProd(){
+            setNewProd(await newProducts())
+        }
+        getNewProd()
+    },[])
     return(
         <section className="new-prod">
             <h2 className="section-title">Sản phẩm mới trong tháng</h2>
             {
-                newProd.map((value, index)=>{
+                newProd?.map((value, index)=>{
                     return(
                         <NewProdOfTyle value={value} key={`prodlist${index}`}/>
                     )
@@ -28,7 +35,7 @@ function NewProdOfTyle({value}){
             </div>
             <div className="list">
                 {
-                    value.map((prod, index) => {return <Productcard data={prod} key={`new${index}`}/>})
+                    value?.map((id, index) => {return <Productcard id={id} key={`new${index}`}/>})
                 }
             </div>
         </div>

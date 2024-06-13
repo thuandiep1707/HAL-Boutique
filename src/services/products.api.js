@@ -26,4 +26,9 @@ async function searchProducts (keyword){
     return searchProductList
 }
 
-export { categoryAPI, productDetail, suggestListProduct, hotProductsList, searchProducts};
+async function newProducts (){
+    const newProductsList = await fetch(`${url}/category/new`).then(res=>res.json())
+    return newProductsList
+}
+
+export { categoryAPI, productDetail, suggestListProduct, hotProductsList, searchProducts, newProducts};
