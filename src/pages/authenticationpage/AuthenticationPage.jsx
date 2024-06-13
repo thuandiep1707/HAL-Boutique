@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 import { login, register } from "../../services/controller/user.controller";
 import { globalContext } from "../../context/globalContext";
+import { registerAPI } from "../../services/Authenticate.api";
 
 import './authenticationpage.scss'
 
