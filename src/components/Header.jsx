@@ -9,7 +9,6 @@ import userIcon from '../assets/imgs/common/user-icon.png'
 import cartIcon from '../assets/imgs/common/cart-icon.png'
 import shopAllImg from '../assets/imgs/common/header-shop-all.png'
 import { globalContext } from '../context/globalContext'
-import { searchProducts } from '../services/controller/product.controller'
 import './componentStyle/Header.scss'
 
 const Header = ()=>{
@@ -18,7 +17,6 @@ const Header = ()=>{
     const { userInfor, setUserInfor } = useContext(globalContext)
     const [cartControl, setCartControl] = useState(false)
     const [searchControl, setSearchControl] = useState(false)
-    const [searchData, setSearchData] = useState([])
     const [searchKeyWork, setSearchKeyWork] = useState('')
     const  handleCartControl = ()=>{
         setCartControl(!cartControl)
@@ -33,13 +31,9 @@ const Header = ()=>{
     const handleSearchKeyWork = (e) => {  
         setSearchKeyWork(e.target.value)
     }
-    const searchEnter = (e) => {
+    const searchEnter = (e) =>{
         if (e.key == 'Enter') {
-            if (searchProducts(searchKeyWork).length == 0) {
-                alert("không tìm thấy sản phẩm tương tự")
-                return
-            } else if (searchKeyWork) {
-                setSearchData(searchProducts(searchKeyWork))
+            if (searchKeyWork) {
                 setSearchControl(true)
             }
         }
@@ -83,7 +77,7 @@ const Header = ()=>{
                 <div className="feature_search">
                     <input type="text" className='search-header' placeholder='Tìm kiếm' value={searchKeyWork} onChange={(e)=> handleSearchKeyWork(e)} onKeyDown={(e)=> searchEnter(e)}/>
                     {
-                        searchControl && <Search setSearchControl={setSearchControl} setSearchKeyWork={setSearchKeyWork} searchData={searchData}/>
+                        searchControl && <Search setSearchControl={setSearchControl} setSearchKeyWork={setSearchKeyWork} searchKeyWork={searchKeyWork}/>
                     }
                 </div>
                 <div className="feature_personal pointer" onClick={()=> goToLogin()}>   
