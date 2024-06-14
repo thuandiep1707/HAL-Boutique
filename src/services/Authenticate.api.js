@@ -1,11 +1,12 @@
 
-// const url = "http://localhost:3000/products"
-const url = "https://hal-boutique-be.vercel.app/products"
+const url = "http://localhost:3000/authenticate"
+// const url = "https://hal-boutique-be.vercel.app/authenticate"
 
 async function registerAPI (data) {
+    console.log(JSON.stringify(data))
     const res = await fetch(`${url}/register`, {
         method: "POST",
-        headers:{},
+        headers:{"Content-Type": "application/json"},
         body: JSON.stringify(data)
     })
     .then(res => res.json())

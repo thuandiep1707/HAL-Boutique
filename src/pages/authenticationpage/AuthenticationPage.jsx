@@ -2,7 +2,6 @@
 import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-import { login, register } from "../../services/controller/user.controller";
 import { globalContext } from "../../context/globalContext";
 import { registerAPI } from "../../services/Authenticate.api";
 
@@ -89,7 +88,7 @@ const RegisterPage = () => {
         newData[type] = data
         setRegData(newData)
     }
-    const handleRegister = (e) => {
+    async function handleRegister (e){
         e.preventDefault();
         if (!regData.term) {
             alert("Vui lòng chọn đồng ý với điều khoản và chính sách")
@@ -100,14 +99,29 @@ const RegisterPage = () => {
             return
         }
         setRegData({...regData, "loading": true})
-        setTimeout(()=>{
-            let requestData = {...regData}
-            delete requestData.term
-            delete requestData.loading
-            const response = register(requestData)
-            alert(response.message)
+        let requestData = {...regData}
+        delete requestData.term
+        delete requestData.loading
+        delete requestData.passwordAgain
+        console.log(requestData)
+        const response = await registerAPI(requestData)
+        alert(response.message)
+        if (response.status == 201) {
             nav('/login')
-        }, 1000)
+            return
+        }
+        else{
+            setRegData({
+                username: "",
+                password: "",
+                passwordAgain: "",
+                email: "",
+                phoneNumber: "",
+                address: "",
+                term: false,
+                loading: false
+            })
+        }
     }
 
     if (regData.loading){
@@ -120,7 +134,7 @@ const RegisterPage = () => {
     return(
         <div className="contain-auth">
             <p className="title-register">Hal-Boutique</p>
-            <form className="register" onSubmit={(e)=>handleRegister(e)}>
+            <form className="register" onSubmit={handleRegister}>
                 <div className="register_input">
                     <div className="left">
                         <label htmlFor="username">Tên đăng nhập:</label>
