@@ -6,7 +6,7 @@ import NewsPage from '../pages/newspage/NewsPage'
 import ContactsPage from '../pages/contactspage/ContactsPage'
 import StoreAddressPage from '../pages/storeaddresspage/StoreAddressPage'
 import Checkoutpage from '../pages/checkoutpage/Checkoutpage'
-import { LoginPage, RegisterPage } from '../pages/authenticationpage/AuthenticationPage'
+import { LoginPage, RegisterPage } from '../pages/authpage/AuthPage'
 import UserPage from '../pages/userpage/UserPage'
 
 const router =[
