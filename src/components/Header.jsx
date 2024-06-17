@@ -1,5 +1,5 @@
 import { useNavigate, Link } from 'react-router-dom'
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 
 import { menu } from './headerData'
 import Cart from './Cart'
@@ -16,8 +16,10 @@ const Header = ()=>{
     const [cartControl, setCartControl] = useState(false)
     const [searchControl, setSearchControl] = useState(false)
     const [searchKeyWork, setSearchKeyWork] = useState('')
-    const [userID, setUserID] = useState(sessionStorage.getItem("userID"))
-    console.log(userID)
+    const [userID, setUserID] = useState()
+    useEffect(()=>{
+        setUserID(sessionStorage.getItem("userID"))
+    },[])
     const  handleCartControl = ()=>{
         setCartControl(!cartControl)
     }
