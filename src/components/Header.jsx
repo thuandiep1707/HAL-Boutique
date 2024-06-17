@@ -16,7 +16,8 @@ const Header = ()=>{
     const [cartControl, setCartControl] = useState(false)
     const [searchControl, setSearchControl] = useState(false)
     const [searchKeyWork, setSearchKeyWork] = useState('')
-    const userID = sessionStorage.getItem('userID')
+    const [userID, setUserID] = useState(sessionStorage.getItem("userID"))
+    console.log(userID)
     const  handleCartControl = ()=>{
         setCartControl(!cartControl)
     }
@@ -26,6 +27,7 @@ const Header = ()=>{
     const goToLogout = () => {
         sessionStorage.removeItem("userID")
         localStorage.removeItem("cart")
+        setUserID()
     }
     const handleSearchKeyWork = (e) => {  
         setSearchKeyWork(e.target.value)

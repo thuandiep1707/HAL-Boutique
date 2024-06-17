@@ -17,9 +17,9 @@ const LoginPage = () => {
     })
     async function login() {
         let response = await loginAPI({ username: loginData.username, password: loginData.password })
-        console.log(response)
+        alert(response.message)
         if (response.status == 201) {
-            sessionStorage.setItem('userID', response.ObjectID)
+            sessionStorage.setItem('userID', response.ObjectId)
             nav('/')
             return
         }
