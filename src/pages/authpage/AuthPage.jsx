@@ -3,32 +3,35 @@ import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 import { globalContext } from "../../context/globalContext";
-import { registerAPI } from "../../services/Authenticate.api";
+import { registerAPI, loginAPI } from "../../services/Auth.api";
 
-import './authenticationpage.scss'
+import './authpage.scss'
 
 const LoginPage = () => {
     const nav = useNavigate()
-    const { userInfor, setUserInfor } = useContext(globalContext)
     const [loginData, setLoginData] = useState({
         username: "",
         password: "",
         remember: false,
         loading: false
     })
+    async function login() {
+        let response = await loginAPI({ username: loginData.username, password: loginData.password })
+        console.log(response)
+        if (response.status == 201) {
+            sessionStorage.setItem('userID', response.ObjectID)
+            nav('/')
+            return
+        }
+        setLoginData({...loginData, "loading": false})
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoginData({...loginData, "loading": true})
-        setTimeout(()=>{
-            let response = login(loginData.username, loginData.password)
-            alert(response.message)
-            if (response.state) {
-                setUserInfor({...userInfor, ...response.data, state: true})
-                nav('/checkout')
-            }
-            else{setLoginData({...loginData, "loading": false})}
-        },1000)
+        login()
     }
+
     const handleLoginData = (type,data) => {
         if (type == "username") setLoginData({...loginData, "username": data})
         if (type == "password") setLoginData({...loginData, "password": data})
