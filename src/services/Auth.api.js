@@ -1,6 +1,6 @@
 
-const url = "http://localhost:3000/auth"
-// const url = "https://hal-boutique-be.vercel.app/auth"
+// const url = "http://localhost:3000/auth"
+const url = "https://hal-boutique-be.vercel.app/auth"
 
 async function registerAPI (data) {
     console.log(JSON.stringify(data))
@@ -25,4 +25,12 @@ async function loginAPI (data){
     return res
 }
 
-export { registerAPI, loginAPI };
+async function getInfor (){
+    const ObjectId = sessionStorage.getItem("userID")
+    const res = await fetch(`${url}/user/${ObjectId}`)
+    .then(res => res.json())
+    .catch(err=> console.log(err))
+    return res
+}
+
+export { registerAPI, loginAPI, getInfor };
