@@ -1,6 +1,6 @@
 
-const url = "http://localhost:3000/auth"
-// const url = "https://hal-boutique-be.vercel.app/auth"
+// const url = "http://localhost:3000/auth"
+const url = "https://hal-boutique-be.vercel.app/auth"
 
 async function registerAPI (data) {
     console.log(JSON.stringify(data))
