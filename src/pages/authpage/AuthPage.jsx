@@ -9,6 +9,7 @@ import './authpage.scss'
 
 const LoginPage = () => {
     const nav = useNavigate()
+    const { getUserID } = useContext(globalContext)
     const [loginData, setLoginData] = useState({
         username: "",
         password: "",
@@ -20,6 +21,7 @@ const LoginPage = () => {
         alert(response.message)
         if (response.status == 201) {
             sessionStorage.setItem('userID', response.ObjectId)
+            getUserID()
             nav('/')
             return
         }

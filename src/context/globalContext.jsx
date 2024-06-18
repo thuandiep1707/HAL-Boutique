@@ -3,11 +3,17 @@ import { createContext, useState } from "react";
 const globalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
-    const [ userInfor, setUserInfor] = useState();
-    const value = {
-        userInfor,
-        setUserInfor
+    const [ ctUserID, setCtUserID] = useState();
+
+    function getUserID (){
+        setCtUserID(sessionStorage.getItem("userID"))
     }
+
+    const value = {
+        ctUserID,
+        getUserID
+    }
+
     return (
         <globalContext.Provider value={value} >
             {children}
