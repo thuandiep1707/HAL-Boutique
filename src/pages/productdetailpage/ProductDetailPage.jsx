@@ -22,7 +22,7 @@ const prodDataPage = ()=>{
         async function getData(category, id){
             let prodData = await productDetail(id)
             let prodSuggest = await suggestListProduct(category, id)
-            let newData = {prodData: prodData, prodSuggest: prodSuggest}
+            let newData = {prodData: prodData.data, prodSuggest: prodSuggest.data}
             setData(newData)
         }
         getData(category, id)
