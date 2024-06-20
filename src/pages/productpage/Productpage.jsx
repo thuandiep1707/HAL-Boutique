@@ -11,8 +11,12 @@ const Shoppage = ()=>{
     useEffect(()=>{
         scrollTo({top: 0, behavior: 'smooth'})
         async function getCategory(category){
-            const data = await categoryAPI(category)
-            setProductList(data)
+            const res = await categoryAPI(category)
+            if (res.status == 500) {
+                console.log(res.message)
+                return
+            } 
+            setProductList(res.data)
         }
         setProductList()
         getCategory(category)
