@@ -58,4 +58,12 @@ async function checkoutAPI (data){
     return res
 }
 
-export { registerAPI, loginAPI, getInfor, updateInfor, checkoutAPI };
+async function getOrder (){
+    const id = sessionStorage.getItem("userID")
+    const res = await fetch(`${url}/order/list/${id}`)
+    .then(res => res.json())
+    .catch(err=> console.log(err))
+    return res
+}
+
+export { registerAPI, loginAPI, getInfor, updateInfor, checkoutAPI, getOrder };

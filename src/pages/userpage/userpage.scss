@@ -162,6 +162,10 @@
                         align-items: center;
                         padding-bottom: 10px;
                         font-size: 14px;
+                        &>p{
+                            font-weight: 700;
+                            opacity: .7;
+                        }
                         .state{
                             color: green;
                         }

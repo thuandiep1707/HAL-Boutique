@@ -32,7 +32,6 @@ const Checkoutpage = ()=>{
     async function getUserInfor() {
         setLoading(true)
         const res = await getInfor()
-        console.log(res)
         if (res.status != 201) {
             alert(res.message)
             return
@@ -63,12 +62,12 @@ const Checkoutpage = ()=>{
         const date = new Date();
         let day = date.getDate() / 10 < 1 ? '0' + date.getDate() : date.getDate();
         let month = date.getMonth() / 10 < 1 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
-        let oderDay = `${date.getFullYear()}-${month}-${day}`
+        let orderDay = `${day} / ${month} / ${date.getFullYear()}`
         let orderList = cartData?.map(item => ({id : item.id, size : item.size, quantity: item.quantity}))
         let data = {
-            oderDay: oderDay,
+            orderDay: orderDay,
             deliveryDate: null,
-            oderStatus: 'pending',
+            orderStatus: 'pending',
             totalOder: totalBill,
             checkout: payMethod.method,
             orderList: orderList,
