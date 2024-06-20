@@ -9,14 +9,15 @@ import './componentStyle/Cart.scss'
 const Search = ({ setSearchControl, searchKeyWork, setSearchKeyWork })=>{
     const nav = useNavigate()
     const [searchData, SetSearchData] = useState()
-
+    console.log(searchData)
     useEffect(()=>{
         SetSearchData()
         getSearchData(searchKeyWork)
     },[])
 
     async function getSearchData(keyword){
-        SetSearchData( await searchProducts(keyword))
+        const res = await searchProducts(keyword)
+        SetSearchData(res.data)
     }
 
     // if (SetSearchData) return(
@@ -30,7 +31,10 @@ const Search = ({ setSearchControl, searchKeyWork, setSearchKeyWork })=>{
                     <h2 className="cart-title">Sản phẩm tương ứng</h2>
                     <div className="prod-list">
                         {
-                            !searchData && <p className="loading">Đang tải</p>
+                            !searchData && <p style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Đang tải</p>
+                        }
+                        {
+                            searchData?.length === 0 && <p style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Không tìm được sản phẩm</p>
                         }
                         {
                             searchData?.map((data, index)=>{
