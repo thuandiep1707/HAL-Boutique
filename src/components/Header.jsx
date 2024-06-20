@@ -8,28 +8,27 @@ import logo from '../assets/imgs/common/logo.png'
 import userIcon from '../assets/imgs/common/user-icon.png'
 import cartIcon from '../assets/imgs/common/cart-icon.png'
 import shopAllImg from '../assets/imgs/common/header-shop-all.png'
+import { globalContext } from '../context/globalContext'
 import './componentStyle/Header.scss'
 
 const Header = ()=>{
     const nav = useNavigate()
     const goToPath = (url)=>nav(url)
+    const { ctUserID } = useContext(globalContext)
     const [cartControl, setCartControl] = useState(false)
     const [searchControl, setSearchControl] = useState(false)
     const [searchKeyWork, setSearchKeyWork] = useState('')
-    const [userID, setUserID] = useState()
-    useEffect(()=>{
-        setUserID(sessionStorage.getItem("userID"))
-    },[])
+    // const [userID, setUserID] = useState()
+    console.log(ctUserID)
     const  handleCartControl = ()=>{
         setCartControl(!cartControl)
     }
     const goToLogin = () => {
-        if (!userID) nav('/login')
+        if (!ctUserID) nav('/login')
     }
     const goToLogout = () => {
         sessionStorage.removeItem("userID")
         localStorage.removeItem("cart")
-        setUserID()
     }
     const handleSearchKeyWork = (e) => {  
         setSearchKeyWork(e.target.value)
@@ -86,7 +85,7 @@ const Header = ()=>{
                 <div className="feature_personal pointer" onClick={()=> goToLogin()}>   
                     <img src={userIcon} alt="personal" className='feature-img'/>
                     {
-                        userID &&
+                        ctUserID &&
                         <ul className="feature_personal_sel">
                             <li className="opt pointer" onClick={()=>goToPath('/user/profile')}>Thông tin cá nhân</li>
                             <li className="opt pointer" onClick={()=>goToPath('/user/order')}>Đơn mua</li>
