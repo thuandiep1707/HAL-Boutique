@@ -22,7 +22,7 @@ const prodDataPage = ()=>{
         async function getData(category, id){
             let prodData = await productDetail(id)
             let prodSuggest = await suggestListProduct(category, id)
-            let newData = {prodData: prodData, prodSuggest: prodSuggest}
+            let newData = {prodData: prodData.data, prodSuggest: prodSuggest.data}
             setData(newData)
         }
         getData(category, id)
@@ -50,11 +50,9 @@ const prodDataPage = ()=>{
         let countQuantity = [-1,null].includes(checkIndex) ? Number(quantity) : Number(quantity) + Number(cart[checkIndex].quantity)
         let count = countQuantity * Number(data?.prodData.price)
         let newProd = {
-            "id" : 10,
-            "category" : category,
+            "id" : data?.prodData._id,
             "img": data?.prodData.img[0],
             "title": data?.prodData.title,
-            "price": data?.prodData.price,
             "size": prodSize,
             "quantity": countQuantity,
             "count": count

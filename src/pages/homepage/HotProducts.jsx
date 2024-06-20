@@ -8,7 +8,11 @@ const HotProducts = () => {
     const [hotProd, setHotProd] = useState([]);
     useEffect(()=>{
         async function getHotProd (){
-            setHotProd(await hotProductsList());
+            const res = await hotProductsList()
+            if (res.status == 500 ){
+                return
+            }
+            setHotProd(res.data);
         }
         getHotProd()
     },[])
@@ -17,7 +21,7 @@ const HotProducts = () => {
             <h2 className="section-title">Sản phẩm nổi bật</h2>
             <div className="hotproducts_list">
                 {
-                    hotProd.map((product, index)=>{
+                    hotProd?.map((product, index)=>{
                         return(
                             <Productcard id={product} key={index}/>
                         )

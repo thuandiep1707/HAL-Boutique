@@ -2,9 +2,11 @@
 import { useState, useContext, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
+import OrderItem from './OrderItem'
+
 import { globalContext } from '../../context/globalContext'
-import { updateUser, getOrderList } from '../../services/controller/user.controller'
-import { getInfor } from '../../services/Auth.api'
+import { getInfor, updateInfor, getOrder } from '../../services/Auth.api'
+import { productDetail } from '../../services/products.api'
 import './userpage.scss'
 
 const UserPage = ()=>{
@@ -14,39 +16,62 @@ const UserPage = ()=>{
     const [ orderList, setOrderList ] = useState()    
     const [ userID, setUserID ] = useState(sessionStorage.getItem("userID"))
     const [ userData, setUserData ] = useState()
+    const [ loading, setLoading ] = useState(false)
     useEffect(()=>{
         setBoard(feature)
         window.scrollTo({top: '0', behavior: 'smooth'})
         if (!userID) nav('/login')
     })
-
     useEffect(()=>{
+        setLoading(true)
         setUserID(sessionStorage.getItem("userID"))
-        getUserInfor()
-    },[])
+        if (feature == 'profile') getUserInfor()
+        if (feature == 'order') getOrderList()
+    },[feature])
 
     async function getUserInfor (){
         const response = await getInfor()
-        if (response.status != 200){
+        if (response.status != 201){
             alert(response.message)
             nav('/')
             return
         }
+        setLoading(false)
         setUserData(response.data)
     }
 
+    async function getOrderList (){
+        const res = await getOrder()
+        if (res.status != 201){
+            alert(res.message)
+            return
+        }
+        setLoading(false)
+        setOrderList(res.data.reverse())
+    
+    }
     const goToPath = (url)=>nav(url)
 
     const handleChangeUserData = (key, value) => {
+        if (key == 'avatar'){
+            var maxSizeInBytes = 1 * 1024 * 1024; 
+            if (value.size > maxSizeInBytes) {
+                alert("Vui lòng chọn hình ảnh nhỏ hơn 1MB")
+                return
+            }
+            var reader = new FileReader();
+            reader.onloadend = ()=> setUserData({...userData, avatar: reader.result})
+            reader.readAsDataURL(value);
+            return
+        }
         setUserData({...userData, [key]: value})
     }
 
-    const handleSaveInfor = (e)=>{
+    async function handleSaveInfor (e){
         e.preventDefault()
-        console.log(userData)
-        console.log(typeof userData.birthday)
+        const res = await updateInfor(userData)
+        alert(res.message)
     }
-
     return(
         <main className="userpage">
             <aside className="sidebar">
@@ -76,7 +101,11 @@ const UserPage = ()=>{
             </aside>
             <section className="board">
                 {
-                    board === 'profile' &&
+                    loading && <div className="order" style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Loading...</div>
+                }
+                {
+                    board === 'profile' && 
+                    !loading &&
                     <div className="profile">
                         <div className="profile_header">
                             <p>Hồ Sơ Của Tôi</p>
@@ -108,8 +137,8 @@ const UserPage = ()=>{
                                 <button className="infor_list_btn pointer">Lưu</button>
                             </div>
                             <div className="infor_avt">
-                                <div className="infor_avt_img" style={{backgroundImage:userData?.avatar}}></div>
-                                <input type="file" name="avt" id="avt" defaultValue={userData?.avatar} />
+                                <div className="infor_avt_img" style={{backgroundImage: `url(${userData?.avatar})`}}></div>
+                                <input type="file" name="avt" id="avt" onChange={(e)=>handleChangeUserData('avatar', e.target.files[0])} />
                                 <label htmlFor="avt">Chọn Ảnh</label>
                                 <p>Dung lượng file tối đa 1MB <br /> Định dạng: JPEG, PNG</p>
                             </div>
@@ -118,6 +147,7 @@ const UserPage = ()=>{
                 }
                 {
                     board === 'order' &&
+                    !loading &&
                     <div className="order">
                         <p className="order_title">Danh sách đơn mua</p>
                         <div className="order_list">
@@ -126,22 +156,25 @@ const UserPage = ()=>{
                                     return (
                                         <div className="order_list_item" key={index}>
                                             <div className="order_list_item_header">
-                                                <div></div>
+                                                <div>
+                                                    <p>Địa chỉ: {order.address}</p>
+                                                    <p>Ngày mua: {order.orderDay}</p>
+                                                </div>
                                                 {
-                                                    order.oderStatus === "complete" &&
+                                                    order.orderStatus === "completed" &&
                                                     <p>
                                                         <span className='state'> Giao hàng thành công </span>
                                                         <span className='oder-status'> Hoàn Thành </span>
                                                     </p>
                                                 }
                                                 {
-                                                    order.oderStatus === "pending" &&
+                                                    order.orderStatus === "pending" &&
                                                     <p>
                                                         <span className='pending'> Đang xử lý </span>
                                                     </p>
                                                 }
                                                 {
-                                                    order.oderStatus === "cancled" &&
+                                                    order.orderStatus === "cancled" &&
                                                     <p>
                                                         <span className='cancled'> Đơn hàng đã bị huỷ </span>
                                                     </p>
@@ -149,20 +182,7 @@ const UserPage = ()=>{
                                             </div>
                                             <div className="order_list_item_list">
                                                 {
-                                                    order.oderList.map((item, index) => {
-                                                        return(
-                                                            <div className='item' key={index}>
-                                                                <img src={item.img} className='pointer' alt="item" onClick={()=> goToPath(`/productdetail/${item.category}/${item.id}`)}/>
-                                                                <p className="infor">
-                                                                    <span>{item.title}</span>
-                                                                    <span>Size: {item.size}</span>
-                                                                    <span>Số lượng: x{item.quantity}</span>
-                                                                    <span className='free'>Trả hàng miễn phí 15 ngày</span>
-                                                                </p>
-                                                                <p className='price'>{item.price.toLocaleString('it-IT', {style :"currency", currency : "VND"})}</p>
-                                                            </div>
-                                                        )
-                                                    })
+                                                    order?.orderList?.map((item, index) => <OrderItem item={item} index={index} key={index}/>)
                                                 }
                                             </div>
                                             <div className="order_list_item_footer">
@@ -171,10 +191,10 @@ const UserPage = ()=>{
                                                 </p>
                                                 <div className="footer-btn">
                                                     {
-                                                        order.oderStatus !== "pending" && <div className="btn bg-black" onClick={()=>handleReBuy()}>Mua lại</div>
+                                                        order.orderStatus !== "pending" && <div className="btn bg-black" onClick={()=>handleReBuy()}>Mua lại</div>
                                                     }
                                                     {
-                                                        order.oderStatus === "pending" && <div className="btn bg-black">Hủy đơn</div>
+                                                        order.orderStatus === "pending" && <div className="btn bg-black">Hủy đơn</div>
                                                     }
                                                     <div className="btn" onClick={()=> goToPath('/contacts')}>Liên hệ người bán</div>
                                                 </div>

@@ -9,7 +9,14 @@ const Productcard = ({ id })=>{
     const nav = useNavigate()
     const [productData, setProductData] = useState()
     useEffect(()=>{
-        async function getProductDetail(id){setProductData(await productDetail(id))}
+        async function getProductDetail(id){
+            const res = await productDetail(id)
+            if (res.status == 500){
+                alert(res.message)
+                return
+            }
+            setProductData(res.data)
+        }
         if (id) getProductDetail(id)
     },[])
     const handleGoToUrl = ()=>{
@@ -24,7 +31,7 @@ const Productcard = ({ id })=>{
     }
     return(
         <div className="productcard pointer" onClick={()=>handleGoToUrl()}>
-            <img src={productData?.img[0]} alt="hal boutique" />
+            <img src={productData?.img} alt="hal boutique" />
             <h4 className="title">{productData?.title}</h4>
             <p className="price">{productData?.price?.toLocaleString('it-IT', {style : "currency", currency : "VND"})}</p>
         </div>

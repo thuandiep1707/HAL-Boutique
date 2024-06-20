@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 const globalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
-    const [ ctUserID, setCtUserID] = useState();
+    const [ ctUserID, setCtUserID] = useState(sessionStorage.getItem("userID"));
 
     function getUserID (){
         setCtUserID(sessionStorage.getItem("userID"))

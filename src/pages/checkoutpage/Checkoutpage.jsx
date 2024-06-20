@@ -9,24 +9,37 @@ import logoVnpay from '../../assets/imgs/common/logo-vnpay.png'
 import momo from '../../assets/imgs/common/momoQR.png'
 import bank from '../../assets/imgs/common/bankQR.png'
 import { globalContext } from '../../context/globalContext';
-import { addNewOder } from '../../services/controller/user.controller';
+import { getInfor, checkoutAPI } from '../../services/Auth.api';
 import './Checkoutpage.scss'
 
 const Checkoutpage = ()=>{
     const nav = useNavigate()
-    const {userInfor} = useContext(globalContext)
+    const {ctUserID} = useContext(globalContext)
     const cartData = JSON.parse(localStorage.getItem("cart"))
     const [reload, setReload] = useState(true)
     const [payMethod, setPayMethod] = useState({"method" : "offline", "service" : null})
-    const [inforCheckout, setInforCheckout] = useState({...userInfor, password: ''})
+    const [inforCheckout, setInforCheckout] = useState()
     const [ totalBill, setTotalBill] = useState(0)
+    const [loading, setLoading] = useState(false)
 
     window.scrollTo({top : 0, behavior : "smooth"})
     useEffect(()=>{
-        if (!userInfor?.state) nav('/login')
+        if (!ctUserID) nav('/login')
         if (cartData == null) nav('/')
         setTotalBill(cartData?.reduce((a, e)=>a+e.count,0))
-    })
+        getUserInfor()
+    },[])
+    async function getUserInfor() {
+        setLoading(true)
+        const res = await getInfor()
+        if (res.status != 201) {
+            alert(res.message)
+            return
+        }
+        setLoading(false)
+        setInforCheckout(res.data)
+    }
+
     const handlRemoveItem = (index) => {
         cartData.splice(index,1)
         localStorage.setItem("cart",cartData.length > 0 ? JSON.stringify(cartData) : null)
@@ -38,34 +51,43 @@ const Checkoutpage = ()=>{
     const handleSetPayService = (value)=>{
         if (payMethod.method === "online") setPayMethod({...payMethod, "service" : value})
     }
-    const handleSubmit = (e)=>{
+    async function handleSubmit (e){
         e.preventDefault()
+        setLoading(true)
         if (payMethod.method === "online" && payMethod.service === null){
             alert('bạn vui lòng chọn dịch vụ chuyển khoản mà bạn muốn và tiến hành thanh toán')
             return
         }
 
         const date = new Date();
-        let day = date.getDay() / 10 < 1 ? '0' + date.getDay() : date.getDay();
+        let day = date.getDate() / 10 < 1 ? '0' + date.getDate() : date.getDate();
         let month = date.getMonth() / 10 < 1 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
-        let oderDay = `${date.getFullYear()}-${month}-${day}`
-
+        let orderDay = `${day} / ${month} / ${date.getFullYear()}`
+        let orderList = cartData?.map(item => ({id : item.id, size : item.size, quantity: item.quantity}))
         let data = {
-            oderDay: oderDay,
+            orderDay: orderDay,
             deliveryDate: null,
-            oderStatus: 'pending',
+            orderStatus: 'pending',
             totalOder: totalBill,
-            oderList: cartData,
-            checkout: payMethod.method
+            checkout: payMethod.method,
+            orderList: orderList,
+            address: inforCheckout?.address
         }
-        let response = addNewOder(data, userInfor.username)
-        alert(response.message)
-        localStorage.removeItem("cart")
+        const res = await checkoutAPI(data)
+        if (res.status == 201) {
+            localStorage.removeItem("cart")
+        }
+        alert(res.message)
+        setLoading(false)
         nav('/')
     }
     const handleSetInforCheckout = (type,value)=>{
         setInforCheckout({...inforCheckout, [type] : value})
     }
+    if (loading) return(
+        <main className="checkoutpage">Loading...</main>
+        
+    )
     return(
         <main className="checkoutpage">
             <div className="checkoutpage_cart">
@@ -110,7 +132,7 @@ const Checkoutpage = ()=>{
             </div>
             <div className="infor-custommer">
                 <h2>THÔNG TIN GIAO HÀNG</h2>
-                <form className="custommer-form" onSubmit={(e)=>{handleSubmit(e)}}>
+                <form className="custommer-form" onSubmit={handleSubmit}>
                     <input required type="text" name="name" id="name" placeholder='Họ và tên' className='col12' defaultValue={inforCheckout?.name} onChange={(e) => handleSetInforCheckout('name', e.target.value)}/>
                     <input required type="email" name="email" id="email" placeholder='Email' defaultValue={inforCheckout?.email} onChange={(e) => handleSetInforCheckout('email', e.target.value)}/>
                     <input required type="tel" name="tel" id="tel" placeholder='Số điện thoại' pattern='[0-9]{10}' defaultValue={inforCheckout?.phoneNumber} onChange={(e) => handleSetInforCheckout('phoneNumber', e.target.value)}/>

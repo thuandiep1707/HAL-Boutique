@@ -9,7 +9,12 @@ const NewProductList = ()=>{
     const [newProd, setNewProd] = useState()
     useEffect(()=>{
         async function getNewProd(){
-            setNewProd(await newProducts())
+            const res = await newProducts()
+            if (res.status == 500){
+                alert(res.message)
+                return
+            }
+            setNewProd(res.data)
         }
         getNewProd()
     },[])
