@@ -13,7 +13,7 @@ const Shoppage = ()=>{
         async function getCategory(category){
             const res = await categoryAPI(category)
             if (res.status == 500) {
-                console.log(res.message)
+                alert(res.message)
                 return
             } 
             setProductList(res.data)

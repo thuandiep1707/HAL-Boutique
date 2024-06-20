@@ -12,7 +12,7 @@ const Productcard = ({ id })=>{
         async function getProductDetail(id){
             const res = await productDetail(id)
             if (res.status == 500){
-                console.log(res.message)
+                alert(res.message)
                 return
             }
             setProductData(res.data)

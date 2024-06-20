@@ -108,7 +108,6 @@ const RegisterPage = () => {
         delete requestData.term
         delete requestData.loading
         delete requestData.passwordAgain
-        console.log(requestData)
         const response = await registerAPI(requestData)
         alert(response.message)
         if (response.status == 201) {
