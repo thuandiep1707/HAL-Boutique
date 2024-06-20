@@ -50,11 +50,9 @@ const prodDataPage = ()=>{
         let countQuantity = [-1,null].includes(checkIndex) ? Number(quantity) : Number(quantity) + Number(cart[checkIndex].quantity)
         let count = countQuantity * Number(data?.prodData.price)
         let newProd = {
-            "id" : 10,
-            "category" : category,
+            "id" : data?.prodData._id,
             "img": data?.prodData.img[0],
             "title": data?.prodData.title,
-            "price": data?.prodData.price,
             "size": prodSize,
             "quantity": countQuantity,
             "count": count
