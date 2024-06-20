@@ -3,8 +3,7 @@ import { useState, useContext, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { globalContext } from '../../context/globalContext'
-import { updateUser, getOrderList } from '../../services/controller/user.controller'
-import { getInfor } from '../../services/Auth.api'
+import { getInfor, updateInfor } from '../../services/Auth.api'
 import './userpage.scss'
 
 const UserPage = ()=>{
@@ -27,7 +26,7 @@ const UserPage = ()=>{
 
     async function getUserInfor (){
         const response = await getInfor()
-        if (response.status != 200){
+        if (response.status != 201){
             alert(response.message)
             nav('/')
             return
@@ -38,15 +37,25 @@ const UserPage = ()=>{
     const goToPath = (url)=>nav(url)
 
     const handleChangeUserData = (key, value) => {
+        if (key == 'avatar'){
+            var maxSizeInBytes = 1 * 1024 * 1024; 
+            if (value.size > maxSizeInBytes) {
+                alert("Vui lòng chọn hình ảnh nhỏ hơn 1MB")
+                return
+            }
+            var reader = new FileReader();
+            reader.onloadend = ()=> setUserData({...userData, avatar: reader.result})
+            reader.readAsDataURL(value);
+            return
+        }
         setUserData({...userData, [key]: value})
     }
 
-    const handleSaveInfor = (e)=>{
+    async function handleSaveInfor (e){
         e.preventDefault()
-        console.log(userData)
-        console.log(typeof userData.birthday)
+        const res = await updateInfor(userData)
+        alert(res.message)
     }
-
     return(
         <main className="userpage">
             <aside className="sidebar">
@@ -108,8 +117,8 @@ const UserPage = ()=>{
                                 <button className="infor_list_btn pointer">Lưu</button>
                             </div>
                             <div className="infor_avt">
-                                <div className="infor_avt_img" style={{backgroundImage:userData?.avatar}}></div>
-                                <input type="file" name="avt" id="avt" defaultValue={userData?.avatar} />
+                                <div className="infor_avt_img" style={{backgroundImage: `url(${userData?.avatar})`}}></div>
+                                <input type="file" name="avt" id="avt" defaultValue={userData?.avatar} onChange={(e)=>handleChangeUserData('avatar', e.target.files[0])} />
                                 <label htmlFor="avt">Chọn Ảnh</label>
                                 <p>Dung lượng file tối đa 1MB <br /> Định dạng: JPEG, PNG</p>
                             </div>

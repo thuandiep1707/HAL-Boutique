@@ -11,7 +11,7 @@ const NewProductList = ()=>{
         async function getNewProd(){
             const res = await newProducts()
             if (res.status == 500){
-                console.log(res.message)
+                alert(res.message)
                 return
             }
             setNewProd(res.data)

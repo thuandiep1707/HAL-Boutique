@@ -14,12 +14,10 @@ import './componentStyle/Header.scss'
 const Header = ()=>{
     const nav = useNavigate()
     const goToPath = (url)=>nav(url)
-    const { ctUserID } = useContext(globalContext)
+    const { ctUserID, getUserID } = useContext(globalContext)
     const [cartControl, setCartControl] = useState(false)
     const [searchControl, setSearchControl] = useState(false)
     const [searchKeyWork, setSearchKeyWork] = useState('')
-    // const [userID, setUserID] = useState()
-    console.log(ctUserID)
     const  handleCartControl = ()=>{
         setCartControl(!cartControl)
     }
@@ -29,6 +27,8 @@ const Header = ()=>{
     const goToLogout = () => {
         sessionStorage.removeItem("userID")
         localStorage.removeItem("cart")
+        getUserID()
+        nav('/')
     }
     const handleSearchKeyWork = (e) => {  
         setSearchKeyWork(e.target.value)

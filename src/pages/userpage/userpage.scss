@@ -102,18 +102,13 @@
                      flex-direction: column;
                      align-items: center;
                      gap: 20px;
-                    //  height: 200px;
                     &_img{
                         width: 150px;
                         height: 150px;
                         border-radius: 50%;
                         aspect-ratio: 1;
                         border: 1px solid #00000086;
-                        img{
-                            width: 150px;
-                            height: 150px;
-                            border-radius: 50%;
-                        }
+                        background-size: cover;
                     }
                     input{
                         display: none;
