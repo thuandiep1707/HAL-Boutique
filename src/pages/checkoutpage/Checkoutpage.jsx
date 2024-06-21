@@ -53,12 +53,11 @@ const Checkoutpage = ()=>{
     }
     async function handleSubmit (e){
         e.preventDefault()
-        setLoading(true)
         if (payMethod.method === "online" && payMethod.service === null){
             alert('bạn vui lòng chọn dịch vụ chuyển khoản mà bạn muốn và tiến hành thanh toán')
             return
         }
-
+        setLoading(true)
         const date = new Date();
         let day = date.getDate() / 10 < 1 ? '0' + date.getDate() : date.getDate();
         let month = date.getMonth() / 10 < 1 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
