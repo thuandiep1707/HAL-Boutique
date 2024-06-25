@@ -1,8 +1,6 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Hal-boutique Shop
+Shop bán quần áo, phụ kiện, trang sức cho nữ <br/>
+Công nghệ sử dụng: 
+- Frontend: ReactJs, SASS/SCSS, Vite
+- Backend: ExpressJs, Nodejs, bcrypt, cors
+- Database: MongoDB
