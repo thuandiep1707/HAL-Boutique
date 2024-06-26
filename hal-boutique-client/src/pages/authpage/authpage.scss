@@ -1,0 +1,156 @@
+.contain-auth{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
+    .title-login{
+        background-color: black;
+        width: 400px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        text-align: center;
+        color: white;
+        line-height: 60px;
+        font-size: 26px;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
+    .login{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 20px;
+        align-items: start;
+        width: 400px;
+        border: 1px solid #000;
+        &>label{
+            font-size: 15px;
+            margin: 10px 2px -5px;
+        }
+        &>input{
+            width: 100%;
+            height: 40px;
+            border-radius: 4px;
+            padding: 5px 10px;
+        }
+        .login-feature{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 2px;
+            width: 100%;
+            font-size: 14px;
+            div{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+        }
+        .btn-login{
+            background-color: black;
+            width: 100%;
+            height: 40px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            border: unset;
+            border-radius: 4px;
+            outline: unset;
+            box-shadow: 3px 3px 3px 0 rgb(138, 138, 138);
+        }
+        .go-to-register{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2px;
+            width: 100%;
+            font-size: 14px;
+        }
+        .login-2nd{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            width: 100%;
+            margin: 20px 0;
+            img{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                outline: 10px rgba(128, 128, 128, 0.147) solid;
+                cursor: pointer;
+            }
+        }
+    }
+    .title-register{
+        background-color: black;
+        width: 770px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        text-align: center;
+        color: white;
+        line-height: 60px;
+        font-size: 26px;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
+    .register{
+        width: 770px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 20px;
+        align-items: start;
+        border: 1px solid #000;
+        &_input{
+            display: flex;
+            gap: 10px;
+            &>div{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 360px;
+                &>label{
+                    font-size: 15px;
+                    margin: 10px 2px -5px;
+                }
+                &>input{
+                    width: 100%;
+                    height: 40px;
+                    border-radius: 4px;
+                    padding: 5px 10px;
+                }
+            }
+        }
+        &_term{
+            display: flex;
+            gap: 5px;
+            margin-left: 2px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .btn-register{
+            background-color: black;
+            width: 100%;
+            height: 40px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            border: unset;
+            outline: unset;
+            border-radius: 4px;
+            box-shadow: 3px 3px 3px 0 rgb(138, 138, 138);
+        }
+        .go-to-login{
+            margin: 5px auto;
+            font-size: 14px;
+        }
+    }
+}

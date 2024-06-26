@@ -1,0 +1,25 @@
+.new-prod{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 100px;
+    margin-bottom: 100px;
+    width: 100%;
+    .prod-of-type{
+        display: flex;
+        gap: 20px;
+        padding: 20px calc(50% - 600px);
+        .banner{
+            flex: 1;
+            img{
+                width: 100%;
+                border-radius: 18px;
+            }
+        }
+        .list{
+            display: flex;
+             gap: 20px;
+            width: 51%;
+        }
+    }
+}

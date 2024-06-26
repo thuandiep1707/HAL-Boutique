@@ -1,0 +1,30 @@
+.productcard{
+    flex: 1 1 0;
+    position: relative;
+    min-height: 400px;
+    padding: 5px 5px 20px;
+    border-radius: 14.5px;
+    overflow: hidden;
+    &:hover{
+        transition: all .2s linear;
+        box-shadow: 0 0 5px 0 #00000035;
+    }
+    img{
+        aspect-ratio: 35/53;
+        width: 100%;
+        border-radius: 12px;
+    }
+    .title{
+        text-align: center;
+        margin: 20px 20px 0;
+        font-size: 18px;
+        color: rgb(62, 62, 62);
+        height: 52px;
+        line-height: 26px;
+        overflow: hidden;
+    }
+    .price{
+        text-align: center;
+        margin-bottom: 0;
+    }
+}

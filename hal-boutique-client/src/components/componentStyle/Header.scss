@@ -1,0 +1,160 @@
+.header{
+    display: flex;
+     justify-content: space-between;
+     align-items: center;
+    position: sticky;
+     top: 0;
+     left: 0;
+     z-index: 1000;
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    padding: 0 calc(50% - 600px);
+    box-shadow: 2px 2px 2px 0 rgb(230, 230, 230);
+    .logo{
+        display: flex;
+         justify-content: space-between;
+         align-items: center;
+        gap: 15px;
+        &_img{
+            img{
+                height: 40px;
+            }
+        }
+        &_name{
+            font-weight: 700;
+            font-size: 20px; 
+            width: 170px;
+        }
+    }
+    .navigation{
+        display: flex;
+         align-items: center;
+         justify-content: space-between;
+        //  flex: 1;
+         flex-basis: 400px;
+        font-weight: 500;
+        .hover-handle-nav-t2:hover ~ .nav-t2,
+        .nav-t2:hover{
+            display: flex;
+        }
+        .nav-t1{
+            text-decoration: unset;
+            font-size: 18px;
+            font-weight: 600;
+            color: black;
+        }
+        .nav-t2{
+            display: none;
+             justify-content: space-between;
+            position: absolute;
+             top: 70px;
+             left: 50%;
+             transform: translateX(-50%);
+            background-color: #fff;
+            width: 1000px;
+            padding: 20px 30px;
+            box-shadow: 0 0 5px 0 #00000035;
+            border-radius: 12px;
+            &::after{
+                content: "";
+                position: absolute;
+                 bottom: 100%;
+                 left: 0;
+                width: 100%;
+                height: 30px;
+            }
+            .nav-list{
+                display: flex;
+                gap: 5%;
+                flex: 0 1 90%;
+                flex-wrap: wrap;
+            }
+            &_menu{
+                width: 200px;
+                &_category{
+                    margin-bottom: 10px;
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+                &_collection{
+                    &_opt{
+                        font-weight: 500;
+                        font-size: 14px;
+                        letter-spacing: 1px;
+                        line-height: 25px;
+                        padding-left: 10px;
+                        cursor: default;
+                    }
+                }
+            }
+            .nav-shop-all{
+                display: flex;
+                 flex-direction: column;
+                 align-items: center;
+                img{
+                    height: 300px;
+                    border-radius: 12px;
+                }
+                p{
+                    font-size: 18px;
+                    margin: 10px auto;
+                }
+            }
+        }
+    }
+    .feature{
+        display: flex;
+        justify-content: flex-end;
+         align-items: center;
+         gap: 20px;
+        position: relative;
+        margin-right: 20px;
+        &_personal{
+            &:hover .feature_personal_sel{
+                display: block;
+            }
+            &_sel{
+                display: none;
+                position: absolute;
+                 top: 52px;
+                 right: 0;
+                background-color: #fff;
+                padding: 10px 15px;
+                border-radius: 6px;
+                text-align: center;
+                box-shadow: 0 0 2px 0 rgba(56, 56, 56, 0.337);
+                .opt{
+                    padding: 5px 10px;
+                    &:hover{
+                        background-color: #eeeeee;
+                    }
+                }
+                &::after{
+                    content: "";
+                    position: absolute;
+                     bottom: 100%;
+                     left: 0;
+                    width: 80%;
+                    height: 50px;
+                }
+            }
+        }
+        .feature-img{
+            height: 20px;
+        }
+        &_search{
+            .search-header{
+                padding: 5px 20px;
+                border: {
+                    top: unset;
+                    bottom: 1px black solid;
+                    right: unset;
+                    left: unset;
+                };
+                outline: unset;
+                font-size: 15px;
+            }
+        }
+    }
+}

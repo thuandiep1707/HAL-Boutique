@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+body{
+    background-color: rgba(231, 231, 231, 0.137);
+}
+li{
+    list-style: none;
+}
+.pointer{
+    cursor: pointer;
+}
+.unselect{
+    user-select: none;
+}
+a{
+    text-decoration: none;
+}
+
+.api-loading{
+    position: absolute;
+    rotate: 135deg;
+    background: rgb(227, 227, 227);
+    height: 160%;
+    width: 20%;
+    animation: img-loading 1s 1s forwards linear infinite;
+}
+@keyframes img-loading {
+    from{
+        bottom: -32%;
+        left: -100%;
+    }    
+    to{
+        bottom: -30%;
+        left: 200%;
+    }    
+}

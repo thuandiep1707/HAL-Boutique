@@ -1,0 +1,36 @@
+.news{
+    width: 100%;
+    &_list{
+        padding: 2% calc(50% - 600px);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        gap: 2%;
+        .news-cpn{
+            padding: 10px;
+            width: 100%;
+            border-radius: 12px;
+            &:hover{
+                box-shadow: 0 0 5px 0 #00000035;
+            }
+            &_img{
+                width: 100%;
+                img{
+                    margin: 5%;
+                    width: 90%;
+                    border-radius: 6px;
+                }
+            }
+            .title, .des{
+                box-sizing: unset;
+                margin: 0 5% 5px;
+                padding-top: 5px;
+            }
+            .title{
+                line-height: 18px;
+                height: 40px;
+                overflow: hidden;
+            }
+        }
+    }
+}

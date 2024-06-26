@@ -15,8 +15,8 @@ app.use(express.urlencoded({ extended: true, limit: "2mb" }));
 app.use(cors())
 app.options('*', cors())
 
-app.get('/be/', (req, res)=>{
-    res.send('<h1>Home page</h1>')
+app.get('/', (req, res)=>{
+    res.send('<h1>Server của Hal-boutique</h1>')
 })
 
 app.use('/products/',products)

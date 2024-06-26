@@ -1,0 +1,94 @@
+.shoppage{
+    &_path{
+        background-color: rgb(230, 230, 230);
+        padding: 15px calc(50% - 600px);
+        width: 100%;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    &_filter{
+        display: flex;
+         align-items: center;
+         gap: 10px;
+        position: sticky;
+         top: 70px;
+         left: 0;
+         z-index: 999;
+        background-color: #fff;
+        padding: 15px calc(50% - 600px);
+        border-top: 1px solid rgb(230, 230, 230);
+        border-bottom: 1px solid rgb(230, 230, 230);
+        .select{
+            display: flex;
+             align-items: center;
+            position: relative;
+            height: 36px;
+            border: 2px solid #00000065;
+            border-radius: 6px;
+            padding: 0 10px 0 20px;
+            font-size: 12px;
+            cursor: pointer;
+            &:hover p{
+                transition: all .2s linear;
+                opacity: 0.8;
+
+            }
+            p{
+                display: flex;
+                align-items: center;
+                letter-spacing: 1px;
+                font-weight: 500;
+                opacity: 0.7;
+            }
+            .select-name{
+                padding-right: 10px;
+                margin-right: 10px;
+                border-right: 1px solid #00000065;
+            }
+            .dropdown-icon{
+                width: 10px;
+                height: 5px;
+                border-top: 5px solid black;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                opacity: 0.7;
+                &:hover{
+                    transition: all .2s linear;
+                    // transform: rotate (90deg);
+                    opacity: 0.8;
+    
+                }
+            }
+            .opt-list{
+                display: none;
+                position: absolute;
+                 top: 110%;
+                 left: 0;
+                width: 100%;
+                padding: 10px;
+                border: 2px solid #00000058;
+                border-radius: 6px;
+            }
+        }
+    }
+    &_product-list{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0 2%;
+        min-height: 100vh;
+        padding: 20px calc(50% - 600px);
+        opacity: 0;
+        animation: start-page .5s .2s linear forwards;
+        .productcard{
+            margin-bottom: 20px;
+        }
+    }
+    @keyframes start-page {
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
+}

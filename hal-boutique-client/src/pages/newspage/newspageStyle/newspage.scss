@@ -1,0 +1,160 @@
+.newspage{
+    &_slide{
+        margin-top: 5px;
+        padding: 0 calc(50% - 600px);
+        width: 100%;
+        .slide{
+            position: relative;
+            width: 100%;
+            padding: 0 calc(50% - 600px);
+            animation: newSlideStart 5s 0s linear forwards;
+            img{
+                width: 1200px;
+                height: 800px;
+            }
+            .short-news{
+                position: absolute;
+                right: 50px;
+                bottom: 80px;
+                background-color: white;
+                width: 330px;
+                padding: 20px;
+                .head-line{
+                    position: absolute;
+                     top: -15px;
+                    background-color: black;
+                    color: white;
+                    font-size: 14px;
+                    font-weight: 400;
+                    padding: 5px 10px;
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        border: {
+                            top: 2px solid #000;
+                            left: 2px solid #000;
+                            right: 2px solid transparent; 
+                            bottom: 2px solid transparent;
+                        };
+                    }
+                }
+                .title{
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+                .date{
+                    font-size: 12px;
+                    margin: 8px 0 12px;
+                }
+                .short-content{
+                    margin-bottom: 6px;
+                    font-size: 12px;
+                }
+                u{
+                    font-size: 12px;
+                    font-weight: 700;
+                }
+            }
+            @keyframes newSlideStart {
+                0%{opacity: 0;}
+                10%{opacity: 1;}
+                20%{opacity: 1;}
+                30%{opacity: 1;}
+                40%{opacity: 1;}
+                50%{opacity: 1;}
+                60%{opacity: 1;}
+                70%{opacity: 1;}
+                80%{opacity: 1;}
+                90%{opacity: 1;}
+                100%{opacity: 1;}
+            }
+        }
+    }
+    &_container{
+        display: grid;
+        grid-template-columns: 800px 380px;
+        gap: 20px;
+        width: 1200px;
+        margin: 20px auto;
+        &_promotional{
+            width: 800px;
+            box-shadow: 1px 1px 5px 0 rgb(203, 203, 203);
+            h2{
+                width: 100%;
+                text-align: center;
+                padding: 20px;
+            }
+            .list-promotional{
+                display: grid;
+                width: 100%;
+                padding: 10px;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px 10px;
+                width: 800px;
+                .promotion{
+                    img{
+                        width: 100%;
+                        scale: 0.99;
+                        &:hover{
+                            transition: all .2s linear;
+                            scale: 1;
+                        }
+                    }
+                    .title{
+                        margin: 5px 0 10px;
+                        font-size: 16px;
+                        font-weight: 700;
+                    }
+                    .content{
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        &_news{
+            .hot-news{
+                box-shadow: 1px 1px 5px 0 rgb(203, 203, 203);
+                padding: 20px;
+                h2{
+                    width: 100%;
+                    margin-bottom: 30px;
+                    text-align: center;
+                }
+                &_list{
+                    width: 100%;
+                    &_item{
+                        position: relative;
+                        width: 100%;
+                        margin-bottom: 20px;
+                        img{
+                            width: 100%;                        
+                            scale: 0.99;
+                            &:hover{
+                                transition: all .2s linear;
+                                scale: 1;
+                            }
+                        }
+                        .item-content{
+                            position: absolute;
+                            bottom: 1%;
+                            left: 40%;
+                            transform: translateX(-50%);
+                            background-color: white;
+                            padding: 10px 20px;
+                            width: 80%;
+                            margin-left: 10%;
+                            .title{
+                                font-size: 13px;
+                            }
+                            .content{
+                                font-size: 11px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

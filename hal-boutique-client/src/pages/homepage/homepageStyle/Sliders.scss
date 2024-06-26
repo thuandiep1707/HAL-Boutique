@@ -1,0 +1,99 @@
+.slider{
+    position: relative;
+    padding: 40px 0;
+    margin: 10px 10%;
+    border-radius: 6px;
+    width: 1200px;
+    &_btn{
+        display: flex;
+         justify-content: center;
+         align-items: center;
+        position: absolute;
+         bottom: 40px;
+         right: 1.5%;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        transition: all .2s linear;
+        &:hover{
+            background-color: rgba(206, 195, 186, 0.482);
+            right: 1%;
+        }
+        img{
+            width: 22px;
+            border-radius: 50%;
+        }
+    }
+    .contain{
+        display: flex;
+         gap: 3%;
+        &_img{
+            flex: 1 0 50%;
+            display: flex;
+            gap: 25px;
+            img{
+                opacity: 0;
+                width: 30%;
+                border-radius: 6px;
+            }
+            .animation-img{
+                animation-delay: .2s;
+                animation-duration: .5s;
+                animation-timing-function: linear;
+                animation-fill-mode: forwards;
+            }
+            .up{
+                animation-name: img-up;
+            }
+            .down{
+                animation-name: img-down;
+            }
+        }
+        &_content{
+            .title{
+                font-size: 25px;
+                margin: 10px 0 20px;
+                opacity: 0.8;
+                letter-spacing: 1px;
+                opacity: 0;
+                animation: content-left .5s .7s linear forwards;
+            }
+            .des{
+                font-size: 16px;
+                opacity: 0;
+                animation: content-left .5s 1.2s linear forwards;
+            }
+        }
+    }
+    @keyframes img-up {
+        from{
+            transform: translateY(-10px);
+            opacity: 0.7;
+        }
+        to{
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes img-down {
+        from{
+            transform: translateY(30px);
+            opacity: 0.7;
+        }
+        to{
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    @keyframes content-left {
+        from{
+            transform: translateX(30px);
+            opacity: 0.7;
+        }
+        to{
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+}
