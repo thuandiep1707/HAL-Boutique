@@ -1,0 +1,25 @@
+{
+  "name": "hal-boutique-be",
+  "version": "1.0.0",
+  "description": "BE of Hal-boutique project",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./index.js"
+  },
+  "author": "thuandiep1707",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "eslint": "^9.4.0",
+    "express": "^4.19.2",
+    "i": "^0.3.7",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.7.0",
+    "npm": "^10.8.1"
+  }
+}
