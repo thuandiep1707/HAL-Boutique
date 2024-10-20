@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb"
 import bcrypt from "bcrypt"
 
-import { accountsCollection, client } from "../models/mongoClient.model.js"
+import { accountsCollection } from "../models/mongoClient.model.js"
 import { userSchema } from "../models/mongoSchema.model.js"
 
 const saltRounds = 10;
